@@ -14,9 +14,10 @@ class Widget : public QWidget
 public:
     explicit Widget(QWidget *parent = nullptr);
     ~Widget();
-
 private:
     Ui::Widget *ui;
+    void Setup();
+
 };
 
 #endif // WIDGET_H
