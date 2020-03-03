@@ -28,14 +28,17 @@ CONFIG += c++11
 SOURCES += \
         help.cpp \
         main.cpp \
+        signup.cpp \
         widget.cpp
 
 HEADERS += \
         help.h \
+        signup.h \
         widget.h
 
 FORMS += \
         help.ui \
+        signup.ui \
         widget.ui
 
 # Default rules for deployment.
