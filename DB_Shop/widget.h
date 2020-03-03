@@ -7,7 +7,9 @@
 #include <QNetworkReply>
 #include <QDebug>
 #include <QMessageBox>
+
 #include "help.h"
+#include "signup.h"
 
 
 namespace Ui {
@@ -23,6 +25,8 @@ public:
     ~Widget();
 private slots:
     void on_btn_help_clicked();
+
+    void on_btn_register_clicked();
 
 private:
     Ui::Widget *ui;

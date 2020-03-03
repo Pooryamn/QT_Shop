@@ -76,3 +76,12 @@ void Widget::on_btn_help_clicked()
     hlp.setFixedSize(hlp.width(),hlp.height());
     hlp.exec();
 }
+
+void Widget::on_btn_register_clicked()
+{
+    SignUp *registering = new SignUp(0);
+    registering->setGeometry(500,200,this->width(),this->height());
+    registering->setFixedSize(this->width(),this->height());
+    this->close();
+    registering->exec();
+}

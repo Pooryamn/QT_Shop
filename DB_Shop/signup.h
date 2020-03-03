@@ -2,6 +2,7 @@
 #define SIGNUP_H
 
 #include <QDialog>
+#include "widget.h"
 
 namespace Ui {
 class SignUp;
@@ -14,6 +15,17 @@ class SignUp : public QDialog
 public:
     explicit SignUp(QWidget *parent = nullptr);
     ~SignUp();
+
+private slots:
+    void on_SignUp_finished(int result);
+
+    void on_btn_close_clicked();
+
+    void on_btn_cansel_clicked();
+
+    void on_radio_user_clicked();
+
+    void on_redio_employee_clicked();
 
 private:
     Ui::SignUp *ui;
