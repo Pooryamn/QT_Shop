@@ -38,12 +38,19 @@
     <rect>
      <x>30</x>
      <y>30</y>
-     <width>60</width>
+     <width>71</width>
      <height>20</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 82, 0)</string>
+    <string notr="true">color:rgb(244,159,30);</string>
    </property>
    <property name="text">
     <string>Search :</string>
@@ -59,8 +66,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(246, 7, 126);
-</string>
+    <string notr="true">border: 4px solid rgb(244,159,30);
+color: rgb(47, 0, 255);</string>
    </property>
   </widget>
   <widget class="QGroupBox" name="GP_SearchMethod">
@@ -72,8 +79,14 @@
      <height>80</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 82, 0);
+    <string notr="true">color: rgb(244,159,30);
 </string>
    </property>
    <property name="title">
@@ -87,6 +100,13 @@
       <width>112</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Name</string>
@@ -104,6 +124,13 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Category</string>
     </property>
@@ -119,7 +146,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(246, 7, 126);
+    <string notr="true">border: 4px solid rgb(244,159,30);
 </string>
    </property>
   </widget>
@@ -134,7 +161,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 3px solid rgb(246, 7, 126);
+border: 5px solid rgb(244,159,30);
 
 </string>
    </property>
@@ -156,7 +183,8 @@ border: 3px solid rgb(246, 7, 126);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 3px solid rgb(246, 7, 126);
+border: 4px solid rgb(244,159,30);
+
 
 </string>
    </property>
@@ -178,7 +206,8 @@ border: 3px solid rgb(246, 7, 126);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 3px solid rgb(246, 7, 126);
+border: 4px solid rgb(244,159,30);
+
 </string>
    </property>
    <property name="text">
@@ -199,7 +228,7 @@ border: 3px solid rgb(246, 7, 126);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 3px solid rgb(246, 7, 126);
+border: 4px solid rgb(244,159,30);
 </string>
    </property>
    <property name="text">
@@ -212,14 +241,23 @@ border: 3px solid rgb(246, 7, 126);
   <widget class="QPushButton" name="btn_register">
    <property name="geometry">
     <rect>
-     <x>880</x>
+     <x>870</x>
      <y>20</y>
      <width>100</width>
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 82, 0);</string>
+    <string notr="true">color: rgb(32, 0, 140);
+background-color: rgb(244,159,30);
+</string>
    </property>
    <property name="text">
     <string>&amp;Register</string>
@@ -228,14 +266,23 @@ border: 3px solid rgb(246, 7, 126);
   <widget class="QPushButton" name="btn_login">
    <property name="geometry">
     <rect>
-     <x>770</x>
+     <x>760</x>
      <y>20</y>
      <width>100</width>
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 82, 0);</string>
+    <string notr="true">color: rgb(32, 0, 140);
+background-color: rgb(244,159,30);
+</string>
    </property>
    <property name="text">
     <string>&amp;Login</string>
@@ -244,14 +291,23 @@ border: 3px solid rgb(246, 7, 126);
   <widget class="QPushButton" name="btn_help">
    <property name="geometry">
     <rect>
-     <x>880</x>
+     <x>815</x>
      <y>60</y>
      <width>100</width>
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 82, 0);</string>
+    <string notr="true">color: rgb(32, 0, 140);
+background-color: rgb(244,159,30);
+</string>
    </property>
    <property name="text">
     <string>&amp;Help</string>
@@ -268,7 +324,7 @@ border: 3px solid rgb(246, 7, 126);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 3px solid rgb(246, 7, 126);
+border: 4px solid rgb(244,159,30);
 </string>
    </property>
   </widget>
@@ -282,7 +338,7 @@ border: 3px solid rgb(246, 7, 126);
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(46, 52, 54);</string>
+    <string notr="true">background-color: rgb(32, 0, 140);</string>
    </property>
    <property name="text">
     <string/>
@@ -304,10 +360,13 @@ border: 3px solid rgb(246, 7, 126);
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(244,159,30);</string>
+   </property>
    <property name="text">
     <string>You are guest user
 
-Login or SignUp</string>
+Login or Register</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -324,7 +383,8 @@ Login or SignUp</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 3px solid rgb(246, 7, 126);
+border: 4px solid rgb(244,159,30);
+
 </string>
    </property>
    <property name="text">
@@ -345,7 +405,7 @@ border: 3px solid rgb(246, 7, 126);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 3px solid rgb(246, 7, 126);
+border: 4px solid rgb(244,159,30);
 </string>
    </property>
    <property name="text">
@@ -366,7 +426,7 @@ border: 3px solid rgb(246, 7, 126);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 3px solid rgb(246, 7, 126);
+border: 4px solid rgb(244,159,30);
 
 </string>
    </property>
