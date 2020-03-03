@@ -7,6 +7,7 @@
 #include <QNetworkReply>
 #include <QDebug>
 #include <QMessageBox>
+#include "help.h"
 
 
 namespace Ui {

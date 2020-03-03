@@ -2,5 +2,10 @@
     <qresource prefix="/Res/img">
         <file>Logo.png</file>
         <file>not_found.png</file>
+        <file>Github.png</file>
+        <file>Mobile.png</file>
+        <file>Telegram.png</file>
+        <file>Email.png</file>
+        <file>programmer.png</file>
     </qresource>
 </RCC>

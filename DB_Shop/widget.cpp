@@ -72,5 +72,7 @@ void Widget::Check_Connection(){
 
 void Widget::on_btn_help_clicked()
 {
-
+    Help hlp(this);
+    hlp.setFixedSize(hlp.width(),hlp.height());
+    hlp.exec();
 }
