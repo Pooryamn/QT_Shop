@@ -17,6 +17,7 @@ public:
 private:
     Ui::Widget *ui;
     void Setup();
+    void Check_Connection();
 
 };
 
