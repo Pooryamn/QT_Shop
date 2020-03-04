@@ -8,7 +8,8 @@ SignUp::SignUp(QWidget *parent) :
 {
     ui->setupUi(this);
     // disable natioal id for normal user :
-    ui->txt_national->setDisabled(true);
+    ui->txt_national->setVisible(false);
+    ui->lbl_national->setVisible(false);
 }
 
 SignUp::~SignUp()
@@ -36,12 +37,14 @@ void SignUp::on_btn_cansel_clicked()
 void SignUp::on_radio_user_clicked()
 {
     // disable natioal id for normal user :
-    ui->txt_national->setDisabled(true);
+    ui->txt_national->setVisible(false);
+    ui->lbl_national->setVisible(false);
     ui->txt_national->setText("");
 }
 
 void SignUp::on_redio_employee_clicked()
 {
     // enable natioal id for super user :
-    ui->txt_national->setDisabled(false);
+    ui->txt_national->setVisible(true);
+    ui->lbl_national->setVisible(true);
 }
