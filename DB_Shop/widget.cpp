@@ -85,3 +85,10 @@ void Widget::on_btn_register_clicked()
     this->close();
     registering->exec();
 }
+
+void Widget::on_btn_login_clicked()
+{
+    Loging* login = new Loging(this);
+    login->setFixedSize(login->width(),login->height());
+    login->exec();
+}

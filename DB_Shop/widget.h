@@ -10,6 +10,7 @@
 
 #include "help.h"
 #include "signup.h"
+#include "loging.h"
 
 
 namespace Ui {
@@ -27,6 +28,8 @@ private slots:
     void on_btn_help_clicked();
 
     void on_btn_register_clicked();
+
+    void on_btn_login_clicked();
 
 private:
     Ui::Widget *ui;

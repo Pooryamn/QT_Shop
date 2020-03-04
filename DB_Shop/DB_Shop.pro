@@ -27,6 +27,7 @@ CONFIG += c++11
 
 SOURCES += \
         help.cpp \
+        loging.cpp \
         main.cpp \
         signup.cpp \
         verify_employee.cpp \
@@ -35,6 +36,7 @@ SOURCES += \
 
 HEADERS += \
         help.h \
+        loging.h \
         signup.h \
         verify_employee.h \
         verify_user.h \
@@ -42,6 +44,7 @@ HEADERS += \
 
 FORMS += \
         help.ui \
+        loging.ui \
         signup.ui \
         verify_employee.ui \
         verify_user.ui \
