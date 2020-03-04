@@ -48,3 +48,17 @@ void SignUp::on_redio_employee_clicked()
     ui->txt_national->setVisible(true);
     ui->lbl_national->setVisible(true);
 }
+
+void SignUp::on_btn_clear_2_clicked()
+{
+    // check every thin is ok
+
+    if(ui->radio_user->isChecked()){
+        Verify_User *v_user = new Verify_User(this);
+        v_user->setFixedSize(v_user->width(),v_user->height());
+        v_user->exec();
+    }
+    else{
+
+    }
+}

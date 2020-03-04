@@ -29,18 +29,21 @@ SOURCES += \
         help.cpp \
         main.cpp \
         signup.cpp \
+        verify_employee.cpp \
         verify_user.cpp \
         widget.cpp
 
 HEADERS += \
         help.h \
         signup.h \
+        verify_employee.h \
         verify_user.h \
         widget.h
 
 FORMS += \
         help.ui \
         signup.ui \
+        verify_employee.ui \
         verify_user.ui \
         widget.ui
 

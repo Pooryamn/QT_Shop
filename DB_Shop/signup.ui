@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>SignUp ...</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/Res/img/signup_icon.png</normaloff>:/Res/img/signup_icon.png</iconset>
+  </property>
   <widget class="QLabel" name="lbl_BG">
    <property name="geometry">
     <rect>
@@ -670,6 +674,8 @@ border: 4px solid rgb(255, 113, 41);</string>
   <tabstop>txt_home</tabstop>
   <tabstop>txt_birth</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
