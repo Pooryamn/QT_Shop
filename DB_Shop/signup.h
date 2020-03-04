@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "widget.h"
 #include "verify_user.h"
+#include "verify_employee.h"
 
 namespace Ui {
 class SignUp;

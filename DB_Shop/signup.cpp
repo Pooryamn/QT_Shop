@@ -51,7 +51,7 @@ void SignUp::on_redio_employee_clicked()
 
 void SignUp::on_btn_clear_2_clicked()
 {
-    // check every thin is ok
+    // check every thing is ok
 
     if(ui->radio_user->isChecked()){
         Verify_User *v_user = new Verify_User(this);
@@ -59,6 +59,8 @@ void SignUp::on_btn_clear_2_clicked()
         v_user->exec();
     }
     else{
-
+        verify_employee *v_employee = new verify_employee(this);
+        v_employee->setFixedSize(v_employee->width(),v_employee->height());
+        v_employee->exec();
     }
 }
