@@ -17,3 +17,8 @@ void Loging::on_btn_cancel_clicked()
 {
     this->close();
 }
+
+void Loging::on_btn_login_clicked()
+{
+
+}

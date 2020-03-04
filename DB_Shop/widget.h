@@ -11,6 +11,7 @@
 #include "help.h"
 #include "signup.h"
 #include "loging.h"
+#include "user_part.h"
 
 
 namespace Ui {
@@ -30,6 +31,8 @@ private slots:
     void on_btn_register_clicked();
 
     void on_btn_login_clicked();
+
+    void on_txt_search_textChanged(const QString &arg1);
 
 private:
     Ui::Widget *ui;

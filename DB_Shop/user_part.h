@@ -15,6 +15,10 @@ public:
     explicit user_part(QWidget *parent = nullptr);
     ~user_part();
 
+public slots:
+
+    void on_btn_resizer_clicked();
+
 private:
     Ui::user_part *ui;
 };
