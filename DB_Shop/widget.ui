@@ -50,7 +50,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(34, 1, 126);</string>
+    <string notr="true">color: rgb(91,14,45);
+</string>
    </property>
    <property name="text">
     <string>Search :</string>
@@ -66,7 +67,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 4px solid rgb(34, 1, 126);
+    <string notr="true">border: 4px solid rgb(91,14,45);
 color: rgb(47, 0, 255);</string>
    </property>
   </widget>
@@ -86,8 +87,7 @@ color: rgb(47, 0, 255);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(34, 1, 126);
-</string>
+    <string notr="true">color: rgb(91,14,45);</string>
    </property>
    <property name="title">
     <string>Search by :</string>
@@ -146,7 +146,7 @@ color: rgb(47, 0, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 4px solid rgb(34, 1, 126);
+    <string notr="true">border: 4px solid rgb(91,14,45);
 </string>
    </property>
   </widget>
@@ -161,7 +161,7 @@ color: rgb(47, 0, 255);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 5px solid rgb(34, 1, 126);
+border: 5px solid rgb(91,14,45);
 
 
 </string>
@@ -184,7 +184,7 @@ border: 5px solid rgb(34, 1, 126);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 4px solid rgb(34, 1, 126);
+border: 4px solid rgb(91,14,45);
 
 
 </string>
@@ -207,7 +207,7 @@ border: 4px solid rgb(34, 1, 126);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 4px solid rgb(34, 1, 126);
+border: 4px solid rgb(91,14,45);
 
 </string>
    </property>
@@ -229,7 +229,7 @@ border: 4px solid rgb(34, 1, 126);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 4px solid rgb(34, 1, 126);
+border: 4px solid rgb(91,14,45);
 </string>
    </property>
    <property name="text">
@@ -256,8 +256,8 @@ border: 4px solid rgb(34, 1, 126);
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(242, 155, 22);
-background-color: rgb(34, 1, 126);
+    <string notr="true">color: rgb(255,167,129);
+background-color: rgb(91,14,45);
 </string>
    </property>
    <property name="text">
@@ -281,8 +281,8 @@ background-color: rgb(34, 1, 126);
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(242, 155, 22);
-background-color: rgb(34, 1, 126);
+    <string notr="true">color: rgb(255,167,129);
+background-color: rgb(91,14,45);
 </string>
    </property>
    <property name="text">
@@ -306,8 +306,8 @@ background-color: rgb(34, 1, 126);
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(242, 155, 22);
-background-color: rgb(34, 1, 126);
+    <string notr="true">color: rgb(255,167,129);
+background-color: rgb(91,14,45);
 </string>
    </property>
    <property name="text">
@@ -325,7 +325,7 @@ background-color: rgb(34, 1, 126);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 4px solid rgb(34, 1, 126);
+border: 4px solid rgb(91,14,45);
 </string>
    </property>
   </widget>
@@ -339,7 +339,7 @@ border: 4px solid rgb(34, 1, 126);
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(242, 155, 22);</string>
+    <string notr="true">background-color: rgb(255,167,129);</string>
    </property>
    <property name="text">
     <string/>
@@ -362,7 +362,7 @@ border: 4px solid rgb(34, 1, 126);
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(244,159,30);</string>
+    <string notr="true">color: rrgb(91,14,45);</string>
    </property>
    <property name="text">
     <string>You are guest user
@@ -384,8 +384,7 @@ Login or Register</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 4px solid rgb(34, 1, 126);
-
+border: 4px solid rgb(91,14,45);
 </string>
    </property>
    <property name="text">
@@ -406,7 +405,7 @@ border: 4px solid rgb(34, 1, 126);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 4px solid rgb(34, 1, 126);
+border: 4px solid rgb(91,14,45);
 </string>
    </property>
    <property name="text">
@@ -427,7 +426,7 @@ border: 4px solid rgb(34, 1, 126);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 4px solid rgb(34, 1, 126);
+border: 4px solid rgb(91,14,45);
 
 </string>
    </property>

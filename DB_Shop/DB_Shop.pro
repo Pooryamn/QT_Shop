@@ -29,16 +29,19 @@ SOURCES += \
         help.cpp \
         main.cpp \
         signup.cpp \
+        verify_user.cpp \
         widget.cpp
 
 HEADERS += \
         help.h \
         signup.h \
+        verify_user.h \
         widget.h
 
 FORMS += \
         help.ui \
         signup.ui \
+        verify_user.ui \
         widget.ui
 
 # Default rules for deployment.
