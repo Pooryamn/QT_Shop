@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>user_part</class>
- <widget class="QDialog" name="user_part">
+ <class>employee_part</class>
+ <widget class="QDialog" name="employee_part">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -388,7 +388,7 @@ background-color: rgb(255, 255, 255);</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="btn_addtocart">
+  <widget class="QPushButton" name="btn_addstock">
    <property name="geometry">
     <rect>
      <x>310</x>
@@ -409,7 +409,7 @@ background-color: rgb(255, 255, 255);</string>
 color: rgb(251, 234, 235);</string>
    </property>
    <property name="text">
-    <string>+ &amp;Add to cart</string>
+    <string>+ &amp;Add Stock</string>
    </property>
   </widget>
   <widget class="QLabel" name="lbl_avalablity">
@@ -439,7 +439,7 @@ color: rgb(255, 0, 0);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="btn_Cart">
+  <widget class="QPushButton" name="btn_newstock">
    <property name="geometry">
     <rect>
      <x>1000</x>
@@ -460,7 +460,7 @@ color: rgb(255, 0, 0);</string>
 color: rgb(251, 234, 235);</string>
    </property>
    <property name="text">
-    <string>&amp;Cart</string>
+    <string>+ New Stock</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_logoff">
@@ -539,7 +539,7 @@ color: rgb(251, 234, 235);</string>
    <property name="geometry">
     <rect>
      <x>1000</x>
-     <y>270</y>
+     <y>360</y>
      <width>151</width>
      <height>31</height>
     </rect>
@@ -586,7 +586,7 @@ color: rgb(251, 234, 235);</string>
    <property name="geometry">
     <rect>
      <x>1000</x>
-     <y>360</y>
+     <y>450</y>
      <width>151</width>
      <height>31</height>
     </rect>
@@ -609,29 +609,6 @@ color: rgb(251, 234, 235);</string>
    <property name="geometry">
     <rect>
      <x>1000</x>
-     <y>450</y>
-     <width>151</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(47, 60, 126);</string>
-   </property>
-   <property name="text">
-    <string>Email :</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lbl_wallet">
-   <property name="geometry">
-    <rect>
-     <x>1000</x>
      <y>540</y>
      <width>151</width>
      <height>31</height>
@@ -648,7 +625,7 @@ color: rgb(251, 234, 235);</string>
     <string notr="true">color: rgb(47, 60, 126);</string>
    </property>
    <property name="text">
-    <string>Wallet :</string>
+    <string>Email :</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="txt_username">
@@ -681,7 +658,7 @@ color: rgb(251, 234, 235);</string>
    <property name="geometry">
     <rect>
      <x>1000</x>
-     <y>300</y>
+     <y>390</y>
      <width>230</width>
      <height>45</height>
     </rect>
@@ -704,7 +681,7 @@ color: rgb(251, 234, 235);</string>
    <property name="geometry">
     <rect>
      <x>1000</x>
-     <y>390</y>
+     <y>480</y>
      <width>230</width>
      <height>45</height>
     </rect>
@@ -727,29 +704,6 @@ color: rgb(251, 234, 235);</string>
    <property name="geometry">
     <rect>
      <x>1000</x>
-     <y>480</y>
-     <width>230</width>
-     <height>45</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>18</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border: 4px solid rgb(47, 60, 126);</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="txt_wallet">
-   <property name="geometry">
-    <rect>
-     <x>1000</x>
      <y>570</y>
      <width>230</width>
      <height>45</height>
@@ -769,9 +723,57 @@ color: rgb(251, 234, 235);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QPushButton" name="btn_viewuser">
+   <property name="geometry">
+    <rect>
+     <x>1000</x>
+     <y>250</y>
+     <width>120</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(47, 60, 126);
+color: rgb(251, 234, 235);</string>
+   </property>
+   <property name="text">
+    <string>&amp;View Users</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_deleteuser">
+   <property name="geometry">
+    <rect>
+     <x>1000</x>
+     <y>290</y>
+     <width>120</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(47, 60, 126);
+color: rgb(251, 234, 235);</string>
+   </property>
+   <property name="text">
+    <string>&amp;Delete Users</string>
+   </property>
+  </widget>
   <zorder>lbl_BG</zorder>
-  <zorder>lbl_line</zorder>
   <zorder>lbl_border</zorder>
+  <zorder>lbl_line</zorder>
   <zorder>btn_resizer</zorder>
   <zorder>pic_2</zorder>
   <zorder>txt_search</zorder>
@@ -786,9 +788,9 @@ color: rgb(251, 234, 235);</string>
   <zorder>lbl_search</zorder>
   <zorder>pic_6</zorder>
   <zorder>pic_profile</zorder>
-  <zorder>btn_addtocart</zorder>
+  <zorder>btn_addstock</zorder>
   <zorder>lbl_avalablity</zorder>
-  <zorder>btn_Cart</zorder>
+  <zorder>btn_newstock</zorder>
   <zorder>btn_logoff</zorder>
   <zorder>btn_ediprofile</zorder>
   <zorder>btn_payment</zorder>
@@ -796,12 +798,12 @@ color: rgb(251, 234, 235);</string>
   <zorder>btn_history</zorder>
   <zorder>lbl_lastname</zorder>
   <zorder>lbl_email</zorder>
-  <zorder>lbl_wallet</zorder>
   <zorder>txt_username</zorder>
   <zorder>txt_firstname</zorder>
   <zorder>txt_lastname</zorder>
   <zorder>txt_email</zorder>
-  <zorder>txt_wallet</zorder>
+  <zorder>btn_viewuser</zorder>
+  <zorder>btn_deleteuser</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>

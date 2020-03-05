@@ -95,10 +95,16 @@ void Widget::on_btn_login_clicked()
 
 void Widget::on_txt_search_textChanged(const QString &arg1)
 {
-    if(arg1 == "___"){
+    if(arg1 == "___1"){
         user_part* user = new user_part(0);
         user->setGeometry(500,200,1000,720);
         user->on_btn_resizer_clicked();
         user->exec();
+    }
+    else if (arg1 == "___2") {
+        employee_part* emp = new employee_part(0);
+        emp->setGeometry(500,200,1000,720);
+        emp->on_btn_resizer_clicked();
+        emp->exec();
     }
 }

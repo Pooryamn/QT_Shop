@@ -12,6 +12,7 @@
 #include "signup.h"
 #include "loging.h"
 #include "user_part.h"
+#include "employee_part.h"
 
 
 namespace Ui {
