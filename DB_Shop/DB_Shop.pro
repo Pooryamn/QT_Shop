@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        forget.cpp \
         help.cpp \
         loging.cpp \
         main.cpp \
@@ -36,6 +37,7 @@ SOURCES += \
         widget.cpp
 
 HEADERS += \
+        forget.h \
         help.h \
         loging.h \
         signup.h \
@@ -45,6 +47,7 @@ HEADERS += \
         widget.h
 
 FORMS += \
+        forget.ui \
         help.ui \
         loging.ui \
         signup.ui \
