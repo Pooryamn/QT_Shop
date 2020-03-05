@@ -34,6 +34,7 @@ SOURCES += \
         main.cpp \
         master_part.cpp \
         signup.cpp \
+        user_edit.cpp \
         user_part.cpp \
         verify_employee.cpp \
         verify_user.cpp \
@@ -47,6 +48,7 @@ HEADERS += \
         loging.h \
         master_part.h \
         signup.h \
+        user_edit.h \
         user_part.h \
         verify_employee.h \
         verify_user.h \
@@ -60,6 +62,7 @@ FORMS += \
         loging.ui \
         master_part.ui \
         signup.ui \
+        user_edit.ui \
         user_part.ui \
         verify_employee.ui \
         verify_user.ui \
