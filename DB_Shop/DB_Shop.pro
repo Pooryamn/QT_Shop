@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        cart.cpp \
         employee_part.cpp \
         forget.cpp \
         help.cpp \
@@ -39,6 +40,7 @@ SOURCES += \
         widget.cpp
 
 HEADERS += \
+        cart.h \
         employee_part.h \
         forget.h \
         help.h \
@@ -51,6 +53,7 @@ HEADERS += \
         widget.h
 
 FORMS += \
+        cart.ui \
         employee_part.ui \
         forget.ui \
         help.ui \

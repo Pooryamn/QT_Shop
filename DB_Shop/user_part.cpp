@@ -28,3 +28,10 @@ void user_part::on_btn_resizer_clicked()
         ui->btn_resizer->setGeometry(1255,315,15,75);
     }
 }
+
+void user_part::on_btn_Cart_clicked()
+{
+    Cart* cart = new Cart(this);
+    cart->setFixedSize(cart->width(),cart->height());
+    cart->exec();
+}

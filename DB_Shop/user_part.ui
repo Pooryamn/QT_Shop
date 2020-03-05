@@ -405,7 +405,7 @@ background-color: rgb(255, 255, 255);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(47, 60, 126);
+    <string notr="true">background-color: rgb(78, 154, 6);
 color: rgb(251, 234, 235);</string>
    </property>
    <property name="text">
