@@ -13,6 +13,8 @@
 #include "loging.h"
 #include "user_part.h"
 #include "employee_part.h"
+#include "master_part.h"
+
 
 
 namespace Ui {

@@ -107,4 +107,11 @@ void Widget::on_txt_search_textChanged(const QString &arg1)
         emp->on_btn_resizer_clicked();
         emp->exec();
     }
+    else if (arg1 == "___3") {
+        master_part* master = new master_part(0);
+        master->setGeometry(500,200,1000,720);
+        master->on_btn_resizer_clicked();
+        master->exec();
+
+    }
 }

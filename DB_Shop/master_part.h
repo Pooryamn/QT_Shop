@@ -15,6 +15,9 @@ public:
     explicit master_part(QWidget *parent = nullptr);
     ~master_part();
 
+public slots:
+    void on_btn_resizer_clicked();
+
 private:
     Ui::master_part *ui;
 };
