@@ -31,6 +31,7 @@ SOURCES += \
         help.cpp \
         loging.cpp \
         main.cpp \
+        master_part.cpp \
         signup.cpp \
         user_part.cpp \
         verify_employee.cpp \
@@ -42,6 +43,7 @@ HEADERS += \
         forget.h \
         help.h \
         loging.h \
+        master_part.h \
         signup.h \
         user_part.h \
         verify_employee.h \
@@ -53,6 +55,7 @@ FORMS += \
         forget.ui \
         help.ui \
         loging.ui \
+        master_part.ui \
         signup.ui \
         user_part.ui \
         verify_employee.ui \
