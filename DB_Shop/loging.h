@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include "forget.h"
+
 namespace Ui {
 class Loging;
 }
@@ -19,6 +21,8 @@ private slots:
     void on_btn_cancel_clicked();
 
     void on_btn_login_clicked();
+
+    void on_btn_forget_clicked();
 
 private:
     Ui::Loging *ui;

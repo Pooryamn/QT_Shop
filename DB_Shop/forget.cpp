@@ -11,4 +11,10 @@ forget::forget(QWidget *parent) :
 forget::~forget()
 {
     delete ui;
+    ui->txt_user->setFocus();
+}
+
+void forget::on_btn_cancel_clicked()
+{
+    this->close();
 }

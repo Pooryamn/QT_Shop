@@ -15,6 +15,9 @@ public:
     explicit forget(QWidget *parent = nullptr);
     ~forget();
 
+private slots:
+    void on_btn_cancel_clicked();
+
 private:
     Ui::forget *ui;
 };

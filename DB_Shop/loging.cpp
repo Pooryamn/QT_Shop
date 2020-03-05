@@ -22,3 +22,9 @@ void Loging::on_btn_login_clicked()
 {
 
 }
+
+void Loging::on_btn_forget_clicked()
+{
+    forget* forget_pass = new forget(this);
+    forget_pass->exec();
+}
