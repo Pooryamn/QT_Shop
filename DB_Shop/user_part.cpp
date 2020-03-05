@@ -35,3 +35,9 @@ void user_part::on_btn_Cart_clicked()
     cart->setFixedSize(cart->width(),cart->height());
     cart->exec();
 }
+
+void user_part::on_btn_ediprofile_clicked()
+{
+    user_edit* editor = new user_edit(this);
+    editor->exec();
+}

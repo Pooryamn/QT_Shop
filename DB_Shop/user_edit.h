@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::user_edit *ui;
+    void setup();
 };
 
 #endif // USER_EDIT_H

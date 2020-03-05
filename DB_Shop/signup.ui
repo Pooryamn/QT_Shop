@@ -646,7 +646,7 @@ border: 4px solid rgb(255, 113, 41);</string>
 </string>
    </property>
   </widget>
-  <widget class="QPushButton" name="btn_clear_2">
+  <widget class="QPushButton" name="btn_verify">
    <property name="geometry">
     <rect>
      <x>780</x>

@@ -4,6 +4,7 @@
 #include <QDialog>
 
 #include "cart.h"
+#include "user_edit.h"
 
 namespace Ui {
 class user_part;
@@ -23,6 +24,8 @@ public slots:
 
 private slots:
     void on_btn_Cart_clicked();
+
+    void on_btn_ediprofile_clicked();
 
 private:
     Ui::user_part *ui;

@@ -54,6 +54,9 @@
      <height>430</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border: 5px solid rgb(244, 168, 150)</string>
+   </property>
   </widget>
   <widget class="QPushButton" name="btn_pay">
    <property name="geometry">
@@ -83,7 +86,7 @@ color: rgb(53, 133, 151);</string>
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>480</y>
+     <y>490</y>
      <width>200</width>
      <height>35</height>
     </rect>
@@ -104,7 +107,7 @@ color: rgb(53, 133, 151);</string>
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>485</y>
+     <y>495</y>
      <width>61</width>
      <height>21</height>
     </rect>
