@@ -41,3 +41,9 @@ void user_part::on_btn_ediprofile_clicked()
     user_edit* editor = new user_edit(this);
     editor->exec();
 }
+
+void user_part::on_btn_payment_clicked()
+{
+    user_payment* pay = new user_payment(this);
+    pay->exec();
+}

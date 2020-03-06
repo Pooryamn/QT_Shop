@@ -5,6 +5,7 @@
 
 #include "cart.h"
 #include "user_edit.h"
+#include "user_payment.h"
 
 namespace Ui {
 class user_part;
@@ -26,6 +27,8 @@ private slots:
     void on_btn_Cart_clicked();
 
     void on_btn_ediprofile_clicked();
+
+    void on_btn_payment_clicked();
 
 private:
     Ui::user_part *ui;
