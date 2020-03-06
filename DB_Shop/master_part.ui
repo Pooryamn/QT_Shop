@@ -795,6 +795,30 @@ color: rgb(251, 234, 235);</string>
     <string>Add &amp;Master</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="btn_supplier">
+   <property name="geometry">
+    <rect>
+     <x>1130</x>
+     <y>290</y>
+     <width>120</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(47, 60, 126);
+color: rgb(251, 234, 235);</string>
+   </property>
+   <property name="text">
+    <string>view Suppliers</string>
+   </property>
+  </widget>
   <zorder>lbl_BG</zorder>
   <zorder>lbl_border</zorder>
   <zorder>lbl_line</zorder>
@@ -829,6 +853,7 @@ color: rgb(251, 234, 235);</string>
   <zorder>btn_viewuser</zorder>
   <zorder>btn_deleteuser</zorder>
   <zorder>btn_addmaster</zorder>
+  <zorder>btn_supplier</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>

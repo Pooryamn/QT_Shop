@@ -3,6 +3,9 @@
 
 #include <QDialog>
 
+#include "new_stock.h"
+#include "user_edit.h"
+
 namespace Ui {
 class employee_part;
 }
@@ -17,6 +20,11 @@ public:
 
 public slots:
     void on_btn_resizer_clicked();
+
+private slots:
+    void on_btn_newstock_clicked();
+
+    void on_btn_ediprofile_clicked();
 
 private:
     Ui::employee_part *ui;
