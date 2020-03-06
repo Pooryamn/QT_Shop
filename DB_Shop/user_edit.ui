@@ -11,11 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>SignUp ...</string>
-  </property>
-  <property name="windowIcon">
-   <iconset resource="resources.qrc">
-    <normaloff>:/Res/img/signup_icon.png</normaloff>:/Res/img/signup_icon.png</iconset>
+   <string>Edit profile ...</string>
   </property>
   <widget class="QLabel" name="lbl_BG">
    <property name="geometry">
@@ -286,7 +282,8 @@ border: 4px solid rgb(244, 168, 150);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(244, 168, 150);</string>
+    <string notr="true">background-color: rgb(244, 168, 150);
+color: rgb(53, 133, 151);</string>
    </property>
    <property name="text">
     <string>&amp;Load</string>
@@ -302,7 +299,8 @@ border: 4px solid rgb(244, 168, 150);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(244, 168, 150);</string>
+    <string notr="true">background-color: rgb(244, 168, 150);
+color: rgb(53, 133, 151);</string>
    </property>
    <property name="text">
     <string>&amp;Clear</string>
@@ -318,7 +316,8 @@ border: 4px solid rgb(244, 168, 150);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(244, 168, 150);</string>
+    <string notr="true">background-color: rgb(244, 168, 150);
+color: rgb(53, 133, 151);</string>
    </property>
    <property name="text">
     <string>Cl&amp;ose</string>
@@ -334,7 +333,8 @@ border: 4px solid rgb(244, 168, 150);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(244, 168, 150);</string>
+    <string notr="true">background-color: rgb(244, 168, 150);
+color: rgb(53, 133, 151);</string>
    </property>
    <property name="text">
     <string>C&amp;ancel</string>
@@ -386,7 +386,7 @@ border: 4px solid rgb(244, 168, 150);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(244, 168, 150)</string>
    </property>
   </widget>
   <widget class="QLabel" name="lbl_post">
@@ -421,7 +421,7 @@ border: 4px solid rgb(244, 168, 150);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(244, 168, 150)</string>
    </property>
    <property name="text">
     <string/>
@@ -459,7 +459,7 @@ border: 4px solid rgb(244, 168, 150);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(244, 168, 150)</string>
    </property>
   </widget>
   <widget class="QLabel" name="lbl_pass1">
@@ -494,7 +494,7 @@ border: 4px solid rgb(244, 168, 150);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(244, 168, 150)</string>
    </property>
   </widget>
   <widget class="QLabel" name="lbl_pass2">
@@ -551,8 +551,7 @@ border: 4px solid rgb(244, 168, 150);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)
-</string>
+    <string notr="true">border: 3px solid rgb(244, 168, 150)</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_save">
@@ -565,7 +564,8 @@ border: 4px solid rgb(244, 168, 150);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(244, 168, 150);</string>
+    <string notr="true">background-color: rgb(244, 168, 150);
+color: rgb(53, 133, 151);</string>
    </property>
    <property name="text">
     <string>&amp;Save</string>
@@ -580,8 +580,6 @@ border: 4px solid rgb(244, 168, 150);</string>
   <tabstop>txt_home</tabstop>
   <tabstop>txt_birth</tabstop>
  </tabstops>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
