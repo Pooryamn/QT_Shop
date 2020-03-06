@@ -38,5 +38,20 @@ void employee_part::on_btn_newstock_clicked()
 void employee_part::on_btn_ediprofile_clicked()
 {
     user_edit* editor = new user_edit(this);
+    editor->setFixedSize(editor->width(),editor->height());
     editor->exec();
+}
+
+void employee_part::on_btn_payment_clicked()
+{
+    user_payment* pay = new user_payment(this);
+    pay->setFixedSize(pay->width(),pay->height());
+    pay->exec();
+}
+
+void employee_part::on_btn_history_clicked()
+{
+    Shop_history* his = new Shop_history(this);
+    his->setFixedSize(his->width(),his->height());
+    his->exec();
 }
