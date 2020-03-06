@@ -12,3 +12,10 @@ user_payment::~user_payment()
 {
     delete ui;
 }
+
+void user_payment::on_btn_addpayment_clicked()
+{
+    gateway* gtway = new gateway(this);
+    gtway->setFixedSize(gtway->width(),gtway->height());
+    gtway->exec();
+}

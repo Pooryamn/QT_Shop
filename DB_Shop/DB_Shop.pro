@@ -29,6 +29,7 @@ SOURCES += \
         cart.cpp \
         employee_part.cpp \
         forget.cpp \
+        gateway.cpp \
         help.cpp \
         loging.cpp \
         main.cpp \
@@ -45,6 +46,7 @@ HEADERS += \
         cart.h \
         employee_part.h \
         forget.h \
+        gateway.h \
         help.h \
         loging.h \
         master_part.h \
@@ -60,6 +62,7 @@ FORMS += \
         cart.ui \
         employee_part.ui \
         forget.ui \
+        gateway.ui \
         help.ui \
         loging.ui \
         master_part.ui \

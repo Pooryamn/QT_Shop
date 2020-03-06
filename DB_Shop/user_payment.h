@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include "gateway.h"
+
 namespace Ui {
 class user_payment;
 }
@@ -14,6 +16,9 @@ class user_payment : public QDialog
 public:
     explicit user_payment(QWidget *parent = nullptr);
     ~user_payment();
+
+private slots:
+    void on_btn_addpayment_clicked();
 
 private:
     Ui::user_payment *ui;
