@@ -34,6 +34,7 @@ SOURCES += \
         loging.cpp \
         main.cpp \
         master_part.cpp \
+        new_stock.cpp \
         shop_history.cpp \
         signup.cpp \
         user_edit.cpp \
@@ -51,6 +52,7 @@ HEADERS += \
         help.h \
         loging.h \
         master_part.h \
+        new_stock.h \
         shop_history.h \
         signup.h \
         user_edit.h \
@@ -68,6 +70,7 @@ FORMS += \
         help.ui \
         loging.ui \
         master_part.ui \
+        new_stock.ui \
         shop_history.ui \
         signup.ui \
         user_edit.ui \

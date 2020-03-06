@@ -48,3 +48,10 @@ void user_part::on_btn_payment_clicked()
     pay->setFixedSize(pay->width(),pay->height());
     pay->exec();
 }
+
+void user_part::on_btn_history_clicked()
+{
+    Shop_history* his = new Shop_history(this);
+    his->setFixedSize(his->width(),his->height());
+    his->exec();
+}
