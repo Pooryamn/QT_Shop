@@ -36,6 +36,7 @@ SOURCES += \
         master_part.cpp \
         master_signup.cpp \
         new_stock.cpp \
+        new_supplier.cpp \
         shop_history.cpp \
         signup.cpp \
         suppliers.cpp \
@@ -57,6 +58,7 @@ HEADERS += \
         master_part.h \
         master_signup.h \
         new_stock.h \
+        new_supplier.h \
         shop_history.h \
         signup.h \
         suppliers.h \
@@ -78,6 +80,7 @@ FORMS += \
         master_part.ui \
         master_signup.ui \
         new_stock.ui \
+        new_supplier.ui \
         shop_history.ui \
         signup.ui \
         suppliers.ui \
