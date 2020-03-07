@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>Master_signup</class>
  <widget class="QDialog" name="Master_signup">
@@ -5,14 +6,617 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>1000</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>SignUp ...</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/Res/img/signup_icon.png</normaloff>:/Res/img/signup_icon.png</iconset>
+  </property>
+  <widget class="QLabel" name="lbl_BG">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>720</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(47,48,43);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_border">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>970</width>
+     <height>690</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:5px solid rgb(255,113,41)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_firstname">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>120</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>Firstname* : </string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_name">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>150</y>
+     <width>250</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_family">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>200</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>Lastname* :</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_lastname">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>230</y>
+     <width>250</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_email">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>310</y>
+     <width>250</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_email">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>280</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>Email* :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_mobile">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>360</y>
+     <width>141</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>Mobile number* :</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_mobile">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>390</y>
+     <width>250</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_home">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>470</y>
+     <width>250</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_home">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>440</y>
+     <width>141</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>Phone number :</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_birth">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>70</y>
+     <width>250</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_birth">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>40</y>
+     <width>141</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>Birthdate :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_national">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>40</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>National ID* :</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_national">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>70</y>
+     <width>250</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="pic_profile">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>30</y>
+     <width>240</width>
+     <height>320</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);
+border: 4px solid rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_load">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>370</y>
+     <width>120</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>&amp;Load</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_clear">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>410</y>
+     <width>120</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>&amp;Clear</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_close">
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>650</y>
+     <width>120</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>Cl&amp;ose</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_cansel">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>650</y>
+     <width>120</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>C&amp;ancel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_city">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>120</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>City :</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_city">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>150</y>
+     <width>250</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_post">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>230</y>
+     <width>250</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_post">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>200</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>Postal Code :</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_user">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>310</y>
+     <width>250</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_user">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>280</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>Username* :</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_pass">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>390</y>
+     <width>250</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_pass1">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>360</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>Password* :</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_comfrim">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>470</y>
+     <width>250</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_pass2">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>440</y>
+     <width>151</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>Comfrim Password* :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_pass2_2">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>520</y>
+     <width>151</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>Address :</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEdit">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>550</y>
+     <width>251</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)
+</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_verify">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>510</y>
+     <width>120</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>&amp;Verify</string>
+   </property>
+  </widget>
  </widget>
- <resources/>
+ <tabstops>
+  <tabstop>txt_national</tabstop>
+  <tabstop>txt_name</tabstop>
+  <tabstop>txt_lastname</tabstop>
+  <tabstop>txt_email</tabstop>
+  <tabstop>txt_mobile</tabstop>
+  <tabstop>txt_home</tabstop>
+  <tabstop>txt_birth</tabstop>
+ </tabstops>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include "verify_employee.h"
+
 namespace Ui {
 class Master_signup;
 }
@@ -14,6 +16,9 @@ class Master_signup : public QDialog
 public:
     explicit Master_signup(QWidget *parent = nullptr);
     ~Master_signup();
+
+private slots:
+    void on_btn_verify_clicked();
 
 private:
     Ui::Master_signup *ui;

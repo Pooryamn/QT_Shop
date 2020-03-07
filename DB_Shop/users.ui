@@ -45,7 +45,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QTableView" name="tbl_payment">
+  <widget class="QTableView" name="tbl_users">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -58,7 +58,7 @@
     <string notr="true">border: 5px solid rgb(244, 168, 150)</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="btn_addpayment">
+  <widget class="QPushButton" name="btn_deleteuser">
    <property name="geometry">
     <rect>
      <x>40</x>

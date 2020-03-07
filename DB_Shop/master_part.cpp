@@ -63,3 +63,10 @@ void master_part::on_btn_viewuser_clicked()
     users->setFixedSize(users->width(),users->height());
     users->exec();
 }
+
+void master_part::on_btn_addmaster_clicked()
+{
+    Master_signup* master = new Master_signup(this);
+    master->setFixedSize(master->width(),master->height());
+    master->exec();
+}
