@@ -9,6 +9,7 @@
 #include "shop_history.h"
 #include "users.h"
 #include "master_signup.h"
+#include "suppliers.h"
 
 namespace Ui {
 class master_part;
@@ -37,6 +38,8 @@ private slots:
     void on_btn_viewuser_clicked();
 
     void on_btn_addmaster_clicked();
+
+    void on_btn_supplier_clicked();
 
 private:
     Ui::master_part *ui;

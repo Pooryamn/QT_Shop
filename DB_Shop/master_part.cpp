@@ -70,3 +70,10 @@ void master_part::on_btn_addmaster_clicked()
     master->setFixedSize(master->width(),master->height());
     master->exec();
 }
+
+void master_part::on_btn_supplier_clicked()
+{
+    Suppliers* supply = new Suppliers(this);
+    supply->setFixedSize(supply->width(),supply->height());
+    supply->exec();
+}
