@@ -56,3 +56,10 @@ void master_part::on_btn_history_clicked()
     his->setFixedSize(his->width(),his->height());
     his->exec();
 }
+
+void master_part::on_btn_viewuser_clicked()
+{
+    Users* users = new Users(this);
+    users->setFixedSize(users->width(),users->height());
+    users->exec();
+}
