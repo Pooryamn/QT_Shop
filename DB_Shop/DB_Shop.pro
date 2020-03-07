@@ -28,6 +28,7 @@ CONFIG += c++11
 SOURCES += \
         cart.cpp \
         employee_part.cpp \
+        favorites.cpp \
         forget.cpp \
         gateway.cpp \
         help.cpp \
@@ -51,6 +52,7 @@ SOURCES += \
 HEADERS += \
         cart.h \
         employee_part.h \
+        favorites.h \
         forget.h \
         gateway.h \
         help.h \
@@ -73,6 +75,7 @@ HEADERS += \
 FORMS += \
         cart.ui \
         employee_part.ui \
+        favorites.ui \
         forget.ui \
         gateway.ui \
         help.ui \

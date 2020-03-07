@@ -56,3 +56,10 @@ void user_part::on_btn_history_clicked()
     his->setFixedSize(his->width(),his->height());
     his->exec();
 }
+
+void user_part::on_btn_viewfavorite_clicked()
+{
+    favorites* fav = new favorites(this);
+    fav->setFixedSize(fav->width(),fav->height());
+    fav->exec();
+}

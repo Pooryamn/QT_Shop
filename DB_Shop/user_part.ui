@@ -539,7 +539,7 @@ color: rgb(251, 234, 235);</string>
    <property name="geometry">
     <rect>
      <x>1000</x>
-     <y>270</y>
+     <y>300</y>
      <width>151</width>
      <height>31</height>
     </rect>
@@ -586,7 +586,7 @@ color: rgb(251, 234, 235);</string>
    <property name="geometry">
     <rect>
      <x>1000</x>
-     <y>360</y>
+     <y>390</y>
      <width>151</width>
      <height>31</height>
     </rect>
@@ -609,7 +609,7 @@ color: rgb(251, 234, 235);</string>
    <property name="geometry">
     <rect>
      <x>1000</x>
-     <y>450</y>
+     <y>480</y>
      <width>151</width>
      <height>31</height>
     </rect>
@@ -632,7 +632,7 @@ color: rgb(251, 234, 235);</string>
    <property name="geometry">
     <rect>
      <x>1000</x>
-     <y>540</y>
+     <y>570</y>
      <width>151</width>
      <height>31</height>
     </rect>
@@ -681,7 +681,7 @@ color: rgb(251, 234, 235);</string>
    <property name="geometry">
     <rect>
      <x>1000</x>
-     <y>300</y>
+     <y>330</y>
      <width>230</width>
      <height>45</height>
     </rect>
@@ -704,7 +704,7 @@ color: rgb(251, 234, 235);</string>
    <property name="geometry">
     <rect>
      <x>1000</x>
-     <y>390</y>
+     <y>420</y>
      <width>230</width>
      <height>45</height>
     </rect>
@@ -727,7 +727,7 @@ color: rgb(251, 234, 235);</string>
    <property name="geometry">
     <rect>
      <x>1000</x>
-     <y>480</y>
+     <y>510</y>
      <width>230</width>
      <height>45</height>
     </rect>
@@ -750,7 +750,7 @@ color: rgb(251, 234, 235);</string>
    <property name="geometry">
     <rect>
      <x>1000</x>
-     <y>570</y>
+     <y>600</y>
      <width>230</width>
      <height>45</height>
     </rect>
@@ -777,6 +777,54 @@ color: rgb(251, 234, 235);</string>
      <width>48</width>
      <height>33</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_addtofavorite">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>50</y>
+     <width>150</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(47, 60, 126);
+color: rgb(251, 234, 235);</string>
+   </property>
+   <property name="text">
+    <string>+ Add to favorites</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_viewfavorite">
+   <property name="geometry">
+    <rect>
+     <x>1000</x>
+     <y>250</y>
+     <width>251</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(47, 60, 126);
+color: rgb(251, 234, 235);</string>
+   </property>
+   <property name="text">
+    <string>Vew favorites</string>
    </property>
   </widget>
   <zorder>lbl_BG</zorder>
@@ -813,6 +861,8 @@ color: rgb(251, 234, 235);</string>
   <zorder>txt_email</zorder>
   <zorder>txt_wallet</zorder>
   <zorder>spin_stock</zorder>
+  <zorder>btn_addtofavorite</zorder>
+  <zorder>btn_viewfavorite</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>

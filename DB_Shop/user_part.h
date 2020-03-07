@@ -7,6 +7,7 @@
 #include "user_edit.h"
 #include "user_payment.h"
 #include "shop_history.h"
+#include "favorites.h"
 
 namespace Ui {
 class user_part;
@@ -32,6 +33,8 @@ private slots:
     void on_btn_payment_clicked();
 
     void on_btn_history_clicked();
+
+    void on_btn_viewfavorite_clicked();
 
 private:
     Ui::user_part *ui;
