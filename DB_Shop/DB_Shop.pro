@@ -40,6 +40,7 @@ SOURCES += \
         user_edit.cpp \
         user_part.cpp \
         user_payment.cpp \
+        users.cpp \
         verify_employee.cpp \
         verify_user.cpp \
         widget.cpp
@@ -58,6 +59,7 @@ HEADERS += \
         user_edit.h \
         user_part.h \
         user_payment.h \
+        users.h \
         verify_employee.h \
         verify_user.h \
         widget.h
@@ -76,6 +78,7 @@ FORMS += \
         user_edit.ui \
         user_part.ui \
         user_payment.ui \
+        users.ui \
         verify_employee.ui \
         verify_user.ui \
         widget.ui

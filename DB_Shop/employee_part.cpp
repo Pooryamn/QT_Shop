@@ -32,6 +32,7 @@ void employee_part::on_btn_resizer_clicked()
 void employee_part::on_btn_newstock_clicked()
 {
     new_stock* stock = new new_stock(this);
+    stock->setFixedSize(stock->width(),stock->height());
     stock->exec();
 }
 

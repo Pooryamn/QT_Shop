@@ -744,31 +744,7 @@ color: rgb(251, 234, 235);</string>
 color: rgb(251, 234, 235);</string>
    </property>
    <property name="text">
-    <string>&amp;View Users</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_deleteuser">
-   <property name="geometry">
-    <rect>
-     <x>1000</x>
-     <y>290</y>
-     <width>120</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(47, 60, 126);
-color: rgb(251, 234, 235);</string>
-   </property>
-   <property name="text">
-    <string>&amp;Delete Users</string>
+    <string>&amp;Manage Users</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_addmaster">
@@ -798,9 +774,9 @@ color: rgb(251, 234, 235);</string>
   <widget class="QPushButton" name="btn_supplier">
    <property name="geometry">
     <rect>
-     <x>1130</x>
+     <x>1000</x>
      <y>290</y>
-     <width>120</width>
+     <width>251</width>
      <height>30</height>
     </rect>
    </property>
@@ -816,7 +792,7 @@ color: rgb(251, 234, 235);</string>
 color: rgb(251, 234, 235);</string>
    </property>
    <property name="text">
-    <string>view Suppliers</string>
+    <string>manage Suppliers</string>
    </property>
   </widget>
   <zorder>lbl_BG</zorder>
@@ -851,7 +827,6 @@ color: rgb(251, 234, 235);</string>
   <zorder>txt_lastname</zorder>
   <zorder>txt_email</zorder>
   <zorder>btn_viewuser</zorder>
-  <zorder>btn_deleteuser</zorder>
   <zorder>btn_addmaster</zorder>
   <zorder>btn_supplier</zorder>
  </widget>
