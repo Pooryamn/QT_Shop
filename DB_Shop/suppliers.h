@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include "new_supplier.h"
+
 namespace Ui {
 class Suppliers;
 }
@@ -14,6 +16,9 @@ class Suppliers : public QDialog
 public:
     explicit Suppliers(QWidget *parent = nullptr);
     ~Suppliers();
+
+private slots:
+    void on_btn_addsupplier_clicked();
 
 private:
     Ui::Suppliers *ui;

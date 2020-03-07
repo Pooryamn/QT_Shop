@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include "new_supplier.h"
+
 namespace Ui {
 class new_stock;
 }
@@ -14,6 +16,9 @@ class new_stock : public QDialog
 public:
     explicit new_stock(QWidget *parent = nullptr);
     ~new_stock();
+
+private slots:
+    void on_btn_addsupplier_clicked();
 
 private:
     Ui::new_stock *ui;

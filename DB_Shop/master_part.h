@@ -10,6 +10,7 @@
 #include "users.h"
 #include "master_signup.h"
 #include "suppliers.h"
+#include "new_supplier.h"
 
 namespace Ui {
 class master_part;

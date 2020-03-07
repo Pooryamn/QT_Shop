@@ -723,16 +723,6 @@ color: rgb(251, 234, 235);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QSpinBox" name="spin_stock">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>42</y>
-     <width>48</width>
-     <height>34</height>
-    </rect>
-   </property>
-  </widget>
   <zorder>lbl_BG</zorder>
   <zorder>lbl_border</zorder>
   <zorder>lbl_line</zorder>
@@ -764,7 +754,6 @@ color: rgb(251, 234, 235);</string>
   <zorder>txt_firstname</zorder>
   <zorder>txt_lastname</zorder>
   <zorder>txt_email</zorder>
-  <zorder>spin_stock</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>

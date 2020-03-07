@@ -12,3 +12,10 @@ new_stock::~new_stock()
 {
     delete ui;
 }
+
+void new_stock::on_btn_addsupplier_clicked()
+{
+    New_supplier* supplier = new New_supplier(this);
+    supplier->setFixedSize(supplier->width(),supplier->height());
+    supplier->exec();
+}
