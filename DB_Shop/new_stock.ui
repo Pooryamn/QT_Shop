@@ -125,7 +125,7 @@ color: rgb(53, 133, 151);</string>
     <string notr="true">color: rgb(244, 168, 150);</string>
    </property>
    <property name="text">
-    <string>Category :</string>
+    <string>Category* :</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="txt_category">
@@ -174,7 +174,7 @@ color: rgb(53, 133, 151);</string>
     <string notr="true">color: rgb(244, 168, 150);</string>
    </property>
    <property name="text">
-    <string>Cost (Rials) :</string>
+    <string>Cost (Rials)* :</string>
    </property>
   </widget>
   <widget class="QLabel" name="lbl_name">
@@ -197,7 +197,7 @@ color: rgb(53, 133, 151);</string>
     <string notr="true">color: rgb(244, 168, 150);</string>
    </property>
    <property name="text">
-    <string>Product Name :</string>
+    <string>Product Name* :</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="txt_name">
@@ -233,7 +233,7 @@ color: rgb(53, 133, 151);</string>
     <string notr="true">color: rgb(244, 168, 150);</string>
    </property>
    <property name="text">
-    <string>Stock :</string>
+    <string>Stock* :</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="txt_stock">
@@ -286,7 +286,7 @@ background-color: rgb(255, 255, 255);</string>
     <string notr="true">color: rgb(244, 168, 150);</string>
    </property>
    <property name="text">
-    <string>Description :</string>
+    <string>Description* :</string>
    </property>
   </widget>
   <widget class="QLabel" name="pic_2">
