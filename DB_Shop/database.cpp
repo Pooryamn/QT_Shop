@@ -3,7 +3,6 @@
 
 Database::Database()
 {
-
 }
 
 int Database::Connect(){
@@ -68,14 +67,16 @@ int Database::Connect(){
             if(Connection_Status == true){
 
                 // Create P_Shop Database ::
-                query.exec("CREATE DATABASE test;");
+                QSqlQuery query;
+
+                query.exec("CREATE DATABASE test2 ;");
                 query.clear();
 
                 DB.close();
 
-                DB.setDatabaseName("test");
+                DB.setDatabaseName("test2");
 
-                DB.open();
+                Connection_Status = DB.open();
 
                 if(Create_DB()){
                     return 0;
@@ -100,6 +101,7 @@ bool Database::Create_DB(){
 
     QString my_query;
     bool result;
+    QSqlQuery query;
 
     my_query = "CREATE TABLE Customers ( "
                "\"Customer ID\"     SERIAL, "

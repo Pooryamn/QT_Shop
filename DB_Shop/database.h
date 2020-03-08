@@ -14,12 +14,12 @@ private:
     QSqlDatabase DB;
 
     QString error;
+
     bool Connection_Status;
-    bool Connection_Status2;
+
+    bool Create_DB();
 
     bool New_DB();
-
-
 };
 
 #endif // DATABASE_H
