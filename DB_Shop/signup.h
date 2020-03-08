@@ -2,9 +2,12 @@
 #define SIGNUP_H
 
 #include <QDialog>
+#include <QtSql>
+
 #include "widget.h"
 #include "verify_user.h"
 #include "verify_employee.h"
+
 
 namespace Ui {
 class SignUp;
@@ -29,10 +32,11 @@ private slots:
 
     void on_redio_employee_clicked();
 
-    void on_btn_clear_2_clicked();
+    void on_btn_verify_clicked();
 
 private:
     Ui::SignUp *ui;
+    void Connect_DB();
 };
 
 #endif // SIGNUP_H

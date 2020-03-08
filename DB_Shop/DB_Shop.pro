@@ -6,6 +6,7 @@
 
 QT       += core gui
 QT       += network
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,6 +28,7 @@ CONFIG += c++11
 
 SOURCES += \
         cart.cpp \
+        database.cpp \
         employee_part.cpp \
         favorites.cpp \
         forget.cpp \
@@ -51,6 +53,7 @@ SOURCES += \
 
 HEADERS += \
         cart.h \
+        database.h \
         employee_part.h \
         favorites.h \
         forget.h \
