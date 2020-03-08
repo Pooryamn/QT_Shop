@@ -76,7 +76,7 @@
 color: rgb(255, 167, 129);</string>
    </property>
    <property name="text">
-    <string>Company Name :</string>
+    <string>Company Name* :</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="txt_company">
@@ -121,7 +121,7 @@ color: rgb(255, 167, 129);</string>
 color: rgb(255, 167, 129);</string>
    </property>
    <property name="text">
-    <string>Email Address :</string>
+    <string>Email Address* :</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="txt_email">
@@ -230,7 +230,7 @@ color: rgb(255, 167, 129);</string>
 color: rgb(255, 167, 129);</string>
    </property>
    <property name="text">
-    <string>Company Type :</string>
+    <string>Company Type* :</string>
    </property>
   </widget>
   <widget class="QLabel" name="pic">
