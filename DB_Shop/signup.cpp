@@ -55,36 +55,7 @@ void SignUp::on_redio_employee_clicked()
 
 void SignUp::Connect_DB(){
 
-    QSqlDatabase DB = QSqlDatabase::addDatabase("PSQL"); // it is Postgresql Driver
-    DB.setHostName("localhost");
-    DB.setDatabaseName("P_Shop");
-    DB.setPort(5432);
-    DB.setUserName("postgres");
-    DB.setPassword("223843877");
-    bool status = DB.open();
 
-    if (DB.open() == true){
-        qDebug() << "Connected to Database";
-    }
-    else {
-        /*
-
-         ALGORITHM :
-
-            First find the problem
-            If Problem is Driver so tell the user to install it
-            If Problem is Not existing Database so create it
-        */
-
-        // find problem :
-        QString error = DB.lastError().text();
-
-        // if it has Driver problem :
-        if(error.contains("Driver")){
-            QMessageBox::warning(this,"Database Error","Postgresql driver(QPSQL) not found !");
-        }
-
-    }
 }
 
 void SignUp::on_btn_verify_clicked()

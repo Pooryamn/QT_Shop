@@ -79,6 +79,22 @@ void Widget::on_btn_help_clicked()
 
 void Widget::on_btn_register_clicked()
 {
+    // check that software is connected to P_Shop database
+    Database DB;
+
+    int Connection_result = DB.Connect();
+
+    if(Connection_result == 1){
+        // Driver problem
+        QMessageBox::warning(this,"Database Connection Error","Postqresql Driver(QPSQL) not found");
+        return;
+    }
+    else if(Connection_result == 2){
+        // database file problem
+        QMessageBox::warning(this,"Database Connection Error","Database file not found");
+        return;
+    }
+
     SignUp *registering = new SignUp(0);
     registering->setGeometry(500,200,this->width(),this->height());
     registering->setFixedSize(this->width(),this->height());
