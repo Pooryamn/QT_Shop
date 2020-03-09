@@ -227,4 +227,13 @@ void SignUp::on_btn_load_clicked()
     }
     img = img.scaledToWidth(ui->pic_profile->width(),Qt::SmoothTransformation);
     ui->pic_profile->setPixmap(QPixmap::fromImage(img));
+
+    profile_filled = true;
+}
+
+void SignUp::on_btn_clear_clicked()
+{
+    ui->pic_profile->clear();
+
+    profile_filled = false;
 }

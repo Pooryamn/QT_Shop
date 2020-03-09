@@ -38,6 +38,8 @@ private slots:
 
     void on_btn_load_clicked();
 
+    void on_btn_clear_clicked();
+
 private:
     Ui::SignUp *ui;
     Database DB;
