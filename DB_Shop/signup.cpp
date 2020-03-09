@@ -75,16 +75,35 @@ void SignUp::on_btn_verify_clicked()
 
     if(ui->redio_employee->isChecked()){
 
+        // Send an email to employee :
         QString Email = ui->txt_email->text();
         QString Name = ui->txt_name->text() + " " + ui->txt_lastname->text();
         QString Subject = "P_Shop Verification Code";
 
-        QString U_Code = RandStr();
+        QString E_Code = RandStr();
 
         QString Body = "Dear " + Name + "\n"
-                       "Your verification code is : <b>" + U_Code + "</b>";
+                       "Your verification code is : " + E_Code ;
 
-        qDebug() << U_Code;
+
+        if(Send_Email(Email,Name,Subject,Body) == false){
+            QMessageBox::warning(this,"Email Sending Error","Fail to send Verification code\nCheck your email address and your internet connection");
+            return;
+        }
+
+        Email = "Poorya.m.n.b@gmail.com";
+        Subject = "P_Shop Master Verification Code";
+
+        QString M_Code = RandStr();
+
+        Body = "Dear Poorya Mohammadi\n" + Name +
+               " wants to be a employee\n"
+               "Information is : \n"
+               "\tNational ID : " + ui->txt_national->text() + "\n"
+               "\tMobile : " + ui->txt_mobile->text() + "\n"
+               "\tEmail : " + ui->txt_email->text() + "\n"
+                "===========================================================\n"
+               "Your verification code is : " + M_Code ;
 
         if(Send_Email(Email,Name,Subject,Body) == false){
             QMessageBox::warning(this,"Email Sending Error","Fail to send Verification code\nCheck your email address and your internet connection");
@@ -93,7 +112,14 @@ void SignUp::on_btn_verify_clicked()
 
         verify_employee* emp = new verify_employee(this);
         emp->setFixedSize(emp->width(),emp->height());
+        emp->SetPass(E_Code,M_Code);
         emp->exec();
+        if(emp->get_status() == true){
+            qDebug() << "ADD TO Database";
+        }
+        else {
+            qDebug() << "NOOOOO";
+        }
     }
     else{
 
