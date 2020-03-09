@@ -39,7 +39,7 @@ private:
     Ui::SignUp *ui;
     Database DB;
 
-    void filter_input();
+    void set_input_methods();
 };
 
 #endif // SIGNUP_H

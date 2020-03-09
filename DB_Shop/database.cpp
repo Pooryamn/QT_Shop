@@ -293,3 +293,7 @@ bool Database::Create_DB(){
 
     return true;
 }
+
+void Database::Disconnect(){
+    DB.close();
+}

@@ -9,6 +9,7 @@ class Database
 public:
     Database();
     int Connect();
+    void Disconnect();
 private:
 
     QSqlDatabase DB;
