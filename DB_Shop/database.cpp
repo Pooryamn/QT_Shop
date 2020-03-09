@@ -93,6 +93,7 @@ int Database::Connect(){
         }
 
     }
+    return 2;
 }
 
 bool Database::Create_DB(){

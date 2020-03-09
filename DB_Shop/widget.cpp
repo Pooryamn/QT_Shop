@@ -13,6 +13,8 @@ Widget::Widget(QWidget *parent) :
 
     Check_Connection();
 
+    Connect_DB();
+
     Setup();
 
 }
@@ -52,6 +54,7 @@ void Widget::Setup(){
 }
 
 void Widget::Check_Connection(){
+
     /// this function is for internet connection check
 
     QNetworkAccessManager manager;
@@ -78,23 +81,7 @@ void Widget::on_btn_help_clicked()
 }
 
 void Widget::on_btn_register_clicked()
-{
-    // check that software is connected to P_Shop database
-    Database DB;
-
-    int Connection_result = DB.Connect();
-
-    if(Connection_result == 1){
-        // Driver problem
-        QMessageBox::warning(this,"Database Connection Error","Postqresql Driver(QPSQL) not found");
-        return;
-    }
-    else if(Connection_result == 2){
-        // database file problem
-        QMessageBox::warning(this,"Database Connection Error","Database file not found");
-        return;
-    }
-
+{ 
     SignUp *registering = new SignUp(0);
     registering->setGeometry(500,200,this->width(),this->height());
     registering->setFixedSize(this->width(),this->height());
@@ -130,4 +117,32 @@ void Widget::on_txt_search_textChanged(const QString &arg1)
         master->exec();
 
     }
+}
+
+void Widget::Connect_DB(){
+
+    /// This function do these tasks :
+    /// 1) try to connect to database
+    /// 2) find connection problems
+    /// 3) handle connection problems
+
+    int Connection_result = DB.Connect();
+
+    if(Connection_result == 0){
+        // No Problem
+        return;
+    }
+    else if(Connection_result == 1){
+
+        // Driver problem
+        QMessageBox::warning(this,"Database Connection Error","Postqresql Driver(QPSQL) not found");
+        exit(0);
+    }
+    else if(Connection_result == 2){
+
+        // database file problem
+        QMessageBox::warning(this,"Database Connection Error","Database file not found");
+        exit(0);
+    }
+
 }

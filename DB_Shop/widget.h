@@ -40,8 +40,10 @@ private slots:
 
 private:
     Ui::Widget *ui;
+    Database DB;
     void Setup();
     void Check_Connection();
+    void Connect_DB();
 
 };
 
