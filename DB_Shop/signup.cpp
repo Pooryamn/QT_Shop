@@ -81,8 +81,7 @@ void SignUp::on_btn_verify_clicked()
         QString Body = "Dear " + Name + "\n"
                        "Your Verificatio Code is : "
                        " ";
-
-
+        QString U_Code = RandStr();
 
         verify_employee* emp = new verify_employee(this);
         emp->setFixedSize(emp->width(),emp->height());
@@ -290,4 +289,24 @@ bool SignUp::Send_Email(QString Email,QString Name,QString Subject,QString Body)
         smtp.quit();
         return false;
     }
+}
+
+QString SignUp::RandStr(){
+    QString Rnd;
+
+    Rnd.resize(6);
+
+    Rnd[0] = QChar('A' + char(qrand() % ('Z' - 'A')));
+
+    Rnd[1] = QChar('0' + char(qrand() % ('9' - '0')));
+
+    Rnd[2] = QChar('a' + char(qrand() % ('z' - 'a')));
+
+    Rnd[3] = QChar('A' + char(qrand() % ('Z' - 'A')));
+
+    Rnd[4] = QChar('a' + char(qrand() % ('z' - 'a')));
+
+    Rnd[5] = QChar('0' + char(qrand() % ('9' - '0')));
+
+    return Rnd;
 }

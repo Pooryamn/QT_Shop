@@ -48,6 +48,11 @@ private:
     void set_input_methods();
     bool check_inputs();
     bool profile_filled;
+
+    bool Send_Email(QString Email,QString Name,QString Subject,QString Body);
+
+    QString RandStr();
+
 };
 
 #endif // SIGNUP_H
