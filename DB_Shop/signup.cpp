@@ -142,7 +142,9 @@ void SignUp::on_btn_verify_clicked()
 
         Verify_User* user = new Verify_User(this);
         user->setFixedSize(user->width(),user->height());
+        user->SetPass(U_Code);
         user->exec();
+        qDebug() << user->get_status();
     }
 }
 

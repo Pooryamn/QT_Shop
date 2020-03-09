@@ -33,7 +33,7 @@ void Verify_User::on_btn_verify_clicked()
         this->close();
     }
     else{
-        status = false;
+        Status = false;
         QMessageBox::warning(this,"Wrong Codes","Codes was not valid");
         return;
     }
