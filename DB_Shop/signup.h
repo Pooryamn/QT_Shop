@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QtSql>
+#include <QFileDialog>
 
 #include "widget.h"
 #include "verify_user.h"
@@ -35,11 +36,14 @@ private slots:
 
     void on_btn_verify_clicked();
 
+    void on_btn_load_clicked();
+
 private:
     Ui::SignUp *ui;
     Database DB;
 
     void set_input_methods();
+    bool check_inputs();
 };
 
 #endif // SIGNUP_H

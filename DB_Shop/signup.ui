@@ -907,7 +907,20 @@ color: rgb(78, 154, 6);
   <tabstop>txt_email</tabstop>
   <tabstop>txt_mobile</tabstop>
   <tabstop>txt_home</tabstop>
+  <tabstop>txt_day</tabstop>
+  <tabstop>txt_month</tabstop>
   <tabstop>txt_year</tabstop>
+  <tabstop>txt_city</tabstop>
+  <tabstop>txt_post</tabstop>
+  <tabstop>txt_user</tabstop>
+  <tabstop>txt_pass</tabstop>
+  <tabstop>txt_comfrim</tabstop>
+  <tabstop>textEdit</tabstop>
+  <tabstop>btn_load</tabstop>
+  <tabstop>btn_close</tabstop>
+  <tabstop>btn_clear</tabstop>
+  <tabstop>btn_cansel</tabstop>
+  <tabstop>btn_verify</tabstop>
  </tabstops>
  <resources>
   <include location="resources.qrc"/>

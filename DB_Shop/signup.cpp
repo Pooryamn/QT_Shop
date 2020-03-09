@@ -146,19 +146,19 @@ void SignUp::set_input_methods(){
 bool SignUp::check_inputs(){
 
     // Firstname cant be empty
-    if(ui->txt_name->text().isEmpty()){
+    if(ui->txt_name->text().remove(" ").isEmpty()){
         QMessageBox::warning(this,"Input Error",".:: Firstname is empty!");
         return false;
     }
 
     // Lastname cant be empty
-    if(ui->txt_lastname->text().isEmpty()){
+    if(ui->txt_lastname->text().remove(" ").isEmpty()){
         QMessageBox::warning(this,"Input Error",".:: Lastname is empty!");
         return false;
     }
 
     // Email cant be empty and must contains "@" sign :
-    if(ui->txt_email->text().isEmpty()){
+    if(ui->txt_email->text().remove(" ").isEmpty()){
         QMessageBox::warning(this,"Input Error",".:: Email address is empty!");
         return false;
     }
@@ -191,13 +191,13 @@ bool SignUp::check_inputs(){
     }
 
     // Username cant be empty
-    if(ui->txt_email->text().isEmpty()){
+    if(ui->txt_user->text().remove(" ").isEmpty()){
         QMessageBox::warning(this,"Input Error",".:: Username is empty!");
         return false;
     }
 
     // Password and Comfrim password cant be empty and must be same
-    if(ui->txt_pass->text().isEmpty()){
+    if(ui->txt_pass->text().remove(" ").isEmpty()){
         QMessageBox::warning(this,"Input Error",".:: Password is empty!");
         return false;
     }
@@ -206,4 +206,25 @@ bool SignUp::check_inputs(){
         QMessageBox::warning(this,"Input Error",".:: Password isn't Confrim correctly!");
         return false;
     }
+    return true;
+}
+
+void SignUp::on_btn_load_clicked()
+{
+    // load png , jpg files for image
+    QString filename = QFileDialog::getOpenFileName(this,"Choose an Image...","","images (*.png *.jpg *.jpeg)");
+
+    if(filename.isEmpty()){
+        return;
+    }
+
+    QImage img;
+    bool status = img.load(filename);
+
+    if(status == false){
+        QMessageBox::warning(this,"Input Error",".:: Image was corrupt");
+        return;
+    }
+    img = img.scaledToWidth(ui->pic_profile->width(),Qt::SmoothTransformation);
+    ui->pic_profile->setPixmap(QPixmap::fromImage(img));
 }
