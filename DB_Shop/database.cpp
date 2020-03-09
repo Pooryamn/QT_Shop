@@ -29,7 +29,7 @@ int Database::Connect(){
 
     DB.setPassword("223843877"); // Defualt password = postgres
 
-    DB.setDatabaseName("P_Shops");
+    DB.setDatabaseName("P_Shop");
 
     Connection_Status = DB.open();
 
@@ -69,12 +69,12 @@ int Database::Connect(){
                 // Create P_Shop Database ::
                 QSqlQuery query;
 
-                query.exec("CREATE DATABASE test2 ;");
+                query.exec("CREATE DATABASE P_Shop ;");
                 query.clear();
 
                 DB.close();
 
-                DB.setDatabaseName("test2");
+                DB.setDatabaseName("P_Shop");
 
                 Connection_Status = DB.open();
 
