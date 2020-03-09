@@ -9,6 +9,7 @@
 #include "verify_user.h"
 #include "verify_employee.h"
 #include "database.h"
+#include "mail/SmtpMime"
 
 
 namespace Ui {
