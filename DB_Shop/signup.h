@@ -46,6 +46,7 @@ private:
 
     void set_input_methods();
     bool check_inputs();
+    bool profile_filled;
 };
 
 #endif // SIGNUP_H
