@@ -13,10 +13,13 @@ class verify_employee : public QDialog
 
 public:
     explicit verify_employee(QWidget *parent = nullptr);
+    void SetPass(QString emp,QString mas);
     ~verify_employee();
 
 private:
     Ui::verify_employee *ui;
+    QString Employee;
+    QString Master;
 };
 
 #endif // VERIFY_EMPLOYEE_H
