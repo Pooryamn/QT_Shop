@@ -123,7 +123,22 @@ void SignUp::on_btn_verify_clicked()
     }
     else{
 
-        // send Email
+        // Send an email to User :
+        QString Email = ui->txt_email->text();
+        QString Name = ui->txt_name->text() + " " + ui->txt_lastname->text();
+        QString Subject = "P_Shop Verification Code";
+
+        QString U_Code = RandStr();
+
+        QString Body = "Dear " + Name + "\n"
+                       "Your verification code is : " + U_Code ;
+
+
+        if(Send_Email(Email,Name,Subject,Body) == false){
+            QMessageBox::warning(this,"Email Sending Error","Fail to send Verification code\nCheck your email address and your internet connection");
+            return;
+        }
+
 
         Verify_User* user = new Verify_User(this);
         user->setFixedSize(user->width(),user->height());

@@ -28,9 +28,12 @@ void verify_employee::on_btn_verify_clicked()
 {
     if((ui->txt_verifyCode->text() == Employee) && (ui->txt_mastercode->text() == Master)){
         status = true;
+        this->close();
     }
     else {
         status = false;
+        QMessageBox::warning(this,"Wrong Codes","Codes was not valid");
+        return;
     }
 }
 

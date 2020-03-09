@@ -2,6 +2,7 @@
 #define VERIFY_EMPLOYEE_H
 
 #include <QDialog>
+#include "QMessageBox"
 
 namespace Ui {
 class verify_employee;
