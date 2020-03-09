@@ -75,7 +75,14 @@ void SignUp::on_btn_verify_clicked()
 
     if(ui->redio_employee->isChecked()){
 
-        // Send Emails
+        QString Email = ui->txt_email->text();
+        QString Name = ui->txt_name->text() + " " + ui->txt_lastname->text();
+        QString Subject = "P_Shop Verification Code";
+        QString Body = "Dear " + Name + "\n"
+                       "Your Verificatio Code is : "
+                       " ";
+
+
 
         verify_employee* emp = new verify_employee(this);
         emp->setFixedSize(emp->width(),emp->height());
@@ -236,4 +243,51 @@ void SignUp::on_btn_clear_clicked()
     ui->pic_profile->clear();
 
     profile_filled = false;
+}
+
+bool SignUp::Send_Email(QString Email,QString Name,QString Subject,QString Body){
+
+    // First we need to create an SmtpClient object
+    // We will use the Gmail's smtp server (smtp.gmail.com, port 465, ssl)
+
+    SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
+
+
+    // We need to set the username (your email address) and the password
+
+    smtp.setUser("poorya.shop0@gmail.com");
+    smtp.setPassword("223843877");
+
+    // Now we create a MimeMessage object. This will be the email.
+
+    MimeMessage message;
+
+    message.setSender(new EmailAddress("poorya.shop0@gmail.com", "Poorya Shop"));
+    message.addRecipient(new EmailAddress(Email, Name));
+    message.setSubject(Subject);
+
+    // Now add some text to the email.
+    // First we create a MimeText object.
+
+    MimeText text;
+
+    text.setText(Body);
+
+    // Now add it to the mail
+
+    message.addPart(&text);
+
+    // Now we can send the mail
+
+    smtp.connectToHost();
+    smtp.login();
+
+    if(smtp.sendMail(message)){
+        smtp.quit();
+        return true;
+    }
+    else{
+        smtp.quit();
+        return false;
+    }
 }
