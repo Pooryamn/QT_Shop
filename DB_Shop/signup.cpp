@@ -61,17 +61,33 @@ void SignUp::on_redio_employee_clicked()
 
 void SignUp::on_btn_verify_clicked()
 {
-    // check every thing is ok
 
-    if(ui->radio_user->isChecked()){
-        Verify_User *v_user = new Verify_User(this);
-        v_user->setFixedSize(v_user->width(),v_user->height());
-        v_user->exec();
+    if(ui->redio_employee->isChecked()){
+        if(ui->txt_national->text().length() != 10 ){
+            QMessageBox::warning(this,"Input Error",".:: Enter a valid National ID");
+            return;
+        }
+    }
+
+    if(check_inputs() == false){
+        return;
+    }
+
+    if(ui->redio_employee->isChecked()){
+
+        // Send Emails
+
+        verify_employee* emp = new verify_employee(this);
+        emp->setFixedSize(emp->width(),emp->height());
+        emp->exec();
     }
     else{
-        verify_employee *v_employee = new verify_employee(this);
-        v_employee->setFixedSize(v_employee->width(),v_employee->height());
-        v_employee->exec();
+
+        // send Email
+
+        Verify_User* user = new Verify_User(this);
+        user->setFixedSize(user->width(),user->height());
+        user->exec();
     }
 }
 
@@ -125,4 +141,69 @@ void SignUp::set_input_methods(){
     ui->txt_comfrim->setMaxLength(40);
     ui->txt_comfrim->setEchoMode(QLineEdit::Password);
 
+}
+
+bool SignUp::check_inputs(){
+
+    // Firstname cant be empty
+    if(ui->txt_name->text().isEmpty()){
+        QMessageBox::warning(this,"Input Error",".:: Firstname is empty!");
+        return false;
+    }
+
+    // Lastname cant be empty
+    if(ui->txt_lastname->text().isEmpty()){
+        QMessageBox::warning(this,"Input Error",".:: Lastname is empty!");
+        return false;
+    }
+
+    // Email cant be empty and must contains "@" sign :
+    if(ui->txt_email->text().isEmpty()){
+        QMessageBox::warning(this,"Input Error",".:: Email address is empty!");
+        return false;
+    }
+
+    if(ui->txt_email->text().contains('@') == false){
+        QMessageBox::warning(this,"Input Error",".:: Enter a valid email address!");
+        return false;
+    }
+
+    // mobile length = 10
+    if(ui->txt_mobile->text().length()<10){
+        QMessageBox::warning(this,"Input Error",".:: Enter a valid Mobile number");
+        return false;
+    }
+
+    // birthdate check :
+    if((!ui->txt_year->text().isEmpty()) || (!ui->txt_month->text().isEmpty()) || (!ui->txt_day->text().isEmpty())){
+
+        int tmp = ui->txt_month->text().toInt();
+        if(tmp > 12 || tmp == 0){
+            QMessageBox::warning(this,"Input Error",".:: Enter a valid Month");
+            return false;
+        }
+
+        tmp = ui->txt_day->text().toInt();
+        if(tmp > 31 || tmp == 0){
+            QMessageBox::warning(this,"Input Error",".:: Enter a valid Day");
+            return false;
+        }
+    }
+
+    // Username cant be empty
+    if(ui->txt_email->text().isEmpty()){
+        QMessageBox::warning(this,"Input Error",".:: Username is empty!");
+        return false;
+    }
+
+    // Password and Comfrim password cant be empty and must be same
+    if(ui->txt_pass->text().isEmpty()){
+        QMessageBox::warning(this,"Input Error",".:: Password is empty!");
+        return false;
+    }
+
+    if(ui->txt_pass->text() != ui->txt_comfrim->text()){
+        QMessageBox::warning(this,"Input Error",".:: Password isn't Confrim correctly!");
+        return false;
+    }
 }
