@@ -7,6 +7,7 @@
 #include "widget.h"
 #include "verify_user.h"
 #include "verify_employee.h"
+#include "database.h"
 
 
 namespace Ui {
@@ -36,7 +37,9 @@ private slots:
 
 private:
     Ui::SignUp *ui;
-    void Connect_DB();
+    Database DB;
+
+    void filter_input();
 };
 
 #endif // SIGNUP_H

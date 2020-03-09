@@ -8,9 +8,6 @@ SignUp::SignUp(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Connect to the database :
-    Connect_DB();
-
     // disable natioal id for normal user :
     ui->txt_national->setVisible(false);
     ui->lbl_national->setVisible(false);
@@ -53,11 +50,6 @@ void SignUp::on_redio_employee_clicked()
     ui->lbl_national->setVisible(true);
 }
 
-void SignUp::Connect_DB(){
-
-
-}
-
 void SignUp::on_btn_verify_clicked()
 {
     // check every thing is ok
@@ -72,4 +64,7 @@ void SignUp::on_btn_verify_clicked()
         v_employee->setFixedSize(v_employee->width(),v_employee->height());
         v_employee->exec();
     }
+}
+
+void SignUp::filter_input(){
 }
