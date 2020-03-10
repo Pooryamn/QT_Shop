@@ -48,6 +48,8 @@ private:
     void set_input_methods();
     bool check_inputs();
     bool profile_filled;
+    bool add_to_accounts(int type);
+    QByteArray image;
 
     bool Send_Email(QString Email,QString Name,QString Subject,QString Body);
 

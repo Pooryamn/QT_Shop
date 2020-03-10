@@ -153,9 +153,19 @@ void SignUp::on_btn_verify_clicked()
         user->SetPass(U_Code);
         user->exec();
 
-        if(user->get_status()==true){
+
+        // check if verification code is true
+        if(user->get_status() == true){
 
             // Add a new user to software :
+
+            // add user to accounts :
+            if(add_to_accounts(0) == false){
+                QMessageBox::warning(this,"Database Error","Error in : add to Accounts table");
+                return;
+            }
+
+            // add user to customers
 
             QString Home = ui->txt_home->text().remove(" ");
             QString Birthdate;
@@ -189,10 +199,31 @@ void SignUp::on_btn_verify_clicked()
             else{
                 Birthdate = ui->txt_year->text() + "-" + ui->txt_month->text() + "-" +ui->txt_day->text();
             }
+
+
+
             if(profile_filled == true){
 
                 // Query with attachments
-                QByteArray Attachments;
+
+                qDebug() << "Imahe : \n" << image ;
+
+                query = "insert into customers(firstname,lastname,email,"
+                        "\"Phone number\",\"Mobile number\","
+                        "address,city,\"Postal code\","
+                        "birthdate,wallet,username,attachments)values("
+                        "\'" + ui->txt_name->text() + "\' ,"
+                        "\'" + ui->txt_lastname->text() + "\' ,"
+                        "\'" + ui->txt_email->text() + "\' ,"
+                        "\'" + Home + "\' ,"
+                        "\'" + ui->txt_mobile->text() + "\' ,"
+                        "\'" + Address + "\' ,"
+                        "\'" + City + "\' ,"
+                        "\'" + Post + "\' ,"
+                        "\'" + Birthdate + "\' ,"
+                        "0 ,"
+                        "\'" + ui->txt_user->text() + "\' ,"
+                        +image + ");";
 
 
             }
@@ -218,16 +249,13 @@ void SignUp::on_btn_verify_clicked()
                         "\'" + ui->txt_user->text() + "\' ,"
                         "null );";
 
+            }
 
-                query.replace("\'null\'","null");
+            query.replace("\'null\'","null");
 
-                qDebug() << query.toUtf8().constData();
-
-
-                // Execute it :
-                if(DB.Execute(query) == true){
-                    QMessageBox::about(this,"Successful","\t\tWelcome\n now you can loggin ");
-                }
+            // Execute it :
+            if(DB.Execute(query) == true){
+                QMessageBox::about(this,"Successful","\t\tWelcome\n now you can loggin ");
             }
         }
     }
@@ -372,6 +400,15 @@ void SignUp::on_btn_load_clicked()
     img = img.scaledToWidth(ui->pic_profile->width(),Qt::SmoothTransformation);
     ui->pic_profile->setPixmap(QPixmap::fromImage(img));
 
+    // converting Qimage to QByteArray :
+
+    QBuffer buffer(&image);
+
+    buffer.open(QIODevice::WriteOnly);
+    img.save(&buffer);
+
+
+
     profile_filled = true;
 }
 
@@ -447,4 +484,18 @@ QString SignUp::RandStr(){
     Rnd[5] = QChar('0' + char(qrand() % ('9' - '0')));
 
     return Rnd;
+}
+
+bool SignUp::add_to_accounts(int type){
+
+    QString query;
+    query = "insert into account(username,\"Password\",\"Account type\")values("
+            "\'" + ui->txt_user->text() + "\' ,"
+            "\'" + ui->txt_pass->text() + "\' ,"
+            + QString::number(type) + ");";
+
+    if(DB.Execute(query) == false){
+        return false;
+    }
+    return true;
 }
