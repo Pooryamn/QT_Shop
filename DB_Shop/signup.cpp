@@ -80,8 +80,6 @@ void SignUp::on_btn_verify_clicked()
 
     if(ui->redio_employee->isChecked()){
 
-
-
         // Send an email to employee :
         QString Email = ui->txt_email->text();
         QString Name = ui->txt_name->text() + " " + ui->txt_lastname->text();
@@ -172,7 +170,7 @@ void SignUp::on_btn_verify_clicked()
                q_query.prepare("insert into employee(firstname,lastname,\"National ID\",email,"
                                 "\"Phone number\",\"Mobile number\","
                                 "address,city,\"Postal code\","
-                                "birthdate,wallet,username,attachments)values("
+                                "birthdate,username,attachments)values("
                                 " :Name ,"
                                 " :LName ,"
                                 " :NID ,"
@@ -183,7 +181,6 @@ void SignUp::on_btn_verify_clicked()
                                 " :CT ,"
                                 " :PST ,"
                                 " :BST ,"
-                                "0 ,"
                                 " :USR ,"
                                 " :IMG"
                                 ");");
@@ -205,10 +202,10 @@ void SignUp::on_btn_verify_clicked()
 
                 // Query without attachments
 
-                query = "insert into employess(firstname,lastname,\"National ID\",email,"
+                query = "insert into employee(firstname,lastname,\"National ID\",email,"
                         "\"Phone number\",\"Mobile number\","
                         "address,city,\"Postal code\","
-                        "birthdate,wallet,username,attachments)values("
+                        "birthdate,username,attachments)values("
                         "\'" + ui->txt_name->text() + "\' ,"
                         "\'" + ui->txt_lastname->text() + "\' ,"
                         "\'" + ui->txt_national->text() + "\' ,"
@@ -219,7 +216,6 @@ void SignUp::on_btn_verify_clicked()
                         "\'" + City + "\' ,"
                         "\'" + Post + "\' ,"
                         "\'" + Birthdate + "\' ,"
-                        "0 ,"
                         "\'" + ui->txt_user->text() + "\' ,"
                         "null );";
 
@@ -234,11 +230,13 @@ void SignUp::on_btn_verify_clicked()
             if(DB.Execute(query,q_query) == true){
 
                 QMessageBox::about(this,"Successful","       Welcome\n now you can login ");
-
+                DB.Disconnect();
                 this->close();
             }
             else{
                 QMessageBox::warning(this,"Faild","Cant write data to database.\nTry again");
+                qDebug() << q_query.lastQuery();
+                qDebug() << q_query.lastError();
                 return;
             }
         }
@@ -385,7 +383,7 @@ void SignUp::on_btn_verify_clicked()
             if(DB.Execute(query,q_query) == true){
 
                 QMessageBox::about(this,"Successful","       Welcome\n now you can login ");
-
+                DB.Disconnect();
                 this->close();
             }
             else{
