@@ -80,6 +80,8 @@ void SignUp::on_btn_verify_clicked()
 
     if(ui->redio_employee->isChecked()){
 
+
+
         // Send an email to employee :
         QString Email = ui->txt_email->text();
         QString Name = ui->txt_name->text() + " " + ui->txt_lastname->text();
@@ -120,14 +122,129 @@ void SignUp::on_btn_verify_clicked()
         emp->SetPass(E_Code,M_Code);
         emp->exec();
         if(emp->get_status() == true){
-            qDebug() << "ADD TO Database";
+
+            // Add a new user to software :
+
+            // add user to accounts :
+            if(add_to_accounts(1) == false){
+                QMessageBox::warning(this,"Database Error","Error in : add to Accounts table");
+                return;
+            }
+
+
+            // add user to customers
+
+            QString Home = ui->txt_home->text().remove(" ");
+            QString Birthdate;
+            QString Address = ui->textEdit->toPlainText().remove(" ");
+            QString City = ui->txt_city->text().remove(" ");
+            QString Post = ui->txt_post->text();
+
+
+            QString query;
+
+            if(Home.isEmpty()){
+                Home = "null";
+            }
+
+            if(Address.isEmpty()){
+                Address = "null";
+            }
+
+            if(City.isEmpty()){
+                City = "null";
+            }
+
+            if(Post.isEmpty()){
+                Post = "null";
+            }
+
+
+            Birthdate = ui->txt_year->text() + "-" + ui->txt_month->text() + "-" +ui->txt_day->text();
+
+
+            QSqlQuery q_query;
+
+            if(profile_filled == true){
+
+                // Query with attachments
+
+               q_query.prepare("insert into employee(firstname,lastname,\"National ID\",email,"
+                                "\"Phone number\",\"Mobile number\","
+                                "address,city,\"Postal code\","
+                                "birthdate,wallet,username,attachments)values("
+                                " :Name ,"
+                                " :LName ,"
+                                " :NID ,"
+                                " :EML ,"
+                                " :HM ,"
+                                " :MB ,"
+                                " :ADDD ,"
+                                " :CT ,"
+                                " :PST ,"
+                                " :BST ,"
+                                "0 ,"
+                                " :USR ,"
+                                " :IMG"
+                                ");");
+                q_query.bindValue(":Name",ui->txt_name->text());
+                q_query.bindValue(":LName",ui->txt_lastname->text());
+                q_query.bindValue(":NID",ui->txt_national->text());
+                q_query.bindValue(":EML",ui->txt_email->text());
+                q_query.bindValue(":HM",Home);
+                q_query.bindValue(":MB",ui->txt_mobile->text());
+                q_query.bindValue(":ADDD",Address);
+                q_query.bindValue(":CT",City);
+                q_query.bindValue(":PST",Post);
+                q_query.bindValue(":BST",Birthdate);
+                q_query.bindValue(":USR",ui->txt_user->text());
+                q_query.bindValue(":IMG",image);
+                query = "";
+            }
+            else {
+
+                // Query without attachments
+
+                query = "insert into employess(firstname,lastname,\"National ID\",email,"
+                        "\"Phone number\",\"Mobile number\","
+                        "address,city,\"Postal code\","
+                        "birthdate,wallet,username,attachments)values("
+                        "\'" + ui->txt_name->text() + "\' ,"
+                        "\'" + ui->txt_lastname->text() + "\' ,"
+                        "\'" + ui->txt_national->text() + "\' ,"
+                        "\'" + ui->txt_email->text() + "\' ,"
+                        "\'" + Home + "\' ,"
+                        "\'" + ui->txt_mobile->text() + "\' ,"
+                        "\'" + Address + "\' ,"
+                        "\'" + City + "\' ,"
+                        "\'" + Post + "\' ,"
+                        "\'" + Birthdate + "\' ,"
+                        "0 ,"
+                        "\'" + ui->txt_user->text() + "\' ,"
+                        "null );";
+
+                q_query.clear();
+
+            }
+
+            query.replace("\'null\'","null");
+
+            // Execute it :
+
+            if(DB.Execute(query,q_query) == true){
+
+                QMessageBox::about(this,"Successful","       Welcome\n now you can login ");
+
+                this->close();
+            }
+            else{
+                QMessageBox::warning(this,"Faild","Cant write data to database.\nTry again");
+                return;
+            }
         }
-        else {
-            qDebug() << "NOOOOO";
-        }
+
     }
     else{
-
 
 
         // Send an email to User :
@@ -150,7 +267,7 @@ void SignUp::on_btn_verify_clicked()
 
         Verify_User* user = new Verify_User(this);
         user->setFixedSize(user->width(),user->height());
-        user->SetPass(U_Code);
+        user->SetPass(U_Code); //U_Code
         user->exec();
 
 
@@ -193,44 +310,52 @@ void SignUp::on_btn_verify_clicked()
             }
 
 
-            if(ui->txt_day->text().isEmpty()){
-                Birthdate = "null";
-            }
-            else{
-                Birthdate = ui->txt_year->text() + "-" + ui->txt_month->text() + "-" +ui->txt_day->text();
-            }
+            Birthdate = ui->txt_year->text() + "-" + ui->txt_month->text() + "-" +ui->txt_day->text();
 
 
+
+            QSqlQuery q_query;
 
             if(profile_filled == true){
 
                 // Query with attachments
 
-                qDebug() << "Imahe : \n" << image ;
+               q_query.prepare("insert into customers(firstname,lastname,email,"
+                                "\"Phone number\",\"Mobile number\","
+                                "address,city,\"Postal code\","
+                                "birthdate,wallet,username,attachments)values("
+                                " :Name ,"
+                                " :LName ,"
+                                " :EML ,"
+                                " :HM ,"
+                                " :MB ,"
+                                " :ADDD ,"
+                                " :CT ,"
+                                " :PST ,"
+                                " :BST ,"
+                                "0 ,"
+                                " :USR ,"
+                                " :IMG"
+                                ");");
+                q_query.bindValue(":Name",ui->txt_name->text());
+                q_query.bindValue(":LName",ui->txt_lastname->text());
+                q_query.bindValue(":EML",ui->txt_email->text());
+                q_query.bindValue(":HM",Home);
+                q_query.bindValue(":MB",ui->txt_mobile->text());
+                q_query.bindValue(":ADDD",Address);
+                q_query.bindValue(":CT",City);
+                q_query.bindValue(":PST",Post);
+                q_query.bindValue(":BST",Birthdate);
+                q_query.bindValue(":USR",ui->txt_user->text());
+                q_query.bindValue(":IMG",image);
+                query = "";
 
-                query = "insert into customers(firstname,lastname,email,"
-                        "\"Phone number\",\"Mobile number\","
-                        "address,city,\"Postal code\","
-                        "birthdate,wallet,username,attachments)values("
-                        "\'" + ui->txt_name->text() + "\' ,"
-                        "\'" + ui->txt_lastname->text() + "\' ,"
-                        "\'" + ui->txt_email->text() + "\' ,"
-                        "\'" + Home + "\' ,"
-                        "\'" + ui->txt_mobile->text() + "\' ,"
-                        "\'" + Address + "\' ,"
-                        "\'" + City + "\' ,"
-                        "\'" + Post + "\' ,"
-                        "\'" + Birthdate + "\' ,"
-                        "0 ,"
-                        "\'" + ui->txt_user->text() + "\' ,"
-                        +image + ");";
 
 
             }
             else {
 
                 // Query without attachments
-
 
                 query = "insert into customers(firstname,lastname,email,"
                         "\"Phone number\",\"Mobile number\","
@@ -249,13 +374,23 @@ void SignUp::on_btn_verify_clicked()
                         "\'" + ui->txt_user->text() + "\' ,"
                         "null );";
 
+                q_query.clear();
+
             }
 
             query.replace("\'null\'","null");
 
             // Execute it :
-            if(DB.Execute(query) == true){
-                QMessageBox::about(this,"Successful","\t\tWelcome\n now you can loggin ");
+
+            if(DB.Execute(query,q_query) == true){
+
+                QMessageBox::about(this,"Successful","       Welcome\n now you can login ");
+
+                this->close();
+            }
+            else{
+                QMessageBox::warning(this,"Faild","Cant write data to database.\nTry again");
+                return;
             }
         }
     }
@@ -347,9 +482,14 @@ bool SignUp::check_inputs(){
     }
 
     // birthdate check :
-    if((!ui->txt_year->text().isEmpty()) || (!ui->txt_month->text().isEmpty()) || (!ui->txt_day->text().isEmpty())){
+    if((ui->txt_year->text().isEmpty()) || (ui->txt_month->text().isEmpty()) || (ui->txt_day->text().isEmpty())){
+        QMessageBox::warning(this,"Input Error",".:: Birthdate is empty");
+        return false;
+    }
+    else{
 
         int tmp = ui->txt_month->text().toInt();
+
         if(tmp > 12 || tmp == 0){
             QMessageBox::warning(this,"Input Error",".:: Enter a valid Month");
             return false;
@@ -358,6 +498,12 @@ bool SignUp::check_inputs(){
         tmp = ui->txt_day->text().toInt();
         if(tmp > 31 || tmp == 0){
             QMessageBox::warning(this,"Input Error",".:: Enter a valid Day");
+            return false;
+        }
+
+        tmp = ui->txt_year->text().toInt();
+        if(tmp<1000 || tmp>1400){
+            QMessageBox::warning(this,"Input Error",".:: Enter a valid Year");
             return false;
         }
     }
@@ -401,11 +547,10 @@ void SignUp::on_btn_load_clicked()
     ui->pic_profile->setPixmap(QPixmap::fromImage(img));
 
     // converting Qimage to QByteArray :
-
     QBuffer buffer(&image);
-
     buffer.open(QIODevice::WriteOnly);
-    img.save(&buffer);
+
+    QPixmap::fromImage(img).save(&buffer,"PNG");
 
 
 
@@ -494,7 +639,8 @@ bool SignUp::add_to_accounts(int type){
             "\'" + ui->txt_pass->text() + "\' ,"
             + QString::number(type) + ");";
 
-    if(DB.Execute(query) == false){
+    QSqlQuery q_query;
+    if(DB.Execute(query,q_query) == false){
         return false;
     }
     return true;

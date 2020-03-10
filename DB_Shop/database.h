@@ -10,11 +10,10 @@ public:
     Database();
     int Connect();
     void Disconnect();
-    bool Execute(QString& query);
+    bool Execute(QString& qry,QSqlQuery& query);
 private:
 
     QSqlDatabase DB;
-    QSqlQuery query;
 
     QString error;
 
