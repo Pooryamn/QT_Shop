@@ -10,6 +10,7 @@ public:
     Database();
     int Connect();
     void Disconnect();
+    bool Execute(QString query);
 private:
 
     QSqlDatabase DB;

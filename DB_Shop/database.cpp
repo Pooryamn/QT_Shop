@@ -297,3 +297,8 @@ bool Database::Create_DB(){
 void Database::Disconnect(){
     DB.close();
 }
+
+bool Database::Execute(QString qry){
+    QSqlQuery query;
+    return query.exec(qry);
+}
