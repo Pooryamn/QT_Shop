@@ -20,6 +20,11 @@ SignUp::SignUp(QWidget *parent) :
     // disable natioal id for normal user :
     ui->txt_national->setVisible(false);
     ui->lbl_national->setVisible(false);
+
+    // There is no profile_pic;
+    on_btn_clear_clicked();
+    profile_filled = false;
+
 }
 
 SignUp::~SignUp()
@@ -123,6 +128,8 @@ void SignUp::on_btn_verify_clicked()
     }
     else{
 
+
+
         // Send an email to User :
         QString Email = ui->txt_email->text();
         QString Name = ui->txt_name->text() + " " + ui->txt_lastname->text();
@@ -140,13 +147,93 @@ void SignUp::on_btn_verify_clicked()
         }
 
 
+
         Verify_User* user = new Verify_User(this);
         user->setFixedSize(user->width(),user->height());
         user->SetPass(U_Code);
         user->exec();
-        qDebug() << user->get_status();
+
+        if(user->get_status()==true){
+
+            // Add a new user to software :
+
+            QString Home = ui->txt_home->text().remove(" ");
+            QString Birthdate;
+            QString Address = ui->textEdit->toPlainText().remove(" ");
+            QString City = ui->txt_city->text().remove(" ");
+            QString Post = ui->txt_post->text();
+
+
+            QString query;
+
+            if(Home.isEmpty()){
+                Home = "null";
+            }
+
+            if(Address.isEmpty()){
+                Address = "null";
+            }
+
+            if(City.isEmpty()){
+                City = "null";
+            }
+
+            if(Post.isEmpty()){
+                Post = "null";
+            }
+
+
+            if(ui->txt_day->text().isEmpty()){
+                Birthdate = "null";
+            }
+            else{
+                Birthdate = ui->txt_year->text() + "-" + ui->txt_month->text() + "-" +ui->txt_day->text();
+            }
+            if(profile_filled == true){
+
+                // Query with attachments
+                QByteArray Attachments;
+
+
+            }
+            else {
+
+                // Query without attachments
+
+
+                query = "insert into customers(firstname,lastname,email,"
+                        "\"Phone number\",\"Mobile number\","
+                        "address,city,\"Postal code\","
+                        "birthdate,wallet,username,attachments)values("
+                        "\'" + ui->txt_name->text() + "\' ,"
+                        "\'" + ui->txt_lastname->text() + "\' ,"
+                        "\'" + ui->txt_email->text() + "\' ,"
+                        "\'" + Home + "\' ,"
+                        "\'" + ui->txt_mobile->text() + "\' ,"
+                        "\'" + Address + "\' ,"
+                        "\'" + City + "\' ,"
+                        "\'" + Post + "\' ,"
+                        "\'" + Birthdate + "\' ,"
+                        "0 ,"
+                        "\'" + ui->txt_user->text() + "\' ,"
+                        "null );";
+
+
+                query.replace("\'null\'","null");
+
+                qDebug() << query.toUtf8().constData();
+
+
+                // Execute it :
+                if(DB.Execute(query) == true){
+                    QMessageBox::about(this,"Successful","\t\tWelcome\n now you can loggin ");
+                }
+            }
+        }
     }
 }
+
+
 
 void SignUp::set_input_methods(){
 

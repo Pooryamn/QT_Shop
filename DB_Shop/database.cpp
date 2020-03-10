@@ -298,7 +298,7 @@ void Database::Disconnect(){
     DB.close();
 }
 
-bool Database::Execute(QString qry){
-    QSqlQuery query;
+bool Database::Execute(QString& qry){
+    query.clear();
     return query.exec(qry);
 }
