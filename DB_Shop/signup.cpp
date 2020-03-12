@@ -524,15 +524,17 @@ bool SignUp::check_inputs(){
 
     QSqlQuery query;
     QString query_str = "select username"
-                        "from account"
+                        " from account"
                         " where username = "
                         "\'" + ui->txt_user->text().toLower()+"\' ;";
 
     if(DB.Execute(query_str,query)){
-        if(query.isNull(0) == false){
+        /*if(query.value(0) == false){
             QMessageBox::warning(this,"Input Error",".:: This username already exists");
             return false;
-        }
+        }*/
+        bool t= query.first();
+        qDebug()<<query.value(0).toString();
     }
     else{
         qDebug() << "Some thin wrong in select query" << endl;
@@ -671,4 +673,19 @@ bool SignUp::add_to_accounts(int type){
         return false;
     }
     return true;
+}
+
+void SignUp::on_txt_year_editingFinished()
+{
+    int tmp = ui->txt_year->text().toInt();
+    if(tmp <100){
+        tmp = tmp + 1300;
+        ui->txt_year->setText(QString::number(tmp));
+    }
+}
+
+void SignUp::on_txt_user_editingFinished()
+{
+    QString tmp = ui->txt_user->text().remove(" ");
+    ui->txt_user->setText(tmp);
 }

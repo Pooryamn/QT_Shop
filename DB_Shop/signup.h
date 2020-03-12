@@ -41,6 +41,10 @@ private slots:
 
     void on_btn_clear_clicked();
 
+    void on_txt_year_editingFinished();
+
+    void on_txt_user_editingFinished();
+
 private:
     Ui::SignUp *ui;
     Database DB;
