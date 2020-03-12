@@ -106,10 +106,10 @@ void Widget::on_btn_login_clicked()
     }
     else if(user_type == 1){
         // User type :
-        user_part* user = new user_part(0);
+        user_part* user = new user_part(0,username);
         user->setGeometry(500,200,1000,720);
         user->on_btn_resizer_clicked();
-        user->set_user(username);
+        //user->set_user(username);
         this->close();
         user->exec();
     }

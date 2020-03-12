@@ -382,7 +382,8 @@ border: 4px solid rgb(47, 60, 126);
    </property>
    <property name="styleSheet">
     <string notr="true">border: 4px solid rgb(47, 60, 126);
-background-color: rgb(255, 255, 255);</string>
+background-color: rgb(255, 255, 255);
+</string>
    </property>
    <property name="text">
     <string/>

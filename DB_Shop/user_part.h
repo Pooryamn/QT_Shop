@@ -8,6 +8,7 @@
 #include "user_payment.h"
 #include "shop_history.h"
 #include "favorites.h"
+#include "database.h"
 
 namespace Ui {
 class user_part;
@@ -18,8 +19,9 @@ class user_part : public QDialog
     Q_OBJECT
 
 public:
-    explicit user_part(QWidget *parent = nullptr);
+    explicit user_part(QWidget *parent = nullptr,QString usr="");
     void set_user(QString username);
+
     ~user_part();
 
 public slots:
@@ -37,9 +39,15 @@ private slots:
 
     void on_btn_viewfavorite_clicked();
 
+
 private:
-    QString UserName;
     Ui::user_part *ui;
+    QString UserName;
+
+    Database DB;
+
+    void load_data(QString username);
+    void set_form();
 };
 
 #endif // USER_PART_H
