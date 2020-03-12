@@ -82,8 +82,6 @@ void SignUp::on_btn_verify_clicked()
 
     if(ui->redio_employee->isChecked()){
 
-        /*
-
         // Send an email to employee :
         QString Email = ui->txt_email->text();
         QString Name = ui->txt_name->text() + " " + ui->txt_lastname->text();
@@ -119,7 +117,6 @@ void SignUp::on_btn_verify_clicked()
             return;
         }
 
-        */
 
         verify_employee* emp = new verify_employee(this);
         emp->setFixedSize(emp->width(),emp->height());
@@ -252,8 +249,6 @@ void SignUp::on_btn_verify_clicked()
     }
     else{
 
-        /*
-
         // Send an email to User :
         QString Email = ui->txt_email->text();
         QString Name = ui->txt_name->text() + " " + ui->txt_lastname->text();
@@ -270,7 +265,6 @@ void SignUp::on_btn_verify_clicked()
             return;
         }
 
-        */
 
         Verify_User* user = new Verify_User(this);
         user->setFixedSize(user->width(),user->height());
