@@ -42,7 +42,9 @@ void Loging::on_btn_login_clicked()
 void Loging::on_btn_forget_clicked()
 {
     forget* forget_pass = new forget(this);
+    DB.Disconnect();
     forget_pass->exec();
+    DB.Connect();
 }
 
 void Loging::connect_to_db(){

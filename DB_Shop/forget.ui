@@ -48,7 +48,7 @@
   <widget class="QLabel" name="lbl_email">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>120</x>
      <y>100</y>
      <width>320</width>
      <height>30</height>
@@ -65,7 +65,7 @@
     <string notr="true">color: rgb(91, 14, 45);</string>
    </property>
    <property name="text">
-    <string>Your Username or Email :</string>
+    <string>Your Username :</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="txt_user">

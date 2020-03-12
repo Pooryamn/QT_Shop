@@ -11,7 +11,7 @@ Widget::Widget(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //Check_Connection();       ////// important not be comment
+    Check_Connection();
 
     Connect_DB();
 
