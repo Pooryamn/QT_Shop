@@ -529,20 +529,14 @@ bool SignUp::check_inputs(){
                         "\'" + ui->txt_user->text().toLower()+"\' ;";
 
     if(DB.Execute(query_str,query)){
-        /*if(query.value(0) == false){
+        query.first();
+
+        if(query.value(0).toString().isEmpty() == false){
+
             QMessageBox::warning(this,"Input Error",".:: This username already exists");
             return false;
-        }*/
-        bool t= query.first();
-        qDebug()<<query.value(0).toString();
+        }
     }
-    else{
-        qDebug() << "Some thin wrong in select query" << endl;
-        qDebug() << query.lastQuery() << endl;
-        qDebug() << query.lastError() << endl;
-    }
-
-
     // Password and Comfrim password cant be empty and must be same
     if(ui->txt_pass->text().remove(" ").isEmpty()){
         QMessageBox::warning(this,"Input Error",".:: Password is empty!");
