@@ -248,7 +248,7 @@ void SignUp::on_btn_verify_clicked()
 
     }
     else{
-        /*
+
         // Send an email to User :
         QString Email = ui->txt_email->text();
         QString Name = ui->txt_name->text() + " " + ui->txt_lastname->text();
@@ -265,11 +265,9 @@ void SignUp::on_btn_verify_clicked()
             return;
         }
 
-        */
-
         Verify_User* user = new Verify_User(this);
         user->setFixedSize(user->width(),user->height());
-        user->SetPass("1");//U_Code
+        user->SetPass(U_Code);
         user->exec();
 
 
@@ -537,6 +535,8 @@ bool SignUp::check_inputs(){
 
 void SignUp::on_btn_load_clicked()
 {
+    // clear old pic
+    on_btn_clear_clicked();
     // load png , jpg files for image
     QString filename = QFileDialog::getOpenFileName(this,"Choose an Image...","","images (*.png *.jpg *.jpeg)");
 

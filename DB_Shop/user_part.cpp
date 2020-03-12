@@ -50,9 +50,13 @@ void user_part::on_btn_Cart_clicked()
 
 void user_part::on_btn_ediprofile_clicked()
 {
-    user_edit* editor = new user_edit(this);
+    user_edit* editor = new user_edit(this,UserName,1);
     editor->setFixedSize(editor->width(),editor->height());
+    DB.Disconnect();
     editor->exec();
+    DB.Connect();
+    load_data(UserName);
+
 }
 
 void user_part::on_btn_payment_clicked()

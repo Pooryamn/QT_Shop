@@ -220,19 +220,6 @@
     <string>Phone number :</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="txt_birth">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>460</y>
-     <width>250</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(244, 168, 150)</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="lbl_birth">
    <property name="geometry">
     <rect>
@@ -467,7 +454,7 @@ color: rgb(53, 133, 151);</string>
     <rect>
      <x>370</x>
      <y>270</y>
-     <width>100</width>
+     <width>131</width>
      <height>20</height>
     </rect>
    </property>
@@ -481,7 +468,7 @@ color: rgb(53, 133, 151);</string>
     <string notr="true">color: rgb(244, 168, 150);</string>
    </property>
    <property name="text">
-    <string>Password* :</string>
+    <string>New Password :</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="txt_comfrim">
@@ -502,7 +489,7 @@ color: rgb(53, 133, 151);</string>
     <rect>
      <x>370</x>
      <y>350</y>
-     <width>151</width>
+     <width>191</width>
      <height>20</height>
     </rect>
    </property>
@@ -516,7 +503,7 @@ color: rgb(53, 133, 151);</string>
     <string notr="true">color: rgb(244, 168, 150);</string>
    </property>
    <property name="text">
-    <string>Comfrim Password* :</string>
+    <string>Comfrim New Password :</string>
    </property>
   </widget>
   <widget class="QLabel" name="lbl_pass2_2">
@@ -571,6 +558,128 @@ color: rgb(53, 133, 151);</string>
     <string>&amp;Save</string>
    </property>
   </widget>
+  <widget class="QLineEdit" name="txt_month">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>460</y>
+     <width>51</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(244, 168, 150);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_slah">
+   <property name="geometry">
+    <rect>
+     <x>105</x>
+     <y>465</y>
+     <width>16</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(244, 168, 150)</string>
+   </property>
+   <property name="text">
+    <string>/</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_day">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>460</y>
+     <width>51</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(244, 168, 150);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_slah_2">
+   <property name="geometry">
+    <rect>
+     <x>175</x>
+     <y>465</y>
+     <width>16</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(244, 168, 150)</string>
+   </property>
+   <property name="text">
+    <string>/</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_year">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>460</y>
+     <width>51</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(244, 168, 150);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
  </widget>
  <tabstops>
   <tabstop>txt_name</tabstop>
@@ -578,7 +687,6 @@ color: rgb(53, 133, 151);</string>
   <tabstop>txt_email</tabstop>
   <tabstop>txt_mobile</tabstop>
   <tabstop>txt_home</tabstop>
-  <tabstop>txt_birth</tabstop>
  </tabstops>
  <resources/>
  <connections/>

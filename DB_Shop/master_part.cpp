@@ -50,9 +50,12 @@ void master_part::on_btn_newstock_clicked()
 
 void master_part::on_btn_ediprofile_clicked()
 {
-    user_edit* editor = new user_edit(this);
+    user_edit* editor = new user_edit(this,UserName,3);
     editor->setFixedSize(editor->width(),editor->height());
+    DB.Disconnect();
     editor->exec();
+    DB.Connect();
+    load_data(UserName);
 }
 
 void master_part::on_btn_payment_clicked()
