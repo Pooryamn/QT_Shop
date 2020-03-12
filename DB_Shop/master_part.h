@@ -12,6 +12,7 @@
 #include "suppliers.h"
 #include "new_supplier.h"
 #include "database.h"
+#include "widget.h"
 
 namespace Ui {
 class master_part;
@@ -42,6 +43,8 @@ private slots:
     void on_btn_addmaster_clicked();
 
     void on_btn_supplier_clicked();
+
+    void on_btn_logoff_clicked();
 
 private:
     Ui::master_part *ui;

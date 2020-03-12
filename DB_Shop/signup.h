@@ -2,7 +2,6 @@
 #define SIGNUP_H
 
 #include <QDialog>
-#include <QtSql>
 #include <QFileDialog>
 
 #include "widget.h"

@@ -8,6 +8,7 @@
 #include "user_payment.h"
 #include "shop_history.h"
 #include "database.h"
+#include "widget.h"
 
 namespace Ui {
 class employee_part;
@@ -33,6 +34,8 @@ private slots:
     void on_btn_payment_clicked();
 
     void on_btn_history_clicked();
+
+    void on_btn_logoff_clicked();
 
 private:
 

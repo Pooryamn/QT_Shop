@@ -9,6 +9,7 @@
 #include "shop_history.h"
 #include "favorites.h"
 #include "database.h"
+#include "widget.h"
 
 namespace Ui {
 class user_part;
@@ -38,6 +39,8 @@ private slots:
 
     void on_btn_viewfavorite_clicked();
 
+
+    void on_btn_logoff_clicked();
 
 private:
     Ui::user_part *ui;

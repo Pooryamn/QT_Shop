@@ -127,3 +127,12 @@ void user_part::set_form(){
     ui->pic_profile->setDisabled(true);
     ui->pic_profile->setEnabled(true);
 }
+
+void user_part::on_btn_logoff_clicked()
+{
+    Widget* w = new Widget(0);
+    w->setFixedSize(w->width(),w->height());
+    w->setGeometry(500,200,w->width(),w->height());
+    this->close();
+    w->show();
+}

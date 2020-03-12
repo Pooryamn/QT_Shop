@@ -118,3 +118,12 @@ void employee_part::load_data(QString username){
         exit(0);
     }
 }
+
+void employee_part::on_btn_logoff_clicked()
+{
+    Widget* w = new Widget(0);
+    w->setFixedSize(w->width(),w->height());
+    w->setGeometry(500,200,w->width(),w->height());
+    this->close();
+    w->show();
+}

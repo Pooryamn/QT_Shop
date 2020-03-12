@@ -224,19 +224,6 @@
     <string>Phone number :</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="txt_birth">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>70</y>
-     <width>250</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="lbl_birth">
    <property name="geometry">
     <rect>
@@ -605,6 +592,128 @@ border: 4px solid rgb(255, 113, 41);</string>
     <string>&amp;Verify</string>
    </property>
   </widget>
+  <widget class="QLineEdit" name="txt_month">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>70</y>
+     <width>51</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_slah">
+   <property name="geometry">
+    <rect>
+     <x>425</x>
+     <y>75</y>
+     <width>16</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>/</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_day">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>70</y>
+     <width>51</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_slah_2">
+   <property name="geometry">
+    <rect>
+     <x>495</x>
+     <y>75</y>
+     <width>16</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 113, 41);</string>
+   </property>
+   <property name="text">
+    <string>/</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_year">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>70</y>
+     <width>51</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
  </widget>
  <tabstops>
   <tabstop>txt_national</tabstop>
@@ -613,7 +722,6 @@ border: 4px solid rgb(255, 113, 41);</string>
   <tabstop>txt_email</tabstop>
   <tabstop>txt_mobile</tabstop>
   <tabstop>txt_home</tabstop>
-  <tabstop>txt_birth</tabstop>
  </tabstops>
  <resources>
   <include location="resources.qrc"/>
