@@ -20,7 +20,6 @@ class user_part : public QDialog
 
 public:
     explicit user_part(QWidget *parent = nullptr,QString usr="");
-    void set_user(QString username);
 
     ~user_part();
 

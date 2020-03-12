@@ -11,6 +11,7 @@
 #include "master_signup.h"
 #include "suppliers.h"
 #include "new_supplier.h"
+#include "database.h"
 
 namespace Ui {
 class master_part;
@@ -21,12 +22,11 @@ class master_part : public QDialog
     Q_OBJECT
 
 public:
-    explicit master_part(QWidget *parent = nullptr);
+    explicit master_part(QWidget *parent = nullptr,QString usrname="");
     ~master_part();
 
 public slots:
     void on_btn_resizer_clicked();
-    void set_user(QString usrname);
 
 private slots:
     void on_btn_newstock_clicked();
@@ -46,6 +46,9 @@ private slots:
 private:
     Ui::master_part *ui;
     QString UserName;
+    Database DB;
+    void set_form();
+    void load_data(QString username);
 };
 
 #endif // MASTER_PART_H

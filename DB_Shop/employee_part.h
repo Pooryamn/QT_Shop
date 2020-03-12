@@ -7,6 +7,7 @@
 #include "user_edit.h"
 #include "user_payment.h"
 #include "shop_history.h"
+#include "database.h"
 
 namespace Ui {
 class employee_part;
@@ -17,8 +18,8 @@ class employee_part : public QDialog
     Q_OBJECT
 
 public:
-    explicit employee_part(QWidget *parent = nullptr);
-    void set_user(QString usrname);
+    explicit employee_part(QWidget *parent = nullptr,QString usrname="");
+
     ~employee_part();
 
 public slots:
@@ -34,8 +35,12 @@ private slots:
     void on_btn_history_clicked();
 
 private:
-    QString UserName;
+
     Ui::employee_part *ui;
+    QString UserName;
+    Database DB;
+    void set_form();
+    void load_data(QString username);
 };
 
 #endif // EMPLOYEE_PART_H

@@ -109,25 +109,22 @@ void Widget::on_btn_login_clicked()
         user_part* user = new user_part(0,username);
         user->setGeometry(500,200,1000,720);
         user->on_btn_resizer_clicked();
-        //user->set_user(username);
         this->close();
         user->exec();
     }
     else if (user_type == 2) {
         // Employee type :
-        employee_part* emp = new employee_part(0);
+        employee_part* emp = new employee_part(0,username);
         emp->setGeometry(500,200,1000,720);
         emp->on_btn_resizer_clicked();
-        emp->set_user(username);
         this->close();
         emp->exec();
     }
     else if(user_type == 3){
         // Master type:
-        master_part* master = new master_part(0);
+        master_part* master = new master_part(0,username);
         master->setGeometry(500,200,1000,720);
         master->on_btn_resizer_clicked();
-        master->set_user(username);
         this->close();
         master->exec();
     }

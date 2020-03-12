@@ -76,9 +76,6 @@ void user_part::on_btn_viewfavorite_clicked()
     fav->exec();
 }
 
-void user_part::set_user(QString username){
-    UserName = username;
-}
 
 void user_part::load_data(QString username){
 
@@ -114,9 +111,6 @@ void user_part::load_data(QString username){
         qDebug() << "Error executing query";
         exit(0);
     }
-
-
-
 }
 
 void user_part::set_form(){
