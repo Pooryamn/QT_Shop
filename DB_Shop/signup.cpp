@@ -34,9 +34,6 @@ SignUp::~SignUp()
 
 void SignUp::on_SignUp_finished(int result)
 {
-    Widget *w = new Widget(0);
-    w->setGeometry(500,200,w->width(),w->height());
-    w->show();
 }
 
 void SignUp::on_btn_close_clicked()
@@ -46,7 +43,12 @@ void SignUp::on_btn_close_clicked()
 
 void SignUp::on_btn_cansel_clicked()
 {
+    DB.Disconnect();
     this->close();
+    Widget* w = new Widget(0);
+    w->setGeometry(500,200,w->width(),w->height());
+    w->setFixedSize(w->width(),w->height());
+    w->show();
 }
 
 void SignUp::on_radio_user_clicked()
@@ -79,6 +81,8 @@ void SignUp::on_btn_verify_clicked()
     }
 
     if(ui->redio_employee->isChecked()){
+
+        /*
 
         // Send an email to employee :
         QString Email = ui->txt_email->text();
@@ -115,10 +119,15 @@ void SignUp::on_btn_verify_clicked()
             return;
         }
 
+        */
+
         verify_employee* emp = new verify_employee(this);
         emp->setFixedSize(emp->width(),emp->height());
-        emp->SetPass(E_Code,M_Code);
+        emp->SetPass("1","1");//E_Code,M_Code
         emp->exec();
+
+
+
         if(emp->get_status() == true){
 
             // Add a new user to software :
@@ -194,7 +203,7 @@ void SignUp::on_btn_verify_clicked()
                 q_query.bindValue(":CT",City);
                 q_query.bindValue(":PST",Post);
                 q_query.bindValue(":BST",Birthdate);
-                q_query.bindValue(":USR",ui->txt_user->text());
+                q_query.bindValue(":USR",ui->txt_user->text().toLower());
                 q_query.bindValue(":IMG",image);
                 query = "";
             }
@@ -216,7 +225,7 @@ void SignUp::on_btn_verify_clicked()
                         "\'" + City + "\' ,"
                         "\'" + Post + "\' ,"
                         "\'" + Birthdate + "\' ,"
-                        "\'" + ui->txt_user->text() + "\' ,"
+                        "\'" + ui->txt_user->text().toLower() + "\' ,"
                         "null );";
 
                 q_query.clear();
@@ -230,8 +239,7 @@ void SignUp::on_btn_verify_clicked()
             if(DB.Execute(query,q_query) == true){
 
                 QMessageBox::about(this,"Successful","       Welcome\n now you can login ");
-                DB.Disconnect();
-                this->close();
+                on_btn_cansel_clicked();
             }
             else{
                 QMessageBox::warning(this,"Faild","Cant write data to database.\nTry again");
@@ -244,6 +252,7 @@ void SignUp::on_btn_verify_clicked()
     }
     else{
 
+        /*
 
         // Send an email to User :
         QString Email = ui->txt_email->text();
@@ -261,11 +270,11 @@ void SignUp::on_btn_verify_clicked()
             return;
         }
 
-
+        */
 
         Verify_User* user = new Verify_User(this);
         user->setFixedSize(user->width(),user->height());
-        user->SetPass(U_Code); //U_Code
+        user->SetPass("1"); //U_Code
         user->exec();
 
 
@@ -344,7 +353,7 @@ void SignUp::on_btn_verify_clicked()
                 q_query.bindValue(":CT",City);
                 q_query.bindValue(":PST",Post);
                 q_query.bindValue(":BST",Birthdate);
-                q_query.bindValue(":USR",ui->txt_user->text());
+                q_query.bindValue(":USR",ui->txt_user->text().toLower());
                 q_query.bindValue(":IMG",image);
                 query = "";
 
@@ -369,7 +378,7 @@ void SignUp::on_btn_verify_clicked()
                         "\'" + Post + "\' ,"
                         "\'" + Birthdate + "\' ,"
                         "0 ,"
-                        "\'" + ui->txt_user->text() + "\' ,"
+                        "\'" + ui->txt_user->text().toLower() + "\' ,"
                         "null );";
 
                 q_query.clear();
@@ -383,11 +392,12 @@ void SignUp::on_btn_verify_clicked()
             if(DB.Execute(query,q_query) == true){
 
                 QMessageBox::about(this,"Successful","       Welcome\n now you can login ");
-                DB.Disconnect();
-                this->close();
+                on_btn_cansel_clicked();
             }
             else{
                 QMessageBox::warning(this,"Faild","Cant write data to database.\nTry again");
+                qDebug() << q_query.lastQuery();
+                qDebug() << q_query.lastError();
                 return;
             }
         }
@@ -506,11 +516,30 @@ bool SignUp::check_inputs(){
         }
     }
 
-    // Username cant be empty
+    // Username cant be empty and username cant besame with others
     if(ui->txt_user->text().remove(" ").isEmpty()){
         QMessageBox::warning(this,"Input Error",".:: Username is empty!");
         return false;
     }
+
+    QSqlQuery query;
+    QString query_str = "select username"
+                        "from account"
+                        " where username = "
+                        "\'" + ui->txt_user->text().toLower()+"\' ;";
+
+    if(DB.Execute(query_str,query)){
+        if(query.isNull(0) == false){
+            QMessageBox::warning(this,"Input Error",".:: This username already exists");
+            return false;
+        }
+    }
+    else{
+        qDebug() << "Some thin wrong in select query" << endl;
+        qDebug() << query.lastQuery() << endl;
+        qDebug() << query.lastError() << endl;
+    }
+
 
     // Password and Comfrim password cant be empty and must be same
     if(ui->txt_pass->text().remove(" ").isEmpty()){
@@ -633,7 +662,7 @@ bool SignUp::add_to_accounts(int type){
 
     QString query;
     query = "insert into account(username,\"Password\",\"Account type\")values("
-            "\'" + ui->txt_user->text() + "\' ,"
+            "\'" + ui->txt_user->text().toLower() + "\' ,"
             "\'" + ui->txt_pass->text() + "\' ,"
             + QString::number(type) + ");";
 
