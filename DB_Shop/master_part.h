@@ -26,6 +26,7 @@ public:
 
 public slots:
     void on_btn_resizer_clicked();
+    void set_user(QString usrname);
 
 private slots:
     void on_btn_newstock_clicked();
@@ -44,6 +45,7 @@ private slots:
 
 private:
     Ui::master_part *ui;
+    QString UserName;
 };
 
 #endif // MASTER_PART_H

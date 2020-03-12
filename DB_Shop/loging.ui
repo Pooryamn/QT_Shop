@@ -86,10 +86,13 @@ color: rgb(255, 167, 129);</string>
    <property name="font">
     <font>
      <pointsize>15</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 4px solid rgb(255,167,129);</string>
+    <string notr="true">border: 4px solid rgb(255,167,129);
+color: rgb(47, 60, 126);</string>
    </property>
    <property name="text">
     <string/>
@@ -139,7 +142,8 @@ color: rgb(255, 167, 129);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 4px solid rgb(255,167,129);</string>
+    <string notr="true">border: 4px solid rgb(255,167,129);
+color: rgb(47, 60, 126);</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
@@ -227,6 +231,13 @@ color: rgb(91, 14, 45);</string>
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>txt_User</tabstop>
+  <tabstop>txt_password</tabstop>
+  <tabstop>btn_login</tabstop>
+  <tabstop>btn_cancel</tabstop>
+  <tabstop>btn_forget</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

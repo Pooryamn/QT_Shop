@@ -11,7 +11,7 @@ Widget::Widget(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    Check_Connection();
+    //Check_Connection();       ////// important not be comment
 
     Connect_DB();
 
@@ -21,6 +21,7 @@ Widget::Widget(QWidget *parent) :
 
 Widget::~Widget()
 {
+    DB.Disconnect();
     delete ui;
 }
 
@@ -92,32 +93,48 @@ void Widget::on_btn_register_clicked()
 
 void Widget::on_btn_login_clicked()
 {
+    DB.Disconnect();
     Loging* login = new Loging(this);
     login->setFixedSize(login->width(),login->height());
     login->exec();
+
+    int user_type = login->get_type();
+    QString username = login->get_user();
+    if(user_type == 0){
+        // Nothing :
+        DB.Connect();
+    }
+    else if(user_type == 1){
+        // User type :
+        user_part* user = new user_part(0);
+        user->setGeometry(500,200,1000,720);
+        user->on_btn_resizer_clicked();
+        user->set_user(username);
+        this->close();
+        user->exec();
+    }
+    else if (user_type == 2) {
+        // Employee type :
+        employee_part* emp = new employee_part(0);
+        emp->setGeometry(500,200,1000,720);
+        emp->on_btn_resizer_clicked();
+        emp->set_user(username);
+        this->close();
+        emp->exec();
+    }
+    else if(user_type == 3){
+        // Master type:
+        master_part* master = new master_part(0);
+        master->setGeometry(500,200,1000,720);
+        master->on_btn_resizer_clicked();
+        master->set_user(username);
+        this->close();
+        master->exec();
+    }
 }
 
 void Widget::on_txt_search_textChanged(const QString &arg1)
 {
-    if(arg1 == "___1"){
-        user_part* user = new user_part(0);
-        user->setGeometry(500,200,1000,720);
-        user->on_btn_resizer_clicked();
-        user->exec();
-    }
-    else if (arg1 == "___2") {
-        employee_part* emp = new employee_part(0);
-        emp->setGeometry(500,200,1000,720);
-        emp->on_btn_resizer_clicked();
-        emp->exec();
-    }
-    else if (arg1 == "___3") {
-        master_part* master = new master_part(0);
-        master->setGeometry(500,200,1000,720);
-        master->on_btn_resizer_clicked();
-        master->exec();
-
-    }
 }
 
 void Widget::Connect_DB(){

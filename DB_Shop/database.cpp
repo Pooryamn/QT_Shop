@@ -309,3 +309,7 @@ bool Database::Execute(QString& qry,QSqlQuery& query){
     }
 }
 
+bool Database::IsConnected(){
+    return DB.isOpen();
+}
+

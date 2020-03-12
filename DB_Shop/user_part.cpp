@@ -63,3 +63,7 @@ void user_part::on_btn_viewfavorite_clicked()
     fav->setFixedSize(fav->width(),fav->height());
     fav->exec();
 }
+
+void user_part::set_user(QString username){
+    UserName = username;
+}

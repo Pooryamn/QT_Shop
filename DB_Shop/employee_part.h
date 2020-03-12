@@ -18,6 +18,7 @@ class employee_part : public QDialog
 
 public:
     explicit employee_part(QWidget *parent = nullptr);
+    void set_user(QString usrname);
     ~employee_part();
 
 public slots:
@@ -33,6 +34,7 @@ private slots:
     void on_btn_history_clicked();
 
 private:
+    QString UserName;
     Ui::employee_part *ui;
 };
 

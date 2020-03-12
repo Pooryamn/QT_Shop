@@ -77,3 +77,7 @@ void master_part::on_btn_supplier_clicked()
     supply->setFixedSize(supply->width(),supply->height());
     supply->exec();
 }
+
+void master_part::set_user(QString usrname){
+    UserName = usrname;
+}

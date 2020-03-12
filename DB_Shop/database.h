@@ -11,6 +11,7 @@ public:
     int Connect();
     void Disconnect();
     bool Execute(QString& qry,QSqlQuery& query);
+    bool IsConnected();
 private:
 
     QSqlDatabase DB;

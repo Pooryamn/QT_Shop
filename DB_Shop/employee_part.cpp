@@ -56,3 +56,7 @@ void employee_part::on_btn_history_clicked()
     his->setFixedSize(his->width(),his->height());
     his->exec();
 }
+
+void employee_part::set_user(QString usrname){
+    UserName = usrname;
+}

@@ -28,7 +28,8 @@ SignUp::SignUp(QWidget *parent) :
 }
 
 SignUp::~SignUp()
-{
+{    
+    DB.Disconnect();
     delete ui;
 }
 
@@ -43,7 +44,6 @@ void SignUp::on_btn_close_clicked()
 
 void SignUp::on_btn_cansel_clicked()
 {
-    DB.Disconnect();
     this->close();
     Widget* w = new Widget(0);
     w->setGeometry(500,200,w->width(),w->height());
@@ -120,7 +120,7 @@ void SignUp::on_btn_verify_clicked()
 
         verify_employee* emp = new verify_employee(this);
         emp->setFixedSize(emp->width(),emp->height());
-        emp->SetPass("1","1");//E_Code,M_Code
+        emp->SetPass(E_Code,M_Code);
         emp->exec();
 
 
@@ -130,7 +130,7 @@ void SignUp::on_btn_verify_clicked()
             // Add a new user to software :
 
             // add user to accounts :
-            if(add_to_accounts(1) == false){
+            if(add_to_accounts(2) == false){
                 QMessageBox::warning(this,"Database Error","Error in : add to Accounts table");
                 return;
             }
@@ -268,7 +268,7 @@ void SignUp::on_btn_verify_clicked()
 
         Verify_User* user = new Verify_User(this);
         user->setFixedSize(user->width(),user->height());
-        user->SetPass("1"); //U_Code
+        user->SetPass(U_Code);
         user->exec();
 
 
@@ -278,7 +278,7 @@ void SignUp::on_btn_verify_clicked()
             // Add a new user to software :
 
             // add user to accounts :
-            if(add_to_accounts(0) == false){
+            if(add_to_accounts(1) == false){
                 QMessageBox::warning(this,"Database Error","Error in : add to Accounts table");
                 return;
             }
@@ -515,22 +515,12 @@ bool SignUp::check_inputs(){
         QMessageBox::warning(this,"Input Error",".:: Username is empty!");
         return false;
     }
-
-    QSqlQuery query;
-    QString query_str = "select username"
-                        " from account"
-                        " where username = "
-                        "\'" + ui->txt_user->text().toLower()+"\' ;";
-
-    if(DB.Execute(query_str,query)){
-        query.first();
-
-        if(query.value(0).toString().isEmpty() == false){
-
-            QMessageBox::warning(this,"Input Error",".:: This username already exists");
-            return false;
-        }
+    if(is_valid_User() == true){
+        QMessageBox::warning(this,"Input Error",".:: This username already exists");
+        return false;
     }
+
+
     // Password and Comfrim password cant be empty and must be same
     if(ui->txt_pass->text().remove(" ").isEmpty()){
         QMessageBox::warning(this,"Input Error",".:: Password is empty!");
@@ -651,7 +641,7 @@ QString SignUp::RandStr(){
 bool SignUp::add_to_accounts(int type){
 
     QString query;
-    query = "insert into account(username,\"Password\",\"Account type\")values("
+    query = "insert into account(username,passwords,\"Account type\")values("
             "\'" + ui->txt_user->text().toLower() + "\' ,"
             "\'" + ui->txt_pass->text() + "\' ,"
             + QString::number(type) + ");";
@@ -676,4 +666,28 @@ void SignUp::on_txt_user_editingFinished()
 {
     QString tmp = ui->txt_user->text().remove(" ");
     ui->txt_user->setText(tmp);
+}
+bool SignUp::is_valid_User(){
+
+    QSqlQuery query;
+
+    QString query_str = "select username"
+                        " from account"
+                        " where username = "
+                        "\'" + ui->txt_user->text().toLower()+"\' ;";
+
+    if(DB.Execute(query_str,query)){
+
+        query.first();
+
+        if(query.value(0).toString().isEmpty() == true){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    else {
+        qDebug() << "Error in executing select query";
+    }
 }

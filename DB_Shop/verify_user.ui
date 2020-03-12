@@ -158,6 +158,11 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>txt_verifyCode</tabstop>
+  <tabstop>btn_verify</tabstop>
+  <tabstop>btn_edit</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

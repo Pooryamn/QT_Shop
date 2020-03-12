@@ -19,6 +19,7 @@ class user_part : public QDialog
 
 public:
     explicit user_part(QWidget *parent = nullptr);
+    void set_user(QString username);
     ~user_part();
 
 public slots:
@@ -37,6 +38,7 @@ private slots:
     void on_btn_viewfavorite_clicked();
 
 private:
+    QString UserName;
     Ui::user_part *ui;
 };
 

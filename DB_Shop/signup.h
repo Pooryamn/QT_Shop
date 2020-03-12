@@ -54,6 +54,7 @@ private:
     bool profile_filled;
     bool add_to_accounts(int type);
     QByteArray image;
+    bool is_valid_User();
 
     bool Send_Email(QString Email,QString Name,QString Subject,QString Body);
 
