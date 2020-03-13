@@ -6,16 +6,32 @@ new_stock::new_stock(QWidget *parent) :
     ui(new Ui::new_stock)
 {
     ui->setupUi(this);
+
+    DB.Connect();
+
+    if(DB.IsConnected() == false){
+        qDebug() << "Database connection error";
+        exit(0);
+    }
+
+    load_suppliers();
 }
 
 new_stock::~new_stock()
 {
+    DB.Disconnect();
     delete ui;
 }
 
 void new_stock::on_btn_addsupplier_clicked()
 {
-    New_supplier* supplier = new New_supplier(this);
+    DB.Disconnect();
+    New_supplier* supplier = new New_supplier(this,0);
     supplier->setFixedSize(supplier->width(),supplier->height());
     supplier->exec();
+    DB.Connect();
+}
+
+void new_stock::load_suppliers(){
+
 }

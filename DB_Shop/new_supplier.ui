@@ -299,6 +299,30 @@ color: rgb(91, 14, 45);</string>
     <string>Clear</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="btn_save">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>510</y>
+     <width>160</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 167, 129);
+color: rgb(91, 14, 45);</string>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

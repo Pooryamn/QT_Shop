@@ -691,4 +691,5 @@ bool SignUp::is_valid_User(){
     else {
         qDebug() << "Error in executing select query";
     }
+    return false;
 }

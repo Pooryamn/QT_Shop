@@ -4,6 +4,7 @@
 #include <QDialog>
 
 #include "new_supplier.h"
+#include "database.h"
 
 namespace Ui {
 class new_stock;
@@ -22,6 +23,8 @@ private slots:
 
 private:
     Ui::new_stock *ui;
+    Database DB;
+    void load_suppliers();
 };
 
 #endif // NEW_STOCK_H
