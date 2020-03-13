@@ -27,6 +27,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        Date/qdateconvertor.cpp \
         cart.cpp \
         database.cpp \
         employee_part.cpp \
@@ -64,6 +65,7 @@ SOURCES += \
         widget.cpp
 
 HEADERS += \
+        Date/qdateconvertor.h \
         cart.h \
         database.h \
         employee_part.h \
