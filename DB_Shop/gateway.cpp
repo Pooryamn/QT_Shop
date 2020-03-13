@@ -42,3 +42,7 @@ void gateway::on_btn_pay_clicked()
         this->close();
     }
 }
+
+int gateway::get_ammount(){
+    return Ammount;
+}

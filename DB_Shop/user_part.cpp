@@ -61,9 +61,11 @@ void user_part::on_btn_ediprofile_clicked()
 
 void user_part::on_btn_payment_clicked()
 {
-    user_payment* pay = new user_payment(this);
+    user_payment* pay = new user_payment(this,UserName);
     pay->setFixedSize(pay->width(),pay->height());
+    DB.Disconnect();
     pay->exec();
+    DB.Connect();
 }
 
 void user_part::on_btn_history_clicked()

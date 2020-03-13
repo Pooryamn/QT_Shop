@@ -4,6 +4,7 @@
 #include <QDialog>
 
 #include "gateway.h"
+#include "database.h"
 
 namespace Ui {
 class user_payment;
@@ -23,6 +24,11 @@ private slots:
 private:
     Ui::user_payment *ui;
     QString UserName;
+    Database DB;
+    int find_id(QString username);
+    bool add_transaction(int id,int ammount,QString date);
+    bool add_wallet();
+    void load_data(QString username);
 };
 
 #endif // USER_PAYMENT_H
