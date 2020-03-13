@@ -5,6 +5,7 @@
 
 #include "gateway.h"
 #include "database.h"
+#include "Date/qdateconvertor.h"
 
 namespace Ui {
 class user_payment;
@@ -27,8 +28,9 @@ private:
     Database DB;
     int find_id(QString username);
     bool add_transaction(int id,int ammount,QString date);
-    bool add_wallet();
+    bool add_wallet(int ID,int ammount);
     void load_data(QString username);
+    QString DateConverter();
 };
 
 #endif // USER_PAYMENT_H
