@@ -16,7 +16,7 @@ class New_supplier : public QDialog
     Q_OBJECT
 
 public:
-    explicit New_supplier(QWidget *parent = nullptr,int type=0,int ID=0);
+    explicit New_supplier(QWidget *parent = nullptr,int T=0,int id=0);
     ~New_supplier();
 
 private slots:

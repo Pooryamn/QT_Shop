@@ -16,6 +16,8 @@ New_supplier::New_supplier(QWidget *parent,int T,int id) :
 
     Type = T; // 0 : new , 1 : edit
 
+    ID = id;
+
 }
 
 New_supplier::~New_supplier()
@@ -152,6 +154,5 @@ bool New_supplier::isValidSupplier(QString name){
     else {
         qDebug() << "Error in executing select query";
     }
-
-
+    return  false;
 }

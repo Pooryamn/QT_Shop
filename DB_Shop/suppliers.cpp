@@ -15,7 +15,7 @@ Suppliers::~Suppliers()
 
 void Suppliers::on_btn_addsupplier_clicked()
 {
-    New_supplier* supplier = new New_supplier(this);
+    New_supplier* supplier = new New_supplier(this,0,0);
     supplier->setFixedSize(supplier->width(),supplier->height());
     supplier->exec();
 }

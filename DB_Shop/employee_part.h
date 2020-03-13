@@ -9,6 +9,7 @@
 #include "shop_history.h"
 #include "database.h"
 #include "widget.h"
+#include "new_supplier.h"
 
 namespace Ui {
 class employee_part;

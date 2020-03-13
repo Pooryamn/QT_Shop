@@ -16,15 +16,20 @@ class new_stock : public QDialog
 
 public:
     explicit new_stock(QWidget *parent = nullptr);
+    bool new_supplier_called();
     ~new_stock();
 
 private slots:
     void on_btn_addsupplier_clicked();
 
+    void on_btn_refresh_clicked();
+
 private:
     Ui::new_stock *ui;
     Database DB;
     void load_suppliers();
+    bool supplier_called;
+
 };
 
 #endif // NEW_STOCK_H

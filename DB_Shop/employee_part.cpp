@@ -49,6 +49,15 @@ void employee_part::on_btn_newstock_clicked()
     DB.Disconnect();
     stock->exec();
     DB.Connect();
+
+    if(stock->new_supplier_called()){
+
+        New_supplier* supplier = new New_supplier(this,0,0);
+        supplier->setFixedSize(supplier->width(),supplier->height());
+        DB.Disconnect();
+        supplier->exec();
+        DB.Connect();
+    }
 }
 
 void employee_part::on_btn_ediprofile_clicked()

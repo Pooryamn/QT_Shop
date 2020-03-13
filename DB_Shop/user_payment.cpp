@@ -166,6 +166,7 @@ void user_payment::load_data(QString username){
     ui->tbl_payment->setColumnWidth(3,200);
     ui->tbl_payment->setColumnWidth(4,200);
 
+    ui->tbl_payment->setSelectionMode(QAbstractItemView::SingleSelection);
 }
 
 int user_payment::get_type(QString username){
