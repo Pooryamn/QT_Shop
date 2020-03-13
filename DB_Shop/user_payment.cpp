@@ -1,7 +1,7 @@
 #include "user_payment.h"
 #include "ui_user_payment.h"
 
-user_payment::user_payment(QWidget *parent) :
+user_payment::user_payment(QWidget *parent,QString usrname) :
     QDialog(parent),
     ui(new Ui::user_payment)
 {

@@ -14,7 +14,7 @@ class user_payment : public QDialog
     Q_OBJECT
 
 public:
-    explicit user_payment(QWidget *parent = nullptr);
+    explicit user_payment(QWidget *parent = nullptr,QString usrname="");
     ~user_payment();
 
 private slots:
@@ -22,6 +22,7 @@ private slots:
 
 private:
     Ui::user_payment *ui;
+    QString UserName;
 };
 
 #endif // USER_PAYMENT_H
