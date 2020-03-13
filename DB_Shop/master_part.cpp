@@ -76,7 +76,9 @@ void master_part::on_btn_viewuser_clicked()
 {
     Users* users = new Users(this);
     users->setFixedSize(users->width(),users->height());
+    DB.Disconnect();
     users->exec();
+    DB.Connect();
 }
 
 void master_part::on_btn_addmaster_clicked()

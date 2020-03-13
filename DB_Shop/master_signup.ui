@@ -80,8 +80,16 @@
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(255, 133, 41);
+color: rgb(78, 154, 6);</string>
    </property>
   </widget>
   <widget class="QLabel" name="lbl_family">
@@ -115,8 +123,16 @@
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(255, 133, 41);
+color: rgb(78, 154, 6);</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="txt_email">
@@ -128,8 +144,16 @@
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(255, 133, 41);
+color: rgb(78, 154, 6);</string>
    </property>
   </widget>
   <widget class="QLabel" name="lbl_email">
@@ -185,8 +209,16 @@
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(255, 133, 41);
+color: rgb(78, 154, 6);</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="txt_home">
@@ -198,8 +230,16 @@
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(255, 133, 41);
+color: rgb(78, 154, 6);</string>
    </property>
   </widget>
   <widget class="QLabel" name="lbl_home">
@@ -277,8 +317,16 @@
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(255, 133, 41);
+color: rgb(78, 154, 6);</string>
    </property>
   </widget>
   <widget class="QLabel" name="pic_profile">
@@ -393,8 +441,16 @@ border: 4px solid rgb(255, 113, 41);</string>
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(255, 133, 41);
+color: rgb(78, 154, 6);</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="txt_post">
@@ -406,8 +462,16 @@ border: 4px solid rgb(255, 113, 41);</string>
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(255, 133, 41);
+color: rgb(78, 154, 6);</string>
    </property>
   </widget>
   <widget class="QLabel" name="lbl_post">
@@ -441,8 +505,16 @@ border: 4px solid rgb(255, 113, 41);</string>
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(255, 133, 41);
+color: rgb(78, 154, 6);</string>
    </property>
    <property name="text">
     <string/>
@@ -479,8 +551,16 @@ border: 4px solid rgb(255, 113, 41);</string>
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(255, 133, 41);
+color: rgb(78, 154, 6);</string>
    </property>
   </widget>
   <widget class="QLabel" name="lbl_pass1">
@@ -514,8 +594,16 @@ border: 4px solid rgb(255, 113, 41);</string>
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(255, 133, 41);
+color: rgb(78, 154, 6);</string>
    </property>
   </widget>
   <widget class="QLabel" name="lbl_pass2">
@@ -571,9 +659,16 @@ border: 4px solid rgb(255, 113, 41);</string>
      <height>131</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)
-</string>
+    <string notr="true">border: 3px solid rgb(255, 133, 41);
+color: rgb(78, 154, 6);</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_verify">
@@ -609,7 +704,8 @@ border: 4px solid rgb(255, 113, 41);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(255, 133, 41);
+color: rgb(78, 154, 6);</string>
    </property>
    <property name="text">
     <string/>
@@ -657,7 +753,8 @@ border: 4px solid rgb(255, 113, 41);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(255, 133, 41);
+color: rgb(78, 154, 6);</string>
    </property>
    <property name="text">
     <string/>
@@ -705,7 +802,8 @@ border: 4px solid rgb(255, 113, 41);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 3px solid rgb(255, 133, 41)</string>
+    <string notr="true">border: 3px solid rgb(255, 133, 41);
+color: rgb(78, 154, 6);</string>
    </property>
    <property name="text">
     <string/>
