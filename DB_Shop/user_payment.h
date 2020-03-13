@@ -31,6 +31,8 @@ private:
     bool add_wallet(int ID,int ammount);
     void load_data(QString username);
     QString DateConverter();
+    int get_type(QString username);
+    void load_all();
 };
 
 #endif // USER_PAYMENT_H

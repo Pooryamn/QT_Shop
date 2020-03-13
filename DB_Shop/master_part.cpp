@@ -60,7 +60,7 @@ void master_part::on_btn_ediprofile_clicked()
 
 void master_part::on_btn_payment_clicked()
 {
-    user_payment* pay = new user_payment(this);
+    user_payment* pay = new user_payment(this,UserName);
     pay->setFixedSize(pay->width(),pay->height());
     pay->exec();
 }

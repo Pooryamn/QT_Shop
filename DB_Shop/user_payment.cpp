@@ -16,7 +16,13 @@ user_payment::user_payment(QWidget *parent,QString usrname) :
 
     UserName = usrname;
 
-    load_data(UserName);
+    if(get_type(UserName) == 1){
+        load_data(UserName);
+    }
+    else{
+        load_all();
+        ui->btn_addpayment->setVisible(false);
+    }
 }
 
 user_payment::~user_payment()
@@ -53,7 +59,7 @@ int user_payment::find_id(QString username){
     query_str = "select \"Customer ID\" "
                 "from customers where "
                 "username = "
-                "\'"+username+"\' ;";
+                "\'" + username+"\' ;";
 
     if(DB.Execute(query_str,query)==false){
         qDebug() << query.lastQuery();
@@ -134,6 +140,60 @@ void user_payment::load_data(QString username){
                 "\"Transaction amount\",\"Transaction status\","
                 "\"Transaction date\" from transactions where "
                 "\"Customer ID\" = " + QString::number(ID) + " ;";
+
+
+    if(DB.Execute(query_str,query)==false){
+        qDebug() << query.lastQuery();
+        qDebug() << query.lastError();
+        return;
+    }
+
+    QSqlQueryModel* model = new QSqlQueryModel();
+
+    model->setQuery(query);
+
+    model->setHeaderData(0,Qt::Horizontal,"ID");
+    model->setHeaderData(1,Qt::Horizontal,"Transaction type");
+    model->setHeaderData(2,Qt::Horizontal,"amount");
+    model->setHeaderData(3,Qt::Horizontal,"status");
+    model->setHeaderData(4,Qt::Horizontal,"date");
+
+    ui->tbl_payment->setModel(model);
+
+    ui->tbl_payment->setColumnWidth(0,150);
+    ui->tbl_payment->setColumnWidth(1,150);
+    ui->tbl_payment->setColumnWidth(2,200);
+    ui->tbl_payment->setColumnWidth(3,200);
+    ui->tbl_payment->setColumnWidth(4,200);
+
+}
+
+int user_payment::get_type(QString username){
+
+    QSqlQuery query;
+    QString query_str;
+
+    query_str = "select \"Account type\" "
+                "from account "
+                "where "
+                "username = \'" + username + "\' ;" ;
+
+    if(DB.Execute(query_str,query) ==false){
+        qDebug() <<query.lastError();
+    }
+
+    query.first();
+
+    return query.value(0).toInt();
+}
+
+void user_payment::load_all(){
+    QString query_str;
+    QSqlQuery query;
+
+    query_str = "select \"Transaction ID\",\"Transaction type\","
+                "\"Transaction amount\",\"Transaction status\","
+                "\"Transaction date\" from transactions ;";
 
 
     if(DB.Execute(query_str,query)==false){
