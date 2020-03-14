@@ -65,10 +65,6 @@ void new_stock::load_suppliers(){
     ui->tbl_supplier->setSelectionMode(QAbstractItemView::SingleSelection);
 }
 
-void new_stock::on_btn_refresh_clicked()
-{
-    load_suppliers();
-}
 
 bool new_stock::new_supplier_called(){
     return supplier_called;

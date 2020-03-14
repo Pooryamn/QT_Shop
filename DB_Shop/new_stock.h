@@ -22,8 +22,6 @@ public:
 private slots:
     void on_btn_addsupplier_clicked();
 
-    void on_btn_refresh_clicked();
-
 private:
     Ui::new_stock *ui;
     Database DB;

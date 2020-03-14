@@ -74,7 +74,7 @@
      <x>30</x>
      <y>60</y>
      <width>180</width>
-     <height>401</height>
+     <height>461</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -526,30 +526,6 @@ background-color: rgb(244, 168, 150);</string>
      <width>731</width>
      <height>101</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_refresh">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>490</y>
-     <width>180</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>13</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(244, 168, 150);
-color: rgb(53, 133, 151);</string>
-   </property>
-   <property name="text">
-    <string>Refresh</string>
    </property>
   </widget>
  </widget>

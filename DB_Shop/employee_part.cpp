@@ -56,6 +56,11 @@ void employee_part::on_btn_newstock_clicked()
         supplier->setFixedSize(supplier->width(),supplier->height());
         DB.Disconnect();
         supplier->exec();
+
+        new_stock* stock2 = new new_stock(this);
+        stock2->setFixedSize(stock2->width(),stock2->height());
+        DB.Disconnect();
+        stock2->exec();
         DB.Connect();
     }
 }
