@@ -18,6 +18,13 @@ New_supplier::New_supplier(QWidget *parent,int T,int id) :
 
     ID = id;
 
+    if(T == 1){
+        load_data(ID);
+        ui->btn_save->setVisible(false);
+        ui->btn_clear->setVisible(false);
+        ui->btn_choose->setVisible(false);
+    }
+
 }
 
 New_supplier::~New_supplier()
@@ -32,7 +39,6 @@ bool New_supplier::check_input(){
         QMessageBox::warning(this,"input error","Company name is empty");
         return false;
     }
-
     if(isValidSupplier(ui->txt_company->text())){
         QMessageBox::warning(this,"input error","Company already exists");
         return false;
@@ -108,29 +114,13 @@ void New_supplier::on_btn_save_clicked()
         query.bindValue(":Type",ui->txt_type->text().toLower());
         query.bindValue(":ATT",image);
     }
-    else if (Type == 1) {
-        query.prepare("update suppliers set "
-                      "\"Company name\" = :Name,"
-                      "email = :EM ,"
-                      "phone = :PH,"
-                      "\"Company Type\" = :Type,"
-                      "attachments = :ATT "
-                      "where ID = :IDD ;");
-
-
-        query.bindValue(":Name",ui->txt_company->text().toLower());
-        query.bindValue(":EM",ui->txt_email->text());
-        query.bindValue(":PH",ui->txt_phone->text());
-        query.bindValue(":Type",ui->txt_type->text().toLower());
-        query.bindValue(":ATT",image);
-        query.bindValue(":IDD",ID);
-    }
 
     if(DB.Execute(query_str,query) == false){
         qDebug() << query.lastQuery() << query.lastError();
         return;
     }
-
+    qDebug() << query.lastQuery();
+    QMessageBox::about(this,"successful","Done!");
     this->close();
 }
 
@@ -158,4 +148,32 @@ bool New_supplier::isValidSupplier(QString name){
         qDebug() << "Error in executing select query";
     }
     return  false;
+}
+
+void New_supplier::load_data(int id){
+
+    QString query_str;
+    QSqlQuery query;
+
+    query_str = "select * from suppliers where \"Supplier ID\" = " + QString::number(id) + ";";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << query.lastError();
+        return;
+    }
+
+    query.first();
+
+    ui->txt_company->setText(query.value(1).toString());
+    ui->txt_email->setText(query.value(2).toString());
+    ui->txt_phone->setText(query.value(3).toString().remove("null"));
+    ui->txt_type->setText(query.value(4).toString());
+
+    image = query.value(5).toByteArray();
+
+    QPixmap pixx;
+    pixx.loadFromData(image,nullptr,Qt::AutoColor);
+    pixx = pixx.scaledToWidth(ui->pic->width(),Qt::SmoothTransformation);
+    ui->pic->setPixmap(pixx);
+
 }

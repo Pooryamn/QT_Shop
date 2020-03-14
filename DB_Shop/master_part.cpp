@@ -58,7 +58,6 @@ void master_part::on_btn_newstock_clicked()
 
         new_stock* stock2 = new new_stock(this);
         stock2->setFixedSize(stock2->width(),stock2->height());
-        DB.Disconnect();
         stock2->exec();
         DB.Connect();
     }
@@ -111,6 +110,23 @@ void master_part::on_btn_supplier_clicked()
     DB.Disconnect();
     supply->exec();
     DB.Connect();
+
+    int ID = supply->edit_supplier_called();
+
+    if(ID != 0){
+
+        delete supply;
+
+        New_supplier* supplier = new New_supplier(this,1,ID);
+        supplier->setFixedSize(supplier->width(),supplier->height());
+        DB.Disconnect();
+        supplier->exec();
+
+        Suppliers* supply2 = new Suppliers(this);
+        supply2->setFixedSize(supply2->width(),supply2->height());
+        supply2->exec();
+        DB.Connect();
+    }
 }
 
 void master_part::set_form(){

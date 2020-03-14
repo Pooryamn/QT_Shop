@@ -16,6 +16,7 @@ class Suppliers : public QDialog
 
 public:
     explicit Suppliers(QWidget *parent = nullptr);
+    int edit_supplier_called();
     ~Suppliers();
 
 private slots:
@@ -23,10 +24,13 @@ private slots:
 
     void on_btn_deletesupplier_clicked();
 
+    void on_tbl_suppliers_doubleClicked(const QModelIndex &index);
+
 private:
     Ui::Suppliers *ui;
     Database DB;
     void Load_data();
+    int supplier_called;
 };
 
 #endif // SUPPLIERS_H

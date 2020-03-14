@@ -34,6 +34,7 @@ private:
     int ID;
     QByteArray image;
     bool isValidSupplier(QString name);
+    void load_data(int id);
 };
 
 #endif // NEW_SUPPLIER_H

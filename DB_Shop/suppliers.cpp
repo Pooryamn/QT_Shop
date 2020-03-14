@@ -13,6 +13,8 @@ Suppliers::Suppliers(QWidget *parent) :
         exit(0);
     }
 
+    supplier_called = 0;
+
     Load_data();
 
 }
@@ -93,4 +95,15 @@ void Suppliers::Load_data(){
     ui->tbl_suppliers->setColumnWidth(4,150);
 
     ui->tbl_suppliers->setSelectionMode(QAbstractItemView::SingleSelection);
+}
+
+void Suppliers::on_tbl_suppliers_doubleClicked(const QModelIndex &index)
+{
+    supplier_called = ui->tbl_suppliers->model()->index(index.row(),0).data().toInt();
+    this->close();
+
+}
+
+int Suppliers::edit_supplier_called(){
+    return supplier_called;
 }
