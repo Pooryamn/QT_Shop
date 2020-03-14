@@ -94,6 +94,11 @@ bool new_stock::check_inputs(){
         return false;
     }
 
+    if(isValidProduct(SupplierID,ui->txt_name->text().remove(" "))){
+        QMessageBox::warning(this,"Input Error","this product already exist with this supplier");
+        return false;
+    }
+
     if(ui->txt_category->text().remove(" ").isEmpty() == true){
         QMessageBox::warning(this,"Input Error","Enter Category");
         return false;
@@ -132,7 +137,7 @@ QString new_stock::get_category(QString Company){
     QString query_str;
     QSqlQuery query;
 
-    query_str = "select \"Company Type\" from suppliers where \"Company name\" = \'" + Company + "\';";
+    query_str = "select \"Company Type\",\"Supplier ID\" from suppliers where \"Company name\" = \'" + Company + "\';";
 
     if(DB.Execute(query_str,query) == false){
         qDebug() << query.lastQuery() << query.lastError();
@@ -141,6 +146,7 @@ QString new_stock::get_category(QString Company){
 
     query.first();
 
+    SupplierID = query.value(1).toInt();
     return query.value(0).toString();
 }
 
@@ -389,4 +395,160 @@ void new_stock::on_btn_choose6_clicked()
         ui->btn_choose6->setText("Choose ...");//
 
     }
+}
+
+void new_stock::on_btn_addstock_clicked()
+{
+    if(check_inputs() == false){
+        return;
+    }
+
+    // add data to stocks :
+    QSqlQuery query;
+    QString query_str;
+
+    query.prepare( "insert into products (\"Supplier ID\",\"Product name\","
+                "category,\"Unit cost\",stock,\"Description\")"
+                "values(:SID,:PN,:CAT,:COST,:ST,:DES);");
+
+    query.bindValue(":SID",SupplierID);
+    query.bindValue(":PN",ui->txt_name->text().toLower());
+    query.bindValue(":CAT",ui->txt_category->text().toLower());
+    query.bindValue(":COST",ui->txt_cost->text().toInt());
+    query.bindValue(":ST",ui->txt_stock->text().toInt());
+    query.bindValue(":DES",ui->textEdit->toPlainText());
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << query.lastError();
+        return ;
+    }
+
+    query.clear();
+
+    query_str = "select \"Product ID\" "
+                "from products where"
+                "\"Supplier ID\" = "
+                + QString::number(SupplierID) +
+                " and \"Product name\" = "
+                "\'" + ui->txt_name->text() + "\';";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << query.lastError();
+        return ;
+    }
+
+    query.first();
+
+    ProductID = query.value(0).toInt();
+
+    query.clear();
+    query_str.clear();
+
+    // add pictures :
+    if(image[0].isEmpty() == false){
+        query.prepare("insert into product_pic(\"Product ID\","
+                      "attachments) values(:PID,:ATT);");
+
+        query.bindValue(":PID",ProductID);
+        query.bindValue(":ATT",image[0]);
+
+        if(DB.Execute(query_str,query) == false){
+            qDebug() << query.lastQuery() << query.lastError();
+            return ;
+        }
+
+    }
+    if(image[1].isEmpty() == false){
+        query.prepare("insert into product_pic(\"Product ID\","
+                      "attachments) values(:PID,:ATT);");
+
+        query.bindValue(":PID",ProductID);
+        query.bindValue(":ATT",image[1]);
+
+        if(DB.Execute(query_str,query) == false){
+            qDebug() << query.lastQuery() << query.lastError();
+            return ;
+        }
+    }
+    if(image[2].isEmpty() == false){
+        query.prepare("insert into product_pic(\"Product ID\","
+                      "attachments) values(:PID,:ATT);");
+
+        query.bindValue(":PID",ProductID);
+        query.bindValue(":ATT",image[2]);
+
+        if(DB.Execute(query_str,query) == false){
+            qDebug() << query.lastQuery() << query.lastError();
+            return ;
+        }
+    }
+    if(image[3].isEmpty() == false){
+        query.prepare("insert into product_pic(\"Product ID\","
+                      "attachments) values(:PID,:ATT);");
+
+        query.bindValue(":PID",ProductID);
+        query.bindValue(":ATT",image[3]);
+
+        if(DB.Execute(query_str,query) == false){
+            qDebug() << query.lastQuery() << query.lastError();
+            return ;
+        }
+    }
+    if(image[4].isEmpty() == false){
+        query.prepare("insert into product_pic(\"Product ID\","
+                      "attachments) values(:PID,:ATT);");
+
+        query.bindValue(":PID",ProductID);
+        query.bindValue(":ATT",image[4]);
+
+        if(DB.Execute(query_str,query) == false){
+            qDebug() << query.lastQuery() << query.lastError();
+            return ;
+        }
+    }
+    if(image[5].isEmpty() == false){
+        query.prepare("insert into product_pic(\"Product ID\","
+                      "attachments) values(:PID,:ATT);");
+
+        query.bindValue(":PID",ProductID);
+        query.bindValue(":ATT",image[5]);
+
+        if(DB.Execute(query_str,query) == false){
+            qDebug() << query.lastQuery() << query.lastError();
+            return ;
+        }
+    }
+
+    this->close();
+}
+
+bool new_stock::isValidProduct(int SuppID, QString PName){
+
+    QSqlQuery query;
+
+    QString query_str ;
+
+    query_str = "select \"Product ID\" "
+                "from products where"
+                "\"Supplier ID\" = "
+                + QString::number(SuppID) +
+                " and \"Product name\" = "
+                "\'" + PName + "\';";
+
+    if(DB.Execute(query_str,query)){
+
+        query.first();
+
+        if(query.value(0).toInt() == 0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    else {
+        qDebug() << "Error in executing select query";
+    }
+    return false;
+
 }

@@ -102,10 +102,10 @@ void New_supplier::on_btn_save_clicked()
                       "\"Company Type\",attachments) values"
                       "(:Name,:EM,:PH,:Type,:ATT);");
 
-        query.bindValue(":Name",ui->txt_company->text());
+        query.bindValue(":Name",ui->txt_company->text().toLower());
         query.bindValue(":EM",ui->txt_email->text());
         query.bindValue(":PH",ui->txt_phone->text());
-        query.bindValue(":Type",ui->txt_type->text());
+        query.bindValue(":Type",ui->txt_type->text().toLower());
         query.bindValue(":ATT",image);
     }
     else if (Type == 1) {

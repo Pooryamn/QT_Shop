@@ -528,7 +528,47 @@ background-color: rgb(244, 168, 150);</string>
     </rect>
    </property>
   </widget>
+  <widget class="QPushButton" name="btn_addstock">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>370</y>
+     <width>180</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(244, 168, 150);
+color: rgb(53, 133, 151);</string>
+   </property>
+   <property name="text">
+    <string>ADD</string>
+   </property>
+  </widget>
  </widget>
+ <tabstops>
+  <tabstop>tbl_supplier</tabstop>
+  <tabstop>btn_addsupplier</tabstop>
+  <tabstop>txt_name</tabstop>
+  <tabstop>txt_category</tabstop>
+  <tabstop>txt_cost</tabstop>
+  <tabstop>txt_stock</tabstop>
+  <tabstop>btn_choose1</tabstop>
+  <tabstop>btn_choose2</tabstop>
+  <tabstop>btn_choose3</tabstop>
+  <tabstop>btn_choose4</tabstop>
+  <tabstop>btn_choose5</tabstop>
+  <tabstop>btn_choose6</tabstop>
+  <tabstop>textEdit</tabstop>
+  <tabstop>btn_addstock</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

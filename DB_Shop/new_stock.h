@@ -37,6 +37,8 @@ private slots:
 
     void on_btn_choose6_clicked();
 
+    void on_btn_addstock_clicked();
+
 private:
     Ui::new_stock *ui;
     Database DB;
@@ -46,6 +48,9 @@ private:
     bool check_inputs();
     QString get_category(QString Company);
     QByteArray image[6];
+    int SupplierID;
+    int ProductID;
+    bool isValidProduct(int SuppID,QString PName);
 
 };
 
