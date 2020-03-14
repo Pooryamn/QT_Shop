@@ -22,11 +22,16 @@ public:
 private slots:
     void on_btn_addsupplier_clicked();
 
+    void on_tbl_supplier_clicked(const QModelIndex &index);
+
 private:
     Ui::new_stock *ui;
     Database DB;
     void load_suppliers();
     bool supplier_called;
+    void set_input_method();
+    bool check_inputs();
+    QString get_category(QString Company);
 
 };
 

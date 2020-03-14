@@ -65,7 +65,7 @@
     <string notr="true">color: rgb(244, 168, 150);</string>
    </property>
    <property name="text">
-    <string>Supplier :</string>
+    <string>Supplier* :</string>
    </property>
   </widget>
   <widget class="QTableView" name="tbl_supplier">

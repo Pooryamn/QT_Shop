@@ -26,28 +26,29 @@ New_supplier::~New_supplier()
     delete ui;
 }
 
-void New_supplier::check_input(){
+bool New_supplier::check_input(){
 
     if(ui->txt_company->text().remove(" ").isEmpty()){
         QMessageBox::warning(this,"input error","Company name is empty");
-        return;
+        return false;
     }
 
     if(isValidSupplier(ui->txt_company->text())){
         QMessageBox::warning(this,"input error","Company already exists");
-        return;
+        return false;
     }
 
     if(ui->txt_email->text().remove(" ").isEmpty()){
         QMessageBox::warning(this,"input error","email is empty");
-        return;
+        return false;
     }
 
     if(ui->txt_type->text().remove(" ").isEmpty()){
         QMessageBox::warning(this,"input error","Company type is empty");
-        return;
+        return false;
     }
 
+    return true;
 }
 
 void New_supplier::on_btn_clear_clicked()
@@ -87,7 +88,9 @@ void New_supplier::on_btn_choose_clicked()
 
 void New_supplier::on_btn_save_clicked()
 {
-    check_input();
+    if(check_input() == false){
+        return;
+    }
 
     QString query_str;
     QSqlQuery query;

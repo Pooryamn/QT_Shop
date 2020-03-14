@@ -29,7 +29,7 @@ private slots:
 private:
     Ui::New_supplier *ui;
     Database DB;
-    void check_input();
+    bool check_input();
     int Type;
     int ID;
     QByteArray image;
