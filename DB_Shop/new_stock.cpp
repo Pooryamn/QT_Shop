@@ -143,3 +143,250 @@ QString new_stock::get_category(QString Company){
 
     return query.value(0).toString();
 }
+
+void new_stock::on_btn_choose1_clicked()
+{
+    if(ui->btn_choose1->text() == "Choose ..."){
+
+        image[0].clear();
+
+        QString filename = QFileDialog::getOpenFileName(this,"Choose an Image...","","images (*.png *.jpg *.jpeg)");
+
+        if(filename.isEmpty()){
+            return;
+        }
+
+        QImage img;
+        bool status = img.load(filename);
+
+        if(status == false){
+            QMessageBox::warning(this,"Input Error",".:: Image was corrupt");
+            return;
+        }
+        img = img.scaled(ui->pic_1->width(),ui->pic_1->height(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+        ui->pic_1->setPixmap(QPixmap::fromImage(img));
+
+        // converting Qimage to QByteArray :
+        QBuffer buffer(&image[0]);
+        buffer.open(QIODevice::WriteOnly);
+
+        QPixmap::fromImage(img).save(&buffer,"PNG");
+
+
+        ui->btn_choose1->setText("Clear");
+
+    }
+    else{
+
+        image[0].clear();
+        ui->pic_1->clear();
+        ui->btn_choose1->setText("Choose ...");
+
+    }
+}
+
+void new_stock::on_btn_choose2_clicked()
+{
+    if(ui->btn_choose2->text() == "Choose ..."){ //
+
+        image[1].clear(); //
+
+        QString filename = QFileDialog::getOpenFileName(this,"Choose an Image...","","images (*.png *.jpg *.jpeg)");
+
+        if(filename.isEmpty()){
+            return;
+        }
+
+        QImage img;
+        bool status = img.load(filename);
+
+        if(status == false){
+            QMessageBox::warning(this,"Input Error",".:: Image was corrupt");
+            return;
+        }
+        img = img.scaled(ui->pic_2->width(),ui->pic_2->height(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+        ui->pic_2->setPixmap(QPixmap::fromImage(img));//
+
+        // converting Qimage to QByteArray :
+        QBuffer buffer(&image[1]);//
+        buffer.open(QIODevice::WriteOnly);
+
+        QPixmap::fromImage(img).save(&buffer,"PNG");
+
+
+        ui->btn_choose2->setText("Clear");//
+
+    }
+    else{
+
+        image[1].clear();//
+        ui->pic_2->clear();//
+        ui->btn_choose2->setText("Choose ...");//
+
+    }
+}
+
+void new_stock::on_btn_choose3_clicked()
+{
+    if(ui->btn_choose3->text() == "Choose ..."){ //
+
+        image[2].clear(); //
+
+        QString filename = QFileDialog::getOpenFileName(this,"Choose an Image...","","images (*.png *.jpg *.jpeg)");
+
+        if(filename.isEmpty()){
+            return;
+        }
+
+        QImage img;
+        bool status = img.load(filename);
+
+        if(status == false){
+            QMessageBox::warning(this,"Input Error",".:: Image was corrupt");
+            return;
+        }
+        img = img.scaled(ui->pic_3->width(),ui->pic_3->height(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+        ui->pic_3->setPixmap(QPixmap::fromImage(img));//
+
+        // converting Qimage to QByteArray :
+        QBuffer buffer(&image[2]);//
+        buffer.open(QIODevice::WriteOnly);
+
+        QPixmap::fromImage(img).save(&buffer,"PNG");
+
+
+        ui->btn_choose3->setText("Clear");//
+
+    }
+    else{
+
+        image[2].clear();//
+        ui->pic_3->clear();//
+        ui->btn_choose3->setText("Choose ...");//
+
+    }
+}
+
+void new_stock::on_btn_choose4_clicked()
+{
+    if(ui->btn_choose4->text() == "Choose ..."){ //
+
+        image[3].clear(); //
+
+        QString filename = QFileDialog::getOpenFileName(this,"Choose an Image...","","images (*.png *.jpg *.jpeg)");
+
+        if(filename.isEmpty()){
+            return;
+        }
+
+        QImage img;
+        bool status = img.load(filename);
+
+        if(status == false){
+            QMessageBox::warning(this,"Input Error",".:: Image was corrupt");
+            return;
+        }
+        img = img.scaled(ui->pic_4->width(),ui->pic_4->height(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+        ui->pic_4->setPixmap(QPixmap::fromImage(img));//
+
+        // converting Qimage to QByteArray :
+        QBuffer buffer(&image[3]);//
+        buffer.open(QIODevice::WriteOnly);
+
+        QPixmap::fromImage(img).save(&buffer,"PNG");
+
+
+        ui->btn_choose4->setText("Clear");//
+
+    }
+    else{
+
+        image[3].clear();//
+        ui->pic_4->clear();//
+        ui->btn_choose4->setText("Choose ...");//
+
+    }
+}
+
+void new_stock::on_btn_choose5_clicked()
+{
+    if(ui->btn_choose5->text() == "Choose ..."){ //
+
+        image[4].clear(); //
+
+        QString filename = QFileDialog::getOpenFileName(this,"Choose an Image...","","images (*.png *.jpg *.jpeg)");
+
+        if(filename.isEmpty()){
+            return;
+        }
+
+        QImage img;
+        bool status = img.load(filename);
+
+        if(status == false){
+            QMessageBox::warning(this,"Input Error",".:: Image was corrupt");
+            return;
+        }
+        img = img.scaled(ui->pic_5->width(),ui->pic_5->height(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+        ui->pic_5->setPixmap(QPixmap::fromImage(img));//
+
+        // converting Qimage to QByteArray :
+        QBuffer buffer(&image[4]);//
+        buffer.open(QIODevice::WriteOnly);
+
+        QPixmap::fromImage(img).save(&buffer,"PNG");
+
+
+        ui->btn_choose5->setText("Clear");//
+
+    }
+    else{
+
+        image[4].clear();//
+        ui->pic_5->clear();//
+        ui->btn_choose5->setText("Choose ...");//
+
+    }
+}
+
+void new_stock::on_btn_choose6_clicked()
+{
+    if(ui->btn_choose6->text() == "Choose ..."){ //
+
+        image[5].clear(); //
+
+        QString filename = QFileDialog::getOpenFileName(this,"Choose an Image...","","images (*.png *.jpg *.jpeg)");
+
+        if(filename.isEmpty()){
+            return;
+        }
+
+        QImage img;
+        bool status = img.load(filename);
+
+        if(status == false){
+            QMessageBox::warning(this,"Input Error",".:: Image was corrupt");
+            return;
+        }
+
+        img = img.scaled(ui->pic_6->width(),ui->pic_6->height(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+        ui->pic_6->setPixmap(QPixmap::fromImage(img));//
+
+        // converting Qimage to QByteArray :
+        QBuffer buffer(&image[5]);//
+        buffer.open(QIODevice::WriteOnly);
+
+        QPixmap::fromImage(img).save(&buffer,"PNG");
+
+
+        ui->btn_choose6->setText("Clear");//
+
+    }
+    else{
+
+        image[5].clear();//
+        ui->pic_6->clear();//
+        ui->btn_choose6->setText("Choose ...");//
+
+    }
+}
