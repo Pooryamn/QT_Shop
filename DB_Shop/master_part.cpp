@@ -45,7 +45,23 @@ void master_part::on_btn_newstock_clicked()
 {
     new_stock* stock = new new_stock(this);
     stock->setFixedSize(stock->width(),stock->height());
+    DB.Disconnect();
     stock->exec();
+    DB.Connect();
+
+    if(stock->new_supplier_called()){
+
+        New_supplier* supplier = new New_supplier(this,0,0);
+        supplier->setFixedSize(supplier->width(),supplier->height());
+        DB.Disconnect();
+        supplier->exec();
+
+        new_stock* stock2 = new new_stock(this);
+        stock2->setFixedSize(stock2->width(),stock2->height());
+        DB.Disconnect();
+        stock2->exec();
+        DB.Connect();
+    }
 }
 
 void master_part::on_btn_ediprofile_clicked()
@@ -92,7 +108,9 @@ void master_part::on_btn_supplier_clicked()
 {
     Suppliers* supply = new Suppliers(this);
     supply->setFixedSize(supply->width(),supply->height());
+    DB.Disconnect();
     supply->exec();
+    DB.Connect();
 }
 
 void master_part::set_form(){
