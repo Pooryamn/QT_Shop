@@ -105,7 +105,9 @@ void Widget::on_btn_login_clicked()
     DB.Disconnect();
     Loging* login = new Loging(this);
     login->setFixedSize(login->width(),login->height());
+    this->hide();
     login->exec();
+    this->show();
 
     int user_type = login->get_type();
     QString username = login->get_user();
