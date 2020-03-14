@@ -176,72 +176,6 @@ border: 5px solid rgb(91,14,45);
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="pic_1">
-   <property name="geometry">
-    <rect>
-     <x>850</x>
-     <y>100</y>
-     <width>120</width>
-     <height>120</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
-border: 4px solid rgb(91,14,45);
-
-
-</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="pic_2">
-   <property name="geometry">
-    <rect>
-     <x>850</x>
-     <y>240</y>
-     <width>120</width>
-     <height>120</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
-border: 4px solid rgb(91,14,45);
-
-</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="pic_3">
-   <property name="geometry">
-    <rect>
-     <x>850</x>
-     <y>380</y>
-     <width>120</width>
-     <height>120</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
-border: 4px solid rgb(91,14,45);
-</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btn_register">
    <property name="geometry">
     <rect>
@@ -328,7 +262,6 @@ background-color: rgb(91,14,45);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 4px solid rgb(91,14,45);
 </string>
    </property>
   </widget>
@@ -376,49 +309,24 @@ Login or Register</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="pic_4">
+  <widget class="QPushButton" name="pic_1">
    <property name="geometry">
     <rect>
-     <x>720</x>
-     <y>240</y>
+     <x>850</x>
+     <y>100</y>
      <width>120</width>
      <height>120</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
-border: 4px solid rgb(91,14,45);
+    <string notr="true">border: 4px solid rgb(91,14,45);
 </string>
    </property>
    <property name="text">
     <string/>
    </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
   </widget>
-  <widget class="QLabel" name="pic_5">
-   <property name="geometry">
-    <rect>
-     <x>720</x>
-     <y>380</y>
-     <width>120</width>
-     <height>120</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
-border: 4px solid rgb(91,14,45);
-</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="pic_6">
+  <widget class="QPushButton" name="pic_2">
    <property name="geometry">
     <rect>
      <x>720</x>
@@ -428,16 +336,74 @@ border: 4px solid rgb(91,14,45);
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
-border: 4px solid rgb(91,14,45);
-
-</string>
+    <string notr="true">border: 4px solid rgb(91,14,45);</string>
    </property>
    <property name="text">
     <string/>
    </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
+  </widget>
+  <widget class="QPushButton" name="pic_3">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>230</y>
+     <width>120</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 4px solid rgb(91,14,45);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pic_4">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>230</y>
+     <width>120</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 4px solid rgb(91,14,45);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pic_5">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>360</y>
+     <width>120</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 4px solid rgb(91,14,45);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pic_6">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>360</y>
+     <width>120</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 4px solid rgb(91,14,45);</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <zorder>lbl_BG</zorder>
@@ -447,14 +413,14 @@ border: 4px solid rgb(91,14,45);
   <zorder>GP_SearchMethod</zorder>
   <zorder>tbl_search</zorder>
   <zorder>pic_0</zorder>
-  <zorder>pic_1</zorder>
-  <zorder>pic_2</zorder>
-  <zorder>pic_3</zorder>
   <zorder>btn_register</zorder>
   <zorder>btn_login</zorder>
   <zorder>btn_help</zorder>
   <zorder>txt_description</zorder>
   <zorder>lbl_warning</zorder>
+  <zorder>pic_1</zorder>
+  <zorder>pic_2</zorder>
+  <zorder>pic_3</zorder>
   <zorder>pic_4</zorder>
   <zorder>pic_5</zorder>
   <zorder>pic_6</zorder>

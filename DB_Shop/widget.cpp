@@ -17,6 +17,8 @@ Widget::Widget(QWidget *parent) :
 
     Setup();
 
+    //label_connection();
+
     Search(ui->txt_search->text(),0);
 }
 
@@ -29,29 +31,35 @@ Widget::~Widget()
 void Widget::Setup(){
 
     // Set Not found picture on mini pic1
-    ui->pic_1->setPixmap(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+    ui->pic_1->setIcon(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+    ui->pic_1->setIconSize(ui->pic_1->size());
+
 
     // Set Not found picture on mini pic2
-    ui->pic_2->setPixmap(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+    ui->pic_2->setIcon(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+    ui->pic_2->setIconSize(ui->pic_1->size());
 
     // Set Not found picture on mini pic3
-    ui->pic_3->setPixmap(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+    ui->pic_3->setIcon(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+    ui->pic_3->setIconSize(ui->pic_1->size());
 
     // Set Not found picture on mini pic2
-    ui->pic_4->setPixmap(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+    ui->pic_4->setIcon(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+    ui->pic_4->setIconSize(ui->pic_1->size());
 
     // Set Not found picture on mini pic2
-    ui->pic_5->setPixmap(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+    ui->pic_5->setIcon(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+    ui->pic_5->setIconSize(ui->pic_1->size());
 
     // Set Not found picture on mini pic2
-    ui->pic_6->setPixmap(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
-
+    ui->pic_6->setIcon(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+    ui->pic_6->setIconSize(ui->pic_1->size());
 
     // Set Not found picture on Big pic
     ui->pic_0->setPixmap(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(200,200,Qt::KeepAspectRatio));
 
     //
-    ui->txt_description->setDisabled(true);
+    ui->txt_description->setReadOnly(true);
 
 }
 
@@ -175,7 +183,7 @@ void Widget::Search(QString key, int Type){
     QSqlQuery query;
 
     if(Type == 0){
-        // search by name
+        // search by name}
         if(key.isEmpty()){
             query_str = "select \"Product ID\",\"Product name\" "
                         "from products;";
@@ -217,4 +225,206 @@ void Widget::Search(QString key, int Type){
     ui->tbl_search->setColumnWidth(1,190);
 
     ui->tbl_search->setSelectionMode(QAbstractItemView::SingleSelection);
+}
+
+void Widget::load_search_data(int ID){
+
+    QString query_str;
+    QSqlQuery query;
+
+    query_str = "select * from products where \"Product ID\" = "+ QString::number(ID) + ";";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return;
+    }
+
+    query.first();
+
+    QString Pname = query.value(2).toString();
+    QString Cname = find_company(query.value(1).toInt());
+    QString Category = query.value(3).toString();
+    QString UnitCost = query.value(4).toString();
+    QString Stock = query.value(5).toString();
+    QString Desc = query.value(6).toString();
+
+    QString Html = "<h4>"
+                    "<p style= \"color : #FF0000 \" ; >  Product Name : </p>"
+                    "<p style= \"color : #1010FF \" ; > " + Pname +  " </p> "
+                    "<br>"
+                    "<p style= \"color : #FF0000 \" ; >  Company : </p>"
+                    "<p style= \"color : #1010FF \" ; > " + Cname + " </p> "
+                    "<br>"
+                    "<p style= \"color : #FF0000 \" ; >  Category : </p> "
+                    "<p style= \"color : #1010FF \" ; >" + Category +  "</p>"
+                    "<br>"
+                    "<p style= \"color : #FF0000 \" ; >  Cost : </p> "
+                    "<p style= \"color : #1010FF \" ; > " + UnitCost + "</p>"
+                    "<br>"
+                    "<p style= \"color : #FF0000 \" ; >  Stock : </p> "
+                    "<p style= \"color : #1010FF \" ; >" + Stock + "</p>"
+                    "<br>"
+                    "<p style= \"color : #FF0000 \" ; >  Description : </p> "
+                    "<p style= \"color : #1010FF \" ; >" + Desc + "</p>"
+                    "<br>"
+                    "</h4>";
+
+    ui->txt_description->setHtml(Html);
+
+    // pics :
+    query_str.clear();
+    query.clear();
+
+    query_str = "select * from product_pic where \"Product ID\" = " + QString::number(ID) + ";";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return ;
+    }
+
+    Setup();
+
+    for(int i = 0;i<6;i++){
+        image[i].clear();
+    }
+
+    query.first();
+
+    for (int i = 0;i<query.size();i++) {
+        image[i] = query.value(2).toByteArray();
+        query.next();
+    }
+
+    if(image[0].isEmpty() == false){
+        QPixmap pixx;
+        pixx.loadFromData(image[0],nullptr,Qt::AutoColor);
+        pixx = pixx.scaledToWidth(ui->pic_0->width(),Qt::SmoothTransformation);
+        ui->pic_0->setPixmap(pixx);
+
+        ui->pic_1->setIcon(pixx);
+        ui->pic_1->setIconSize(ui->pic_1->size());
+        ui->pic_1->setStyleSheet("background-color: rgb(255, 255, 255);");
+
+    }
+
+    if(image[1].isEmpty() == false){
+        QPixmap pixx;
+        pixx.loadFromData(image[1],nullptr,Qt::AutoColor);
+        ui->pic_2->setIcon(pixx);
+        ui->pic_2->setIconSize(ui->pic_1->size());
+        ui->pic_2->setStyleSheet("background-color: rgb(255, 255, 255);");
+    }
+
+
+    if(image[2].isEmpty() == false){
+        QPixmap pixx;
+        pixx.loadFromData(image[2],nullptr,Qt::AutoColor);
+        ui->pic_3->setIcon(pixx);
+        ui->pic_3->setIconSize(ui->pic_1->size());
+        ui->pic_3->setStyleSheet("background-color: rgb(255, 255, 255);");
+
+    }
+
+
+    if(image[3].isEmpty() == false){
+        QPixmap pixx;
+        pixx.loadFromData(image[3],nullptr,Qt::AutoColor);
+        ui->pic_4->setIcon(pixx);
+        ui->pic_4->setIconSize(ui->pic_1->size());
+        ui->pic_4->setStyleSheet("background-color: rgb(255, 255, 255);");
+    }
+
+
+    if(image[4].isEmpty() == false){
+        QPixmap pixx;
+        pixx.loadFromData(image[4],nullptr,Qt::AutoColor);
+        ui->pic_5->setIcon(pixx);
+        ui->pic_5->setIconSize(ui->pic_1->size());
+        ui->pic_5->setStyleSheet("background-color: rgb(255, 255, 255);");
+    }
+
+
+    if(image[5].isEmpty() == false){
+        QPixmap pixx;
+        pixx.loadFromData(image[5],nullptr,Qt::AutoColor);
+        ui->pic_6->setIcon(pixx);
+        ui->pic_6->setIconSize(ui->pic_1->size());
+        ui->pic_6->setStyleSheet("background-color: rgb(255, 255, 255);");
+    }
+
+}
+
+QString Widget::find_company(int id){
+
+    QString query_str;
+    QSqlQuery query;
+
+    query_str = "select \"Company name\" from suppliers"
+                " inner join products on suppliers.\"Supplier ID\" "
+                "= products.\"Supplier ID\" "
+                "where suppliers.\"Supplier ID\" = " + QString::number(id)+ ";";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return "";
+    }
+
+    query.first();
+
+    return query.value(0).toString();
+}
+
+void Widget::on_tbl_search_clicked(const QModelIndex &index)
+{
+    int id = ui->tbl_search->model()->index(index.row(),0).data().toInt();
+    load_search_data(id);
+}
+
+
+void Widget::on_pic_1_clicked()
+{
+    QPixmap pixx;
+    pixx.loadFromData(image[0],nullptr,Qt::AutoColor);
+    pixx = pixx.scaledToWidth(ui->pic_0->width(),Qt::SmoothTransformation);
+    ui->pic_0->setPixmap(pixx);
+}
+
+void Widget::on_pic_2_clicked()
+{
+    QPixmap pixx;
+    pixx.loadFromData(image[1],nullptr,Qt::AutoColor);
+    pixx = pixx.scaledToWidth(ui->pic_0->width(),Qt::SmoothTransformation);
+    ui->pic_0->setPixmap(pixx);
+}
+
+void Widget::on_pic_3_clicked()
+{
+    QPixmap pixx;
+    pixx.loadFromData(image[2],nullptr,Qt::AutoColor);
+    pixx = pixx.scaledToWidth(ui->pic_0->width(),Qt::SmoothTransformation);
+    ui->pic_0->setPixmap(pixx);
+}
+
+void Widget::on_pic_4_clicked()
+{
+    QPixmap pixx;
+    pixx.loadFromData(image[3],nullptr,Qt::AutoColor);
+    pixx = pixx.scaledToWidth(ui->pic_0->width(),Qt::SmoothTransformation);
+    ui->pic_0->setPixmap(pixx);
+}
+
+void Widget::on_pic_5_clicked()
+{
+    QPixmap pixx;
+    pixx.loadFromData(image[4],nullptr,Qt::AutoColor);
+    pixx = pixx.scaledToWidth(ui->pic_0->width(),Qt::SmoothTransformation);
+    ui->pic_0->setPixmap(pixx);
+}
+
+void Widget::on_pic_6_clicked()
+{
+    QPixmap pixx;
+    pixx.loadFromData(image[5],nullptr,Qt::AutoColor);
+    pixx = pixx.scaledToWidth(ui->pic_0->width(),Qt::SmoothTransformation);
+    ui->pic_0->setPixmap(pixx);
 }

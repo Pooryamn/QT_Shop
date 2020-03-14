@@ -38,6 +38,20 @@ private slots:
 
     void on_txt_search_textChanged(const QString &arg1);
 
+    void on_tbl_search_clicked(const QModelIndex &index);
+
+    void on_pic_1_clicked();
+
+    void on_pic_2_clicked();
+
+    void on_pic_3_clicked();
+
+    void on_pic_4_clicked();
+
+    void on_pic_5_clicked();
+
+    void on_pic_6_clicked();
+
 private:
     Ui::Widget *ui;
     Database DB;
@@ -45,6 +59,9 @@ private:
     void Check_Connection();
     void Connect_DB();
     void Search(QString key,int Type);
+    void load_search_data(int ID);
+    QString find_company(int id);
+    QByteArray image[6];
 
 };
 
