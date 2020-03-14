@@ -44,6 +44,7 @@ private:
     void Setup();
     void Check_Connection();
     void Connect_DB();
+    void Search(QString key,int Type);
 
 };
 

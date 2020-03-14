@@ -146,9 +146,12 @@ color: rgb(47, 0, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 4px solid rgb(91,14,45);
+    <string notr="true">
 </string>
    </property>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
   </widget>
   <widget class="QLabel" name="pic_0">
    <property name="geometry">
