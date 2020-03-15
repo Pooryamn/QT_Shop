@@ -166,6 +166,7 @@ bool Database::Create_DB(){
 
     result = query.exec(my_query.toUtf8().constData());
 
+
     if (result == false){
         return false;
     }

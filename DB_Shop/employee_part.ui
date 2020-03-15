@@ -136,8 +136,7 @@ border: 4px solid rgb(47, 60, 126);
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 4px solid rgb(47, 60, 126);
-</string>
+    <string notr="true"/>
    </property>
   </widget>
   <widget class="QLabel" name="pic_4">

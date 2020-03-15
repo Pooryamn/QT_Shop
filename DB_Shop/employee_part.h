@@ -38,6 +38,8 @@ private slots:
 
     void on_btn_logoff_clicked();
 
+    void on_txt_search_textChanged(const QString &arg1);
+
 private:
 
     Ui::employee_part *ui;
@@ -45,6 +47,12 @@ private:
     Database DB;
     void set_form();
     void load_data(QString username);
+    void Search(QString key,int Type);
+    void load_search_data(int ID);
+    QString find_company(int id);
+    QByteArray image[6];
+
+    QSqlQueryModel* model;
 };
 
 #endif // EMPLOYEE_PART_H

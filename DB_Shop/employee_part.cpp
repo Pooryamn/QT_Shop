@@ -18,6 +18,8 @@ employee_part::employee_part(QWidget *parent,QString usrname) :
 
     load_data(UserName);
 
+    Search(ui->txt_search->text(),0);
+
 }
 
 employee_part::~employee_part()
@@ -44,11 +46,15 @@ void employee_part::on_btn_resizer_clicked()
 
 void employee_part::on_btn_newstock_clicked()
 {
+    delete model;
+    DB.Disconnect();
     new_stock* stock = new new_stock(this);
     stock->setFixedSize(stock->width(),stock->height());
-    DB.Disconnect();
     stock->exec();
     DB.Connect();
+    //model = new QSqlQueryModel;
+    Search(ui->txt_search->text(),0);
+
 
     if(stock->new_supplier_called()){
 
@@ -142,4 +148,68 @@ void employee_part::on_btn_logoff_clicked()
     w->setGeometry(500,200,w->width(),w->height());
     this->close();
     w->show();
+}
+
+void employee_part::Search(QString key, int Type){
+
+    QString query_str;
+    QSqlQuery query;
+
+    if(Type == 0){
+        // search by name}
+        if(key.remove(" ").isEmpty()){
+            query_str = "select \"Product ID\",\"Product name\" "
+                        "from products;";
+        }
+        else {
+
+            query_str = "select \"Product ID\",\"Product name\" "
+                        "from products where \"Product name\" like \'%" + key +"%\'";
+        }
+    }
+    else {
+        // serch by category
+        if(key.remove(" ").isEmpty()){
+            query_str = "select \"Product ID\",\"Product name\" "
+                        "from products;";
+        }
+        else{
+            query_str = "select \"Product ID\",\"Product name\" "
+                        "from products where category like \'%" + key +"%\'";
+
+        }
+    }
+    if(DB.Execute(query_str,query) ==false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return;
+    }
+
+    model = new QSqlQueryModel(this);
+
+    model->setQuery(query);
+
+
+    model->setHeaderData(0,Qt::Horizontal,"ID");
+    model->setHeaderData(1,Qt::Horizontal,"Productname");
+
+    ui->tbl_search->setModel(model);
+
+    ui->tbl_search->setColumnWidth(0,50);
+    ui->tbl_search->setColumnWidth(1,190);
+
+    ui->tbl_search->setSelectionMode(QAbstractItemView::SingleSelection);
+
+
+}
+
+
+
+void employee_part::on_txt_search_textChanged(const QString &arg1)
+{
+    if(ui->radio_Name->isChecked()){
+        Search(arg1,0);
+    }
+    else{
+        Search(arg1,1);
+    }
 }

@@ -117,6 +117,7 @@ void Widget::on_btn_login_clicked()
     }
     else if(user_type == 1){
         // User type :
+        DB.Disconnect();
         user_part* user = new user_part(0,username);
         user->setGeometry(500,200,1000,720);
         user->on_btn_resizer_clicked();
@@ -125,7 +126,8 @@ void Widget::on_btn_login_clicked()
     }
     else if (user_type == 2) {
         // Employee type :
-        employee_part* emp = new employee_part(0,username);
+        DB.Disconnect();
+        employee_part* emp = new employee_part(this,username);
         emp->setGeometry(500,200,1000,720);
         emp->on_btn_resizer_clicked();
         this->close();
@@ -250,13 +252,11 @@ void Widget::load_search_data(int ID){
     QString Stock = query.value(5).toString();
     QString Desc = query.value(6).toString();
 
-    QString Html = "<h4>"
+    QString Html = "<h6>"
                     "<p style= \"color : #FF0000 \" ; >  Product Name : </p>"
                     "<p style= \"color : #1010FF \" ; > " + Pname +  " </p> "
-                    "<br>"
                     "<p style= \"color : #FF0000 \" ; >  Company : </p>"
                     "<p style= \"color : #1010FF \" ; > " + Cname + " </p> "
-                    "<br>"
                     "<p style= \"color : #FF0000 \" ; >  Category : </p> "
                     "<p style= \"color : #1010FF \" ; >" + Category +  "</p>"
                     "<br>"
@@ -269,7 +269,7 @@ void Widget::load_search_data(int ID){
                     "<p style= \"color : #FF0000 \" ; >  Description : </p> "
                     "<p style= \"color : #1010FF \" ; >" + Desc + "</p>"
                     "<br>"
-                    "</h4>";
+                    "</h6>";
 
     ui->txt_description->setHtml(Html);
 
