@@ -222,6 +222,8 @@ void employee_part::on_txt_search_textChanged(const QString &arg1)
 
 void employee_part::load_search_data(int ID){
 
+    Setup();
+
     QString query_str;
     QSqlQuery query;
 
@@ -240,6 +242,17 @@ void employee_part::load_search_data(int ID){
     QString UnitCost = query.value(4).toString();
     QString Stock = query.value(5).toString();
     QString Desc = query.value(6).toString();
+
+    int Stk = Stock.toInt();
+
+    if(Stk > 0){
+        ui->lbl_avalablity->setText("Available");
+        ui->lbl_avalablity->setStyleSheet("color: rgb(78, 154, 6);");
+    }
+    else if (Stk == 0){
+        ui->lbl_avalablity->setText("Not Available");
+        ui->lbl_avalablity->setStyleSheet("color: rgb(255, 0, 0);");
+    }
 
     QString Html = "<h6>"
                     "<p style= \"color : #FF0000 \" ; >  Product Name : </p>"
@@ -272,8 +285,6 @@ void employee_part::load_search_data(int ID){
         qDebug() << query.lastQuery() << endl<<query.lastError();
         return ;
     }
-
-    Setup();
 
     for(int i = 0;i<6;i++){
         image[i].clear();
@@ -396,5 +407,30 @@ void employee_part::Setup(){
     //
     ui->txt_description->setReadOnly(true);
 
+    ui->lbl_avalablity->setText("");
+
+    ui->spin_stock->setMinimum(1);
 }
 
+
+void employee_part::on_btn_addstock_clicked()
+{
+    int addition_stock = ui->spin_stock->value();
+
+    QModelIndex idx = ui->tbl_search->currentIndex();
+    int id = ui->tbl_search->model()->index(idx.row(),0).data().toInt();
+
+    QString query_str;
+    QSqlQuery query;
+
+    query_str = "update products set stock = stock + " + QString::number(addition_stock) +
+                " where \"Product ID\" = " + QString::number(id) + ";";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return ;
+    }
+    QMessageBox::about(this,"successful","Done!");
+
+    load_search_data(id);
+}

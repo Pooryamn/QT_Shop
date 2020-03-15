@@ -428,8 +428,7 @@ color: rgb(251, 234, 235);</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(78, 154, 6);
-color: rgb(255, 0, 0);</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>Not Available</string>
