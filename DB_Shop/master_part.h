@@ -55,6 +55,8 @@ private slots:
 
     void on_tbl_search_clicked(const QModelIndex &index);
 
+    void on_btn_addstock_clicked();
+
 private:
     Ui::master_part *ui;
     QString UserName;

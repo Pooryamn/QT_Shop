@@ -466,3 +466,25 @@ void master_part::on_tbl_search_clicked(const QModelIndex &index)
     int id = ui->tbl_search->model()->index(index.row(),0).data().toInt();
     load_search_data(id);
 }
+
+void master_part::on_btn_addstock_clicked()
+{
+    int addition_stock = ui->spin_stock->value();
+
+    QModelIndex idx = ui->tbl_search->currentIndex();
+    int id = ui->tbl_search->model()->index(idx.row(),0).data().toInt();
+
+    QString query_str;
+    QSqlQuery query;
+
+    query_str = "update products set stock = stock + " + QString::number(addition_stock) +
+                " where \"Product ID\" = " + QString::number(id) + ";";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return ;
+    }
+    QMessageBox::about(this,"successful","Done!");
+
+    load_search_data(id);
+}
