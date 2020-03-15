@@ -52,8 +52,6 @@ void employee_part::on_btn_newstock_clicked()
     stock->setFixedSize(stock->width(),stock->height());
     stock->exec();
     DB.Connect();
-    //model = new QSqlQueryModel;
-    Search(ui->txt_search->text(),0);
 
 
     if(stock->new_supplier_called()){
@@ -69,30 +67,37 @@ void employee_part::on_btn_newstock_clicked()
         stock2->exec();
         DB.Connect();
     }
+    Search(ui->txt_search->text(),0);
 }
 
 void employee_part::on_btn_ediprofile_clicked()
 {
+    delete model;
     user_edit* editor = new user_edit(this,UserName,2);
     editor->setFixedSize(editor->width(),editor->height());
     DB.Disconnect();
     editor->exec();
     DB.Connect();
     load_data(UserName);
+    Search(ui->txt_search->text(),0);
 }
 
 void employee_part::on_btn_payment_clicked()
 {
+    delete model;
     user_payment* pay = new user_payment(this,UserName);
     pay->setFixedSize(pay->width(),pay->height());
     pay->exec();
+    Search(ui->txt_search->text(),0);
 }
 
 void employee_part::on_btn_history_clicked()
 {
+    delete model;
     Shop_history* his = new Shop_history(this);
     his->setFixedSize(his->width(),his->height());
     his->exec();
+    Search(ui->txt_search->text(),0);
 }
 
 
@@ -212,4 +217,153 @@ void employee_part::on_txt_search_textChanged(const QString &arg1)
     else{
         Search(arg1,1);
     }
+}
+
+void employee_part::load_search_data(int ID){
+
+    QString query_str;
+    QSqlQuery query;
+
+    query_str = "select * from products where \"Product ID\" = "+ QString::number(ID) + ";";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return;
+    }
+
+    query.first();
+
+    QString Pname = query.value(2).toString();
+    QString Cname = find_company(query.value(1).toInt());
+    QString Category = query.value(3).toString();
+    QString UnitCost = query.value(4).toString();
+    QString Stock = query.value(5).toString();
+    QString Desc = query.value(6).toString();
+
+    QString Html = "<h6>"
+                    "<p style= \"color : #FF0000 \" ; >  Product Name : </p>"
+                    "<p style= \"color : #1010FF \" ; > " + Pname +  " </p> "
+                    "<p style= \"color : #FF0000 \" ; >  Company : </p>"
+                    "<p style= \"color : #1010FF \" ; > " + Cname + " </p> "
+                    "<p style= \"color : #FF0000 \" ; >  Category : </p> "
+                    "<p style= \"color : #1010FF \" ; >" + Category +  "</p>"
+                    "<br>"
+                    "<p style= \"color : #FF0000 \" ; >  Cost : </p> "
+                    "<p style= \"color : #1010FF \" ; > " + UnitCost + "</p>"
+                    "<br>"
+                    "<p style= \"color : #FF0000 \" ; >  Stock : </p> "
+                    "<p style= \"color : #1010FF \" ; >" + Stock + "</p>"
+                    "<br>"
+                    "<p style= \"color : #FF0000 \" ; >  Description : </p> "
+                    "<p style= \"color : #1010FF \" ; >" + Desc + "</p>"
+                    "<br>"
+                    "</h6>";
+
+    ui->txt_description->setHtml(Html);
+
+    // pics :
+    query_str.clear();
+    query.clear();
+
+    query_str = "select * from product_pic where \"Product ID\" = " + QString::number(ID) + ";";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return ;
+    }
+
+    // setup
+
+    for(int i = 0;i<6;i++){
+        image[i].clear();
+    }
+
+    query.first();
+
+    for (int i = 0;i<query.size();i++) {
+        image[i] = query.value(2).toByteArray();
+        query.next();
+    }
+
+    if(image[0].isEmpty() == false){
+        QPixmap pixx;
+        pixx.loadFromData(image[0],nullptr,Qt::AutoColor);
+        pixx = pixx.scaledToWidth(ui->pic_0->width(),Qt::SmoothTransformation);
+        ui->pic_0->setPixmap(pixx);
+
+
+        pixx = pixx.scaledToWidth(ui->pic_1->width(),Qt::SmoothTransformation);
+        ui->pic_1->setPixmap(pixx);
+
+
+
+    }
+
+    if(image[1].isEmpty() == false){
+        QPixmap pixx;
+        pixx.loadFromData(image[1],nullptr,Qt::AutoColor);
+        pixx = pixx.scaledToWidth(ui->pic_1->width(),Qt::SmoothTransformation);
+        ui->pic_2->setPixmap(pixx);
+    }
+
+
+    if(image[2].isEmpty() == false){
+        QPixmap pixx;
+        pixx.loadFromData(image[2],nullptr,Qt::AutoColor);
+        pixx = pixx.scaledToWidth(ui->pic_1->width(),Qt::SmoothTransformation);
+        ui->pic_3->setPixmap(pixx);
+    }
+
+
+    if(image[3].isEmpty() == false){
+        QPixmap pixx;
+        pixx.loadFromData(image[3],nullptr,Qt::AutoColor);
+        pixx = pixx.scaledToWidth(ui->pic_1->width(),Qt::SmoothTransformation);
+        ui->pic_4->setPixmap(pixx);
+    }
+
+
+    if(image[4].isEmpty() == false){
+        QPixmap pixx;
+        pixx.loadFromData(image[4],nullptr,Qt::AutoColor);
+        pixx = pixx.scaledToWidth(ui->pic_1->width(),Qt::SmoothTransformation);
+        ui->pic_5->setPixmap(pixx);
+    }
+
+
+    if(image[5].isEmpty() == false){
+        QPixmap pixx;
+        pixx.loadFromData(image[5],nullptr,Qt::AutoColor);
+        pixx = pixx.scaledToWidth(ui->pic_1->width(),Qt::SmoothTransformation);
+        ui->pic_6->setPixmap(pixx);
+    }
+
+}
+
+QString employee_part::find_company(int id){
+
+    QString query_str;
+    QSqlQuery query;
+
+    query_str = "select \"Company name\" from suppliers"
+                " inner join products on suppliers.\"Supplier ID\" "
+                "= products.\"Supplier ID\" "
+                "where suppliers.\"Supplier ID\" = " + QString::number(id)+ ";";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return "";
+    }
+
+    query.first();
+
+    return query.value(0).toString();
+}
+
+
+
+void employee_part::on_tbl_search_clicked(const QModelIndex &index)
+{
+    int id = ui->tbl_search->model()->index(index.row(),0).data().toInt();
+    load_search_data(id);
 }

@@ -40,6 +40,8 @@ private slots:
 
     void on_txt_search_textChanged(const QString &arg1);
 
+    void on_tbl_search_clicked(const QModelIndex &index);
+
 private:
 
     Ui::employee_part *ui;

@@ -92,16 +92,19 @@ void Widget::on_btn_help_clicked()
 
 void Widget::on_btn_register_clicked()
 { 
+    delete model;
     SignUp *registering = new SignUp(0);
     registering->setGeometry(500,200,this->width(),this->height());
     registering->setFixedSize(this->width(),this->height());
     DB.Disconnect();
     this->close();
     registering->exec();
+    Search(ui->txt_search->text(),0);
 }
 
 void Widget::on_btn_login_clicked()
 {
+    delete model;
     DB.Disconnect();
     Loging* login = new Loging(this);
     login->setFixedSize(login->width(),login->height());
@@ -114,6 +117,7 @@ void Widget::on_btn_login_clicked()
     if(user_type == 0){
         // Nothing :
         DB.Connect();
+        Search(ui->txt_search->text(),0);
     }
     else if(user_type == 1){
         // User type :
@@ -215,7 +219,7 @@ void Widget::Search(QString key, int Type){
         return;
     }
 
-    QSqlQueryModel* model = new QSqlQueryModel();
+    model = new QSqlQueryModel();
 
     model->setQuery(query);
 

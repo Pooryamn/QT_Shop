@@ -62,6 +62,7 @@ private:
     void load_search_data(int ID);
     QString find_company(int id);
     QByteArray image[6];
+    QSqlQueryModel* model;
 
 };
 
