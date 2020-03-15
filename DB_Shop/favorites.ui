@@ -49,37 +49,48 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>85</y>
+     <y>84</y>
      <width>920</width>
-     <height>480</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border: 5px solid rgb(244, 168, 150)</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_viewditail">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>40</y>
-     <width>150</width>
-     <height>35</height>
+     <height>481</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>13</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(244, 168, 150);
-color: rgb(53, 133, 151);</string>
+    <string notr="true">
+</string>
+   </property>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QPushButton" name="btn_delete">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>40</y>
+     <width>41</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>19</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 0, 0);
+color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>&amp;View Ditails</string>
+    <string>-</string>
    </property>
   </widget>
  </widget>

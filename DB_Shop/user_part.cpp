@@ -91,7 +91,7 @@ void user_part::on_btn_history_clicked()
 void user_part::on_btn_viewfavorite_clicked()
 {
     delete model;
-    favorites* fav = new favorites(this);
+    favorites* fav = new favorites(this,UsrID);
     fav->setFixedSize(fav->width(),fav->height());
     fav->exec();
     Search(ui->txt_search->text(),0);
@@ -438,6 +438,12 @@ bool user_part::isFavorite(int UsrID, int productID){
 
 void user_part::on_btn_addtocart_clicked()
 {
+
+
+}
+
+void user_part::on_btn_addtofavorite_clicked()
+{
     QItemSelectionModel *select = ui->tbl_search->selectionModel();
 
     if(select->hasSelection() == false){
@@ -461,5 +467,4 @@ void user_part::on_btn_addtocart_clicked()
     }
 
     QMessageBox::about(this,"Successful","Added to your favorite list");
-
 }

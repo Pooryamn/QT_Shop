@@ -52,6 +52,8 @@ private slots:
 
     void on_btn_addtocart_clicked();
 
+    void on_btn_addtofavorite_clicked();
+
 private:
     Ui::user_part *ui;
     QString UserName;
