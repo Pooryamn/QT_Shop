@@ -260,7 +260,7 @@ border: 4px solid rgb(47, 60, 126);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
-border: 4px solid rgb(47, 60, 126);
+
 </string>
    </property>
   </widget>

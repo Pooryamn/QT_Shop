@@ -15,6 +15,7 @@ employee_part::employee_part(QWidget *parent,QString usrname) :
     }
 
     set_form();
+    Setup();
 
     load_data(UserName);
 
@@ -272,7 +273,7 @@ void employee_part::load_search_data(int ID){
         return ;
     }
 
-    // setup
+    Setup();
 
     for(int i = 0;i<6;i++){
         image[i].clear();
@@ -367,3 +368,33 @@ void employee_part::on_tbl_search_clicked(const QModelIndex &index)
     int id = ui->tbl_search->model()->index(index.row(),0).data().toInt();
     load_search_data(id);
 }
+
+void employee_part::Setup(){
+
+    // Set Not found picture on mini pic1
+    ui->pic_1->setPixmap(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+
+
+    // Set Not found picture on mini pic2
+    ui->pic_2->setPixmap(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+
+    // Set Not found picture on mini pic3
+    ui->pic_3->setPixmap(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+
+    // Set Not found picture on mini pic2
+    ui->pic_4->setPixmap(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+
+    // Set Not found picture on mini pic2
+    ui->pic_5->setPixmap(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+
+    // Set Not found picture on mini pic2
+    ui->pic_6->setPixmap(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(35,35,Qt::KeepAspectRatio));
+
+    // Set Not found picture on Big pic
+    ui->pic_0->setPixmap(QPixmap(QString::fromUtf8(":/Res/img/not_found.png")).scaled(200,200,Qt::KeepAspectRatio));
+
+    //
+    ui->txt_description->setReadOnly(true);
+
+}
+
