@@ -99,6 +99,8 @@ void Widget::on_btn_register_clicked()
     DB.Disconnect();
     this->close();
     registering->exec();
+    this->show();
+    DB.Connect();
     Search(ui->txt_search->text(),0);
 }
 
@@ -108,14 +110,14 @@ void Widget::on_btn_login_clicked()
     DB.Disconnect();
     Loging* login = new Loging(this);
     login->setFixedSize(login->width(),login->height());
-    this->hide();
+    this->close();
     login->exec();
-    this->show();
 
     int user_type = login->get_type();
     QString username = login->get_user();
     if(user_type == 0){
         // Nothing :
+        this->show();
         DB.Connect();
         Search(ui->txt_search->text(),0);
     }

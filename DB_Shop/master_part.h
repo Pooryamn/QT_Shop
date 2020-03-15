@@ -46,12 +46,28 @@ private slots:
 
     void on_btn_logoff_clicked();
 
+    void on_radio_Name_clicked();
+
+    void on_redio_Category_clicked();
+
+    void on_txt_search_textChanged(const QString &arg1);
+
+
+    void on_tbl_search_clicked(const QModelIndex &index);
+
 private:
     Ui::master_part *ui;
     QString UserName;
     Database DB;
     void set_form();
     void load_data(QString username);
+    void Search(QString key,int Type);
+    void load_search_data(int ID);
+    QString find_company(int id);
+    QByteArray image[6];
+    void Setup();
+
+    QSqlQueryModel* model;
 };
 
 #endif // MASTER_PART_H

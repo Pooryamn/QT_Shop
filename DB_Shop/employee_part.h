@@ -44,6 +44,10 @@ private slots:
 
     void on_btn_addstock_clicked();
 
+    void on_radio_Name_clicked();
+
+    void on_redio_Category_clicked();
+
 private:
 
     Ui::employee_part *ui;

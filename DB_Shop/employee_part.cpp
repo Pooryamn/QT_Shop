@@ -434,3 +434,13 @@ void employee_part::on_btn_addstock_clicked()
 
     load_search_data(id);
 }
+
+void employee_part::on_radio_Name_clicked()
+{
+    Search(ui->txt_search->text(),0);
+}
+
+void employee_part::on_redio_Category_clicked()
+{
+    Search(ui->txt_search->text(),1);
+}
