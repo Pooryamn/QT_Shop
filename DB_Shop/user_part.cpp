@@ -19,6 +19,9 @@ user_part::user_part(QWidget *parent,QString usr) :
     load_data(UserName);
 
     Search(ui->txt_search->text(),0);
+
+    isFavorite(2,3);
+    isFavorite(16,5);
 }
 
 user_part::~user_part()
@@ -103,7 +106,7 @@ void user_part::load_data(QString username){
     QSqlQuery query;
 
     query_str = "select firstname,lastname,"
-                "email,wallet,attachments "
+                "email,wallet,attachments,\"Customer ID\" "
                 "from customers "
                 "where username = "
                 "\'" + username +"\' ;";
@@ -118,6 +121,7 @@ void user_part::load_data(QString username){
         ui->txt_email->setText(query.value(2).toString());
         ui->txt_wallet->setText(query.value(3).toString());
 
+        UsrID = query.value(5).toInt();
 
         QByteArray PIC = query.value(4).toByteArray();
         QPixmap pixx;
@@ -410,6 +414,52 @@ void user_part::on_txt_search_textChanged(const QString &arg1)
 
 void user_part::on_tbl_search_clicked(const QModelIndex &index)
 {
-    int id = ui->tbl_search->model()->index(index.row(),0).data().toInt();
-    load_search_data(id);
+    P_ID = ui->tbl_search->model()->index(index.row(),0).data().toInt();
+    load_search_data(P_ID);
+}
+
+bool user_part::isFavorite(int UsrID, int productID){
+    QString query_str;
+    QSqlQuery query;
+
+    query_str = "select * from favorites where \"Customer ID\" = "  + QString::number(UsrID) +
+            " and \"Product ID\" = + " + QString::number(productID) +  ";";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return true;
+    }
+
+    if(query.size() == 0){
+        return false;
+    }
+    return true;
+}
+
+void user_part::on_btn_addtocart_clicked()
+{
+    QItemSelectionModel *select = ui->tbl_search->selectionModel();
+
+    if(select->hasSelection() == false){
+        QMessageBox::warning(this,"Input error","First select a data");
+        return;
+    }
+
+    if(isFavorite(UsrID,P_ID)){
+        QMessageBox::warning(this,"Input error","this stock exists in your Favorite List");
+        return;
+    }
+
+    QString query_str;
+    QSqlQuery query;
+
+    query_str = "insert into favorites values("+ QString::number(UsrID) + "," + QString::number(P_ID) + ");";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return;
+    }
+
+    QMessageBox::about(this,"Successful","Added to your favorite list");
+
 }

@@ -50,6 +50,8 @@ private slots:
 
     void on_tbl_search_clicked(const QModelIndex &index);
 
+    void on_btn_addtocart_clicked();
+
 private:
     Ui::user_part *ui;
     QString UserName;
@@ -67,6 +69,10 @@ private:
 
     QSqlQueryModel* model;
 
+    bool isFavorite(int UsrID,int productID);
+
+    int UsrID;
+    int P_ID;
 };
 
 #endif // USER_PART_H
