@@ -46,18 +46,16 @@ private slots:
 
 private:
     Ui::SignUp *ui;
-    Database DB;
+    Database DB; // database object
+    bool profile_filled; // true -> user wants to save profile pic in database
+    QByteArray image; // store image to save it in database
 
-    void set_input_methods();
-    bool check_inputs();
-    bool profile_filled;
-    bool add_to_accounts(int type);
-    QByteArray image;
-    bool is_valid_User();
-
-    bool Send_Email(QString Email,QString Name,QString Subject,QString Body);
-
-    QString RandStr();
+    void set_input_methods(); // set some rules for inputs
+    bool check_inputs(); // check that inputs be ok for saving in database
+    bool add_to_accounts(int type); // store username , password , type in account table
+    bool is_valid_User();// check that user exists in database or not
+    bool Send_Email(QString Email,QString Name,QString Subject,QString Body);//send confrim code to user email
+    QString RandStr(); // generate a random string with lenght =6
 
 };
 
