@@ -17,7 +17,7 @@ class new_stock : public QDialog
 
 public:
     explicit new_stock(QWidget *parent = nullptr);
-    bool new_supplier_called();
+    bool new_supplier_called(); // return true if new supplier button pressed in ui(Security)
     ~new_stock();
 
 private slots:
@@ -40,18 +40,20 @@ private slots:
     void on_btn_addstock_clicked();
 
 private:
+
     Ui::new_stock *ui;
-    Database DB;
-    void load_suppliers();
-    bool supplier_called;
-    void set_input_method();
-    bool check_inputs();
-    QString get_category(QString Company);
-    QByteArray image[6];
+    Database DB; // database object
+    QByteArray image[6]; // array of bytearrays for storing pics
     int SupplierID;
     int ProductID;
-    bool isValidProduct(int SuppID,QString PName);
-    QSqlQueryModel* model;
+    QSqlQueryModel* model;//sql query result model
+
+    void load_suppliers(); // load all suppliers name and id in table view
+    bool supplier_called; // true -> if new supplier button pressed
+    void set_input_method(); // set some rules for inputs
+    bool check_inputs(); // check inputs to be ok for storing in database
+    QString get_category(QString Company); // gets company name and return its category
+    bool isValidProduct(int SuppID,QString PName); // gets product name and company name and check that product exists in database or not
 
 };
 
