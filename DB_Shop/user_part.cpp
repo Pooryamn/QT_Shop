@@ -52,6 +52,7 @@ void user_part::on_btn_Cart_clicked()
     Cart* cart = new Cart(this,UsrID);
     cart->setFixedSize(cart->width(),cart->height());
     cart->exec();
+    load_data(UserName);
     Search(ui->txt_search->text(),0);
 }
 
@@ -63,6 +64,7 @@ void user_part::on_btn_ediprofile_clicked()
     DB.Disconnect();
     editor->exec();
     DB.Connect();
+    load_data(UserName);
     load_data(UserName);
     Search(ui->txt_search->text(),0);
 
@@ -76,13 +78,14 @@ void user_part::on_btn_payment_clicked()
     DB.Disconnect();
     pay->exec();
     DB.Connect();
+    load_data(UserName);
     Search(ui->txt_search->text(),0);
 }
 
 void user_part::on_btn_history_clicked()
 {
     delete model;
-    Shop_history* his = new Shop_history(this);
+    Shop_history* his = new Shop_history(this,UsrID);
     his->setFixedSize(his->width(),his->height());
     his->exec();
     Search(ui->txt_search->text(),0);

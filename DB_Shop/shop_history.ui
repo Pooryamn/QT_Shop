@@ -55,7 +55,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 5px solid rgb(244, 168, 150)</string>
+    <string notr="true"/>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_viewditail">

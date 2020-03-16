@@ -27,6 +27,7 @@ user_payment::user_payment(QWidget *parent,QString usrname) :
 
 user_payment::~user_payment()
 {
+    DB.Disconnect();
     delete ui;
 }
 

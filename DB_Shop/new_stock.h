@@ -51,6 +51,7 @@ private:
     int SupplierID;
     int ProductID;
     bool isValidProduct(int SuppID,QString PName);
+    QSqlQueryModel* model;
 
 };
 

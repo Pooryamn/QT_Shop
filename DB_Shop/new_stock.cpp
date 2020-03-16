@@ -24,6 +24,7 @@ new_stock::new_stock(QWidget *parent) :
 
 new_stock::~new_stock()
 {
+    delete model;
     DB.Disconnect();
     delete ui;
 }
@@ -55,7 +56,7 @@ void new_stock::load_suppliers(){
         return;
     }
 
-    QSqlQueryModel* model = new QSqlQueryModel();
+    model = new QSqlQueryModel();
 
     model->setQuery(query);
 

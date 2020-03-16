@@ -46,9 +46,9 @@ void master_part::on_btn_resizer_clicked()
 void master_part::on_btn_newstock_clicked()
 {
     delete model;
+    DB.Disconnect();
     new_stock* stock = new new_stock(this);
     stock->setFixedSize(stock->width(),stock->height());
-    DB.Disconnect();
     stock->exec();
     DB.Connect();
 
@@ -65,6 +65,7 @@ void master_part::on_btn_newstock_clicked()
         stock2->exec();
         DB.Connect();
     }
+    Search(ui->txt_search->text(),0);
 }
 
 void master_part::on_btn_ediprofile_clicked()

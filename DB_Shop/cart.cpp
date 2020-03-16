@@ -137,5 +137,118 @@ void Cart::on_btn_delete_clicked()
     }
 
     load_data(USER_ID);
+}
+
+void Cart::on_btn_pay_clicked()
+{
+    int Price = ui->txt_total->text().toInt();
+    int wallet = Get_wallet(USER_ID);
+
+    if(Price > wallet){
+        QMessageBox::warning(this,"Wallet Error","You dont have enough money to pay this cart");
+        return;
+    }
+
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this,"Confrim","Are You sure to pay?");
+
+    if (reply == QMessageBox::Yes) {
+        //pay
+        QString query_str;
+        QSqlQuery query;
+
+        QString Pay_Date = DateConverter();
+
+        query_str = "update cart"
+                    " set \"Pay status\" = 1,"
+                    " \"Pay date\" = \'" + Pay_Date + "\'"
+                    " where \"Cart ID\" = " + QString::number(CartID) + ";";
+
+        if(DB.Execute(query_str,query) ==false){
+            qDebug() << query.lastQuery() << endl<<query.lastError();
+            return;
+        }
+
+        query.clear();
+        query_str.clear();
+
+        query_str = "update customers"
+                    " set wallet = wallet - " + QString::number(Price) +
+                    " where \"Customer ID\" = " + QString::number(USER_ID) + ";";
+
+
+        if(DB.Execute(query_str,query) ==false){
+            qDebug() << query.lastQuery() << endl<<query.lastError();
+            return;
+        }
+
+        query.clear();
+        query_str.clear();
+
+        if(add_transaction(USER_ID,Price,Pay_Date) == false){
+            return;
+        }
+
+        load_data(USER_ID);
+
+    }
+    else {
+        return;
+      }
+
+}
+
+
+int Cart::Get_wallet(int usrid){
+    QSqlQuery query;
+    QString query_str;
+
+    query_str = "select wallet from customers where \"Customer ID\" = " + QString::number(usrid) + ";";
+
+    if(DB.Execute(query_str,query) ==false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return 0;
+    }
+
+    query.first();
+
+    return query.value(0).toInt();
+}
+
+QString Cart::DateConverter(){
+
+    //get date:
+    int year,month,day;
+    QDate::currentDate().getDate(&year,&month,&day);
+    QString pay_date = QString::number(year)+"-"+QString::number(month)+"-"+QString::number(day);
+
+    QDateConvertor convert;
+    QStringList shamsi_list = convert.ToJalali(QString::number(year),QString::number(month),QString::number(day));
+
+    QString result = shamsi_list[0] + "-" + shamsi_list[1] + "-" + shamsi_list[2];
+
+    qDebug() << result;
+
+    return result;
+}
+
+bool Cart::add_transaction(int id, int ammount, QString date){
+
+    QString query_str;
+    QSqlQuery query;
+
+    query_str = "insert into transactions("
+                "\"Customer ID\" , \"Transaction type\","
+                "\"Transaction amount\",\"Transaction status\","
+                "\"Transaction date\") values"
+                "(" + QString::number(id) + ", \'Buy\',"
+                +QString::number(ammount) + ", \'successful\' ,"
+                "\'" + date + "\' );";
+
+    if(DB.Execute(query_str,query)==false){
+        qDebug() << query.lastQuery();
+        return false;
+    }
+    return true;
 
 }
