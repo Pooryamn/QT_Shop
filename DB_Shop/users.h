@@ -24,9 +24,11 @@ private slots:
     void on_btn_deleteuser_clicked();
 
 private:
-    Ui::Users *ui;
-    Database DB;
-    void load_data(QString type);
-};
 
+    Ui::Users *ui;
+    Database DB; //database object
+
+    void load_data(QString type); // load list of users clustering by type
+
+};
 #endif // USERS_H
