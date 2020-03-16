@@ -55,31 +55,26 @@ private slots:
     void on_btn_addtofavorite_clicked();
 
 private:
+
     Ui::user_part *ui;
     QString UserName;
-
-    Database DB;
-
-    void load_data(QString username);
-    void set_form();
-
-    void Search(QString key,int Type);
-    void load_search_data(int ID);
-    QString find_company(int id);
-    QByteArray image[6];
-    void Setup();
-
-    QSqlQueryModel* model;
-
-    bool isFavorite(int UsrID,int productID);
-
+    Database DB; // database object
+    QByteArray image[6]; // array of bytearrays for product image
+    QSqlQueryModel* model; // sql query result model
     int UsrID;
-    int P_ID;
-    int UCOST;
+    int P_ID; // product id
+    int UCOST; // unit cost of selected product
 
-    int has_unpaid_cart(int usrid);
-    bool has_product_in_cart(int cart,int productid);
-    int get_stock(int P_id);
+    void load_data(QString username); // load user info in ui
+    void set_form(); // set some rules for ui
+    void Search(QString key,int Type); // search engine
+    void load_search_data(int ID); // load product info in ui by using produt id
+    QString find_company(int id);//gets company id and returns company name
+    void Setup(); // initialize form
+    bool isFavorite(int UsrID,int productID); //check that the product exists in user favorite list or not
+    int has_unpaid_cart(int usrid); // check that user has unpaid cart or not( to decide create a new cart or not)
+    bool has_product_in_cart(int cart,int productid);// check that a specia product exists in cart items or not(to decide to add stock or all info to the table)
+    int get_stock(int P_id);// gets product id and return its stock
 };
 
 #endif // USER_PART_H
