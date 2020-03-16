@@ -71,9 +71,10 @@ void master_part::on_btn_newstock_clicked()
 void master_part::on_btn_ediprofile_clicked()
 {
     delete model;
+    DB.Disconnect();
     user_edit* editor = new user_edit(this,UserName,3);
     editor->setFixedSize(editor->width(),editor->height());
-    DB.Disconnect();
+    //DB.Disconnect();
     editor->exec();
     DB.Connect();
     load_data(UserName);
@@ -148,11 +149,10 @@ void master_part::on_btn_supplier_clicked()
 
 void master_part::set_form(){
 
-    ui->txt_email->setDisabled(true);
-    ui->txt_username->setDisabled(true);
-    ui->txt_lastname->setDisabled(true);
-    ui->txt_firstname->setDisabled(true);
-    ui->pic_profile->setDisabled(true);
+    ui->txt_email->setReadOnly(true);
+    ui->txt_username->setReadOnly(true);
+    ui->txt_lastname->setReadOnly(true);
+    ui->txt_firstname->setReadOnly(true);
     ui->pic_profile->setEnabled(true);
 }
 

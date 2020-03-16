@@ -404,6 +404,8 @@ void new_stock::on_btn_addstock_clicked()
         return;
     }
 
+    delete model;
+
     // add data to stocks :
     QSqlQuery query;
     QString query_str;
@@ -427,11 +429,11 @@ void new_stock::on_btn_addstock_clicked()
     query.clear();
 
     query_str = "select \"Product ID\" "
-                "from products where"
+                "from products where "
                 "\"Supplier ID\" = "
                 + QString::number(SupplierID) +
                 " and \"Product name\" = "
-                "\'" + ui->txt_name->text() + "\';";
+                "\'" + ui->txt_name->text().toLower() + "\';";
 
     if(DB.Execute(query_str,query) == false){
         qDebug() << query.lastQuery() << query.lastError();

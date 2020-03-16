@@ -79,6 +79,7 @@ private:
 
     int has_unpaid_cart(int usrid);
     bool has_product_in_cart(int cart,int productid);
+    int get_stock(int P_id);
 };
 
 #endif // USER_PART_H

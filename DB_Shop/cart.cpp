@@ -189,6 +189,25 @@ void Cart::on_btn_pay_clicked()
             return;
         }
 
+        query.clear();
+        query_str.clear();
+
+        query_str = "select \"Product ID\", "
+                    "quantity from cart_item"
+                    " where \"Cart ID\" = " + QString::number(CartID) + ";";
+
+        if(DB.Execute(query_str,query) ==false){
+            qDebug() << query.lastQuery() << endl<<query.lastError();
+            return;
+        }
+
+        query.first();
+
+        for(int i = 0;i < query.size();i++){
+            update_stock(query.value(0).toInt(),query.value(1).toInt());
+            query.next();
+        }
+
         load_data(USER_ID);
 
     }
@@ -244,6 +263,22 @@ bool Cart::add_transaction(int id, int ammount, QString date){
                 "(" + QString::number(id) + ", \'Buy\',"
                 +QString::number(ammount) + ", \'successful\' ,"
                 "\'" + date + "\' );";
+
+    if(DB.Execute(query_str,query)==false){
+        qDebug() << query.lastQuery();
+        return false;
+    }
+    return true;
+
+}
+
+bool Cart::update_stock(int P_id,int quantity){
+    QString query_str;
+    QSqlQuery query;
+
+    query_str = "update products set "
+                "stock = stock - " + QString::number(quantity) +
+                " where \"Product ID\" = " + QString::number(P_id);
 
     if(DB.Execute(query_str,query)==false){
         qDebug() << query.lastQuery();

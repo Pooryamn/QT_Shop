@@ -65,7 +65,6 @@ void user_part::on_btn_ediprofile_clicked()
     editor->exec();
     DB.Connect();
     load_data(UserName);
-    load_data(UserName);
     Search(ui->txt_search->text(),0);
 
 }
@@ -140,12 +139,10 @@ void user_part::load_data(QString username){
 
 void user_part::set_form(){
 
-    ui->txt_email->setDisabled(true);
-    ui->txt_wallet->setDisabled(true);
-    ui->txt_username->setDisabled(true);
-    ui->txt_lastname->setDisabled(true);
-    ui->txt_firstname->setDisabled(true);
-    ui->pic_profile->setDisabled(true);
+    ui->txt_email->setReadOnly(true);
+    ui->txt_username->setReadOnly(true);
+    ui->txt_lastname->setReadOnly(true);
+    ui->txt_firstname->setReadOnly(true);
     ui->pic_profile->setEnabled(true);
 }
 
@@ -450,6 +447,15 @@ void user_part::on_btn_addtocart_clicked()
         return;
     }
 
+    int quantity = ui->spin_stock->value();
+    int stk = get_stock(P_ID);
+
+    if(quantity > stk){
+        QMessageBox::warning(this,"Input Error","We dont have enough stock for you");
+        return;
+    }
+
+
     int CartID = has_unpaid_cart(UsrID);
 
     QString query_str;
@@ -476,7 +482,6 @@ void user_part::on_btn_addtocart_clicked()
 
     // add to cart item
 
-    int quantity = ui->spin_stock->value();
     int total = quantity * UCOST;
 
     if(has_product_in_cart(CartID,P_ID) == false){
@@ -596,5 +601,22 @@ bool user_part::has_product_in_cart(int cart, int productid){
     else {
         return true;
     }
+
+}
+
+int user_part::get_stock(int P_id){
+    QString query_str;
+    QSqlQuery query;
+
+    query_str = "select stock from products where \"Product ID\" = " + QString::number(P_id) + ";";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return 0;
+    }
+
+    query.first();
+
+    return query.value(0).toInt();
 
 }

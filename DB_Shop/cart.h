@@ -36,6 +36,8 @@ private:
     int Get_wallet(int usrid);
     QString DateConverter();
     bool add_transaction(int id, int ammount, QString date);
+    bool update_stock(int P_id,int quantity);
+
 };
 
 #endif // CART_H
