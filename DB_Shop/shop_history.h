@@ -18,16 +18,14 @@ public:
     ~Shop_history();
 
 private:
+
     Ui::Shop_history *ui;
-
-    Database DB;
-
+    Database DB; // database object
     int USER_ID;
 
-    void load_data(int usrid);
-    QString DateConverter();
-    int get_type(QString username);
-    void load_all();
+    void load_data(int usrid); // gets user id and load cart of user that paid
+    QString DateConverter();// gets current date and convert it to shamsi date
+    void load_all();// load all users carts (for employee and master level)
 };
 
 #endif // SHOP_HISTORY_H
