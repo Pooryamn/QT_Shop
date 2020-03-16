@@ -46,7 +46,7 @@ void Loging::on_btn_forget_clicked()
     forget_pass->exec();
     DB.Connect();
 }
-
+/*
 void Loging::connect_to_db(){
 
     DB.Connect();
@@ -56,6 +56,7 @@ void Loging::connect_to_db(){
         exit(0);
     }
 }
+*/
 
 void Loging::on_txt_User_editingFinished()
 {

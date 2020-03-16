@@ -18,8 +18,8 @@ class Loging : public QDialog
 
 public:
     explicit Loging(QWidget *parent = nullptr);
-    int get_type();
-    QString get_user();
+    int get_type(); // returns User_type(for security perposes)
+    QString get_user(); // returns entered username(for security perposes)
     ~Loging();
 
 private slots:
@@ -33,14 +33,12 @@ private slots:
 
 private:
     Ui::Loging *ui;
-
-    Database DB;
-
-    void connect_to_db();
-    bool check_inputs();
-    bool check_information();
-
+    Database DB; // database object
     int User_type;
+
+    bool check_inputs(); // after login button clicked this function checks inputs
+    bool check_information(); // check that username and password is in Database
+
 
 };
 
