@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QMessageBox>
+
 #include "database.h"
 
 namespace Ui {
@@ -23,12 +24,15 @@ private slots:
     void on_tbl_history_clicked(const QModelIndex &index);
 
 private:
+
     Ui::favorites *ui;
-    Database DB;
+    Database DB; // database object
     int USER_ID;
     int PRODUCT_ID;
-    void load_data(int id);
-    QSqlQueryModel* model;
+    QSqlQueryModel* model; // sql query result model
+
+    void load_data(int id); // gets user id to load user favorite products
+
 };
 
 #endif // FAVORITES_H
