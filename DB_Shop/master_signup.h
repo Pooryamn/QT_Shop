@@ -37,18 +37,16 @@ private slots:
 
 private:
     Ui::Master_signup *ui;
-    Database DB;
+    Database DB; //database object
+    QByteArray image; // store profile image as bytearray to store in database
+    bool profile_filled; // true = user wants to save his/her picture in database
 
-    void set_input_methods();
-    bool check_inputs();
-    bool profile_filled;
-    bool add_to_accounts(int type);
-    QByteArray image;
-    bool is_valid_User();
-
-    bool Send_Email(QString Email,QString Name,QString Subject,QString Body);
-
-    QString RandStr();
+    void set_input_methods(); // set some rules for input formats
+    bool check_inputs(); // check that inputs are ok for storing or not
+    bool add_to_accounts(int type); // set username and passwod and type in database account table
+    bool is_valid_User(); // user exists in database or not
+    bool Send_Email(QString Email,QString Name,QString Subject,QString Body); // sending confrim codes to users
+    QString RandStr(); // generate a random string with a lengh = 6
 };
 
 #endif // MASTER_SIGNUP_H
