@@ -75,6 +75,10 @@ private:
 
     int UsrID;
     int P_ID;
+    int UCOST;
+
+    int has_unpaid_cart(int usrid);
+    bool has_product_in_cart(int cart,int productid);
 };
 
 #endif // USER_PART_H

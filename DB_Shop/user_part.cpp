@@ -232,6 +232,8 @@ void user_part::load_search_data(int ID){
 
     int Stk = Stock.toInt();
 
+    UCOST = UnitCost.toInt();
+
     if(Stk > 0){
         ui->lbl_avalablity->setText("Available");
         ui->lbl_avalablity->setStyleSheet("color: rgb(78, 154, 6);");
@@ -438,8 +440,88 @@ bool user_part::isFavorite(int UsrID, int productID){
 
 void user_part::on_btn_addtocart_clicked()
 {
+    QItemSelectionModel *select = ui->tbl_search->selectionModel();
+
+    if(select->hasSelection() == false){
+        QMessageBox::warning(this,"Input error","First select a data");
+        return;
+    }
+
+    int CartID = has_unpaid_cart(UsrID);
+
+    QString query_str;
+    QSqlQuery query;
 
 
+    if(CartID == 0){
+
+        // new cart
+        query_str = "insert into cart(\"Customer ID\", "
+                    "\"Total price\",\"Pay status\", "
+                    "\"Pay date\")values(" + QString::number(UsrID) +",0,0,null);";
+
+        if(DB.Execute(query_str,query) == false){
+            qDebug() << query.lastQuery() << endl<<query.lastError();
+            return;
+        }
+
+        CartID = has_unpaid_cart(UsrID);
+    }
+
+    query_str.clear();
+    query.clear();
+
+    // add to cart item
+
+    int quantity = ui->spin_stock->value();
+    int total = quantity * UCOST;
+
+    if(has_product_in_cart(CartID,P_ID) == false){
+
+        query_str = "insert into cart_item values(" +
+                    QString::number(CartID) + "," +
+                    QString::number(P_ID) + "," +
+                    QString::number(quantity) + "," +
+                    QString::number(UCOST) + "," +
+                    QString::number(total)+");";
+
+        if(DB.Execute(query_str,query) == false){
+            qDebug() << query.lastQuery() << endl<<query.lastError();
+            return;
+        }
+
+    }
+    else{
+
+        query_str = "update cart_item "
+                    " set quantity = quantity + " + QString::number(quantity) +
+                    ", total_price = total_price + " + QString::number(total) +
+                    " where \"Cart ID\" = " + QString::number(CartID) +
+                    " and \"Product ID\" = " + QString::number(P_ID) + ";";
+
+        if(DB.Execute(query_str,query) == false){
+            qDebug() << query.lastQuery() << endl<<query.lastError();
+            return;
+        }
+
+    }
+
+    query.clear();
+    query_str.clear();
+
+    // add to cart
+
+    query_str = "update cart set"
+                " \"Total price\" = \"Total price\" "
+                " + " + QString::number(total) +
+                " where \"Cart ID\" = " + QString::number(CartID) + ";";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return;
+    }
+
+    QMessageBox::about(this,"Successful","Added to your cart");
 }
 
 void user_part::on_btn_addtofavorite_clicked()
@@ -467,4 +549,49 @@ void user_part::on_btn_addtofavorite_clicked()
     }
 
     QMessageBox::about(this,"Successful","Added to your favorite list");
+}
+
+int user_part::has_unpaid_cart(int usrid){
+    /// return open cart ID
+    QString query_str;
+    QSqlQuery query;
+
+
+    query_str = "select * from cart where \"Customer ID\" = " + QString::number(usrid) + " and \"Pay status\" = 0;";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return false;
+    }
+
+    if(query.size() == 0){
+        return 0;
+    }
+    else{
+        query.first();
+        return query.value(0).toInt();
+    }
+}
+
+bool user_part::has_product_in_cart(int cart, int productid){
+
+    QString query_str;
+    QSqlQuery query;
+
+    query_str = "select * from cart_item where "
+                "\"Cart ID\" = " + QString::number(cart) +
+                " and \"Product ID\" = " + QString::number(productid) + ";";
+
+    if(DB.Execute(query_str,query) == false){
+        qDebug() << query.lastQuery() << endl<<query.lastError();
+        return false;
+    }
+
+    if(query.size() == 0){
+        return false;
+    }
+    else {
+        return true;
+    }
+
 }
