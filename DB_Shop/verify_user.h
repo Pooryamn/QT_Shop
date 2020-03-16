@@ -14,8 +14,8 @@ class Verify_User : public QDialog
 
 public:
     explicit Verify_User(QWidget *parent = nullptr);
-    void SetPass(QString Usr);
-    bool get_status();
+    void SetPass(QString Usr); // user confrim code
+    bool get_status(); // true -> if user confrim code successfully
     ~Verify_User();
 
 private slots:
@@ -25,8 +25,8 @@ private slots:
 
 private:
     Ui::Verify_User *ui;
-    QString User;
-    bool Status;
+    QString User; // user confrim code
+    bool Status;// true -> if user confrim code successfully
 };
 
 #endif // VERIFY_USER_H
