@@ -15,7 +15,7 @@ class gateway : public QDialog
 
 public:
     explicit gateway(QWidget *parent = nullptr);
-    int get_ammount();
+    int get_ammount(); // get the value of ammount var(this function is for variable security)
     ~gateway();
 
 private slots:
@@ -25,8 +25,8 @@ private slots:
 
 private:
     Ui::gateway *ui;
-    void set_input_method();
-    int Ammount;
+    void set_input_method(); // set some rule to force user to enter data correctly
+    int Ammount; // this variable is from ammount line edit in ui
 };
 
 #endif // GATEWAY_H
