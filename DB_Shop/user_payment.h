@@ -25,14 +25,15 @@ private slots:
 private:
     Ui::user_payment *ui;
     QString UserName;
-    Database DB;
-    int find_id(QString username);
-    bool add_transaction(int id,int ammount,QString date);
-    bool add_wallet(int ID,int ammount);
-    void load_data(QString username);
-    QString DateConverter();
-    int get_type(QString username);
-    void load_all();
+    Database DB; // database object
+
+    int find_id(QString username); // gets username and return user id
+    bool add_transaction(int id,int ammount,QString date);//add data to transaction table
+    bool add_wallet(int ID,int ammount);// update wallet ammount for user
+    void load_data(QString username); // load user data to ui
+    QString DateConverter(); // convert current date to shamsi date
+    int get_type(QString username); // gets username and return type of user
+    void load_all();// load all payments of all users(for employee and master level)
 };
 
 #endif // USER_PAYMENT_H
