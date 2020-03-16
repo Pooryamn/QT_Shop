@@ -32,14 +32,16 @@ private slots:
 
 private:
     Ui::user_edit *ui;
-    Database DB;
+    Database DB; // database object
     QString Username;
     int User_type;
-    void setup();
-    void load_data(QString& username,int type);
-    bool check_inputs();
-    bool Pass_Changed;
-    QByteArray image;
+    bool Pass_Changed; // true -> if user want to change password
+    QByteArray image; // store user profile to save in database
+
+    void setup(); // initialize form
+    void load_data(QString& username,int type); // gets the username and type of user and load all info
+    bool check_inputs();// check that inputs are ok or not
+
 };
 
 #endif // USER_EDIT_H
