@@ -1,8 +1,10 @@
 #ifndef MASTER_PART_H
 #define MASTER_PART_H
 
+// QT Header :
 #include <QDialog>
 
+// My headers :
 #include "new_stock.h"
 #include "user_edit.h"
 #include "user_payment.h"
@@ -58,18 +60,20 @@ private slots:
     void on_btn_addstock_clicked();
 
 private:
+
     Ui::master_part *ui;
     QString UserName;
-    Database DB;
-    void set_form();
-    void load_data(QString username);
-    void Search(QString key,int Type);
-    void load_search_data(int ID);
-    QString find_company(int id);
-    QByteArray image[6];
-    void Setup();
+    Database DB; // database object
+    QByteArray image[6]; // array of bytearrays for storing pics
+    QSqlQueryModel* model;//sql query result model
 
-    QSqlQueryModel* model;
+    void set_form(); // initionalize ui
+    void load_data(QString username); // gets username and set user information in ui
+    void Search(QString key,int Type); // gets a search key and search type(0 - name , 1 - category) and show results
+    void load_search_data(int ID); // gets product id and load info + pics in ui
+    QString find_company(int id); // gets company id and return name of company
+    void Setup(); // set some rules and clearing ui
+
 };
 
 #endif // MASTER_PART_H
