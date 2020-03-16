@@ -1,6 +1,8 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
+
+// QT Headers :
 #include <QWidget>
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
@@ -8,6 +10,7 @@
 #include <QDebug>
 #include <QMessageBox>
 
+// My headers:
 #include "help.h"
 #include "signup.h"
 #include "loging.h"
@@ -54,15 +57,16 @@ private slots:
 
 private:
     Ui::Widget *ui;
-    Database DB;
-    void Setup();
+    Database DB; //database object
+    QByteArray image[6]; // array of bytearrays for storing image
+    QSqlQueryModel* model; // sql query result model
+
+    void Setup(); // initialize ui form
     void Check_Connection();
     void Connect_DB();
-    void Search(QString key,int Type);
-    void load_search_data(int ID);
-    QString find_company(int id);
-    QByteArray image[6];
-    QSqlQueryModel* model;
+    void Search(QString key,int Type); // serch engine
+    void load_search_data(int ID); // gets product id and load info to ui
+    QString find_company(int id);//gets company id and return compant name
 
 };
 
