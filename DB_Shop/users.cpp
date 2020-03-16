@@ -109,6 +109,7 @@ void Users::on_btn_deleteuser_clicked()
 
     if(DB.Execute(query_str,query) ==false){
         qDebug() << query.lastQuery() << endl<<query.lastError();
+        return;
     }
 
     query.first();

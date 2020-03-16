@@ -49,7 +49,7 @@ void user_part::on_btn_resizer_clicked()
 void user_part::on_btn_Cart_clicked()
 {
     delete model;
-    Cart* cart = new Cart(this);
+    Cart* cart = new Cart(this,UsrID);
     cart->setFixedSize(cart->width(),cart->height());
     cart->exec();
     Search(ui->txt_search->text(),0);
