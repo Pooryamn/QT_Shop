@@ -16,7 +16,7 @@ class Suppliers : public QDialog
 
 public:
     explicit Suppliers(QWidget *parent = nullptr);
-    int edit_supplier_called();
+    int edit_supplier_called();// return supplier id if edit supplier called .otherwise returns 0
     ~Suppliers();
 
 private slots:
@@ -28,9 +28,10 @@ private slots:
 
 private:
     Ui::Suppliers *ui;
-    Database DB;
-    void Load_data();
-    int supplier_called;
+    Database DB; // database object
+    int supplier_called; // supplier id when supplier choosed othewise this var is 0
+
+    void Load_data(); // load all suppliers list in table view
 };
 
 #endif // SUPPLIERS_H
