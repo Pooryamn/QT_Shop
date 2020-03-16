@@ -28,13 +28,14 @@ private slots:
 
 private:
     Ui::New_supplier *ui;
-    Database DB;
-    bool check_input();
-    int Type;
-    int ID;
-    QByteArray image;
-    bool isValidSupplier(QString name);
-    void load_data(int id);
+    Database DB; // database object
+    int Type; // type of form performance (0 : add supplier , 1 : view and edit supplier)
+    int ID; // Supplier ID
+    QByteArray image; // stores supplier logo
+
+    bool check_input();  // chech that inputs be ok to save in database
+    bool isValidSupplier(QString name);// gets the name of supplier and check supplier has exists or not
+    void load_data(int id); // gets supplier id and load supplier info in form
 };
 
 #endif // NEW_SUPPLIER_H
