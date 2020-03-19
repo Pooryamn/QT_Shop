@@ -7,17 +7,23 @@ Cart::Cart(QWidget *parent,int usrid) :
 {
     ui->setupUi(this);
 
+    // try to connect to DB
     DB.Connect();
+
+    // check DB connection
     if(DB.IsConnected() == false){
         qDebug() << "Database Connection Error";
         exit(0);
     }
 
+
     ui->txt_total->setReadOnly(true);
 
-    USER_ID = usrid;
 
-    load_data(USER_ID);
+    USER_ID = usrid; // Local var = passed var
+
+
+    load_data(USER_ID); // load user cart data
 
 
 }
@@ -29,10 +35,11 @@ Cart::~Cart()
     delete ui;
 }
 
+
 void Cart::load_data(int user_id){
 
     int TOTAL_PRICE ;
-    CartID = find_active_cart_Total(user_id,TOTAL_PRICE);
+    CartID = find_active_cart_Total(user_id,TOTAL_PRICE); // 0 : if user have no active cart(unpaid = active)
 
     QString query_str;
     QSqlQuery query;
@@ -48,11 +55,11 @@ void Cart::load_data(int user_id){
         return;
     }
 
-    model = new QSqlQueryModel(this);
+    model = new QSqlQueryModel(this); // sql query model
 
     model->setQuery(query);
 
-
+    // columns name :
     model->setHeaderData(0,Qt::Horizontal,"P_Name");
     model->setHeaderData(1,Qt::Horizontal,"Category");
     model->setHeaderData(2,Qt::Horizontal,"Cost");
@@ -62,6 +69,7 @@ void Cart::load_data(int user_id){
 
     ui->tbl_cart->setModel(model);
 
+    // column width :
     ui->tbl_cart->setColumnWidth(0,200);
     ui->tbl_cart->setColumnWidth(1,200);
     ui->tbl_cart->setColumnWidth(2,150);
@@ -72,8 +80,8 @@ void Cart::load_data(int user_id){
 
     ui->tbl_cart->setSelectionMode(QAbstractItemView::SingleSelection);
 
-    ui->txt_total->setText(QString::number(TOTAL_PRICE));
 
+    ui->txt_total->setText(QString::number(TOTAL_PRICE));
 
 }
 
@@ -92,7 +100,7 @@ int Cart::find_active_cart_Total(int user_id, int &Total){
 
     query.first();
 
-    Total = query.value(2).toInt();
+    Total = query.value(2).toInt(); // total value of cart
     return  query.value(0).toInt();
 
 }
@@ -136,13 +144,14 @@ void Cart::on_btn_delete_clicked()
         return;
     }
 
-    load_data(USER_ID);
+    load_data(USER_ID); // after deleting load data to update ui
 }
 
 void Cart::on_btn_pay_clicked()
 {
+
     int Price = ui->txt_total->text().toInt();
-    int wallet = Get_wallet(USER_ID);
+    int wallet = Get_wallet(USER_ID); // get wallet amount of user
 
     if(Price > wallet){
         QMessageBox::warning(this,"Wallet Error","You dont have enough money to pay this cart");
@@ -214,7 +223,6 @@ void Cart::on_btn_pay_clicked()
     else {
         return;
       }
-
 }
 
 
@@ -233,6 +241,7 @@ int Cart::Get_wallet(int usrid){
 
     return query.value(0).toInt();
 }
+
 
 QString Cart::DateConverter(){
 

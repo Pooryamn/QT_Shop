@@ -177,7 +177,8 @@ bool Database::Create_DB(){
                "\"Cart ID\"         SERIAL, "
                "\"Customer ID\"     integer not null, "
                "\"Total price\"     integer not null, "
-               "\"Pay status\"      integer not null, "
+               "\"Pay status\"      smallint not null, "
+               "\"Pay date\"        varchar(10), "
                "primary key(\"Cart ID\"), "
                "foreign key(\"Customer ID\") references Customers "
            ");\n "; // OK
@@ -197,6 +198,7 @@ bool Database::Create_DB(){
                "Category            varchar(30) not null, "
                "\"Unit cost\"       integer not null, "
                "Stock               integer not null, "
+               "\"Description\"     text, "
                "primary key(\"Product ID\"), "
                "foreign key(\"Supplier ID\") references Suppliers "
            ");\n "; // OK
@@ -228,8 +230,9 @@ bool Database::Create_DB(){
     my_query = "CREATE TABLE Cart_item( "
                "\"Cart ID\"         integer not null, "
                "\"Product ID\"      integer not null, "
-               "Quantity            integer not null, "
+               "quantity            integer not null, "
                "\"Unit cost\"       integer not null, "
+               "total_price         integer not null, "
                "primary key(\"Cart ID\",\"Product ID\"), "
                "foreign key(\"Cart ID\") references Cart, "
                "foreign key(\"Product ID\") references Products "
@@ -249,6 +252,7 @@ bool Database::Create_DB(){
                "\"Transaction type\"	varchar(20) not null, "
                "\"Transaction amount\"	integer not null, "
                "\"Transaction status\"	varchar(20) not null, "
+               "\"Transaction date\"    varchar(10), "
                "primary key(\"Transaction ID\"), "
                "foreign key(\"Customer ID\") references Customers "
            ");\n "; // OK
